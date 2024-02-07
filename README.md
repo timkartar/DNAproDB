@@ -9,7 +9,7 @@ It is preferred to use the mmCIF file format, as the header info is parsed and a
 To install, it is first recommended to create a new python enviroment via conda:
 
 ```
-conda create -n dnaprodb python=3.8
+conda env create -f environment.yml
 conda activate dnaprodb
 ```
 
