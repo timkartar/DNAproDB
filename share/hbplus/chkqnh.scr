@@ -1,0 +1,64 @@
+#!/usr/bin/csh
+#CHKQNH script
+#Distributed with HBPLUS
+#Call BRKCLN, ACCESS and HBPLUS and generate a user-friendly output of Asn,
+#Gln and His groups.
+#Input : pdbfilename
+
+##########################################################################
+# Set the stem
+set tail = $1:t
+set stem = $tail:r
+
+# Set EXE_PATH (this usually includes a line inserted from the makefile)
+set EXE_PATH = $0:h
+#
+# insert resetting of EXE_PATH here
+#
+#
+
+##########################################################################
+echo "CHKQNH CSHELL SCRIPT"
+echo "===================="
+echo "Scripts (c) Ian McDonald 1994"
+echo "ACCESS (c) SJ Hubbard 1990-4"
+echo "HBPLUS (c) Ian McDonald, Dorica Naylor, D Jones, JM Thornton 1990-4"
+echo
+echo "This examines the labelling of atoms in Histidine, Aspartamine and"
+echo "Glutamine side-chains compared to the alternative."
+echo
+echo "Manuscript in preparation.  McDonald and Thornton."
+
+echo
+
+##########################################################################
+#Error checking
+if (! (-e $1)) then
+   echo ERROR: $1 not found.
+   exit(1)
+endif
+##########################################################################
+
+echo Calling Clean . . .
+
+$EXE_PATH/clean << ++
+$1 
+++
+
+##########################################################################
+echo Calling Access . . . 
+
+echo "PDBFILE $stem.new"           >! /tmp/$$_asurf.input
+echo "VDWFILE $EXE_PATH/vdw.radii" >> /tmp/$$_asurf.input
+echo "PROBE 1.40"		   >> /tmp/$$_asurf.input
+echo "ZSLICE 0.05"		   >> /tmp/$$_asurf.input
+
+$EXE_PATH/accall < /tmp/$$_asurf.input
+
+##########################################################################
+echo Calling HBPLUS
+
+$EXE_PATH/hbplus -X -q $stem.new $1
+
+##########################################################################
+\rm /tmp/$$_asurf.input hbdebug.dat $stem.* >& /dev/null

@@ -1,0 +1,19 @@
+
+     ***********************************               **************
+     ******  CURVES 5.3 R.L. 1998  *****               *   6 Feb 24 *
+     ***********************************               **************
+
+
+  FILE : /home/raktim/md_contact_maps/pdb  LIS  : /home/raktim/md_contact_maps/pdb
+  dna  :                                   axin :                                 
+  axout:                                   daf  :                                 
+  PDB  :                                 
+
+  acc  :    0.000  wid  :    0.750
+
+  maxn :   500  ior  :     0  ibond:     0  splin:     3  break:    -1
+  nleve:     3  nbac :     7
+
+  ends :     F  supp :     T  COMB :     T  dinu :     F  mini :     T
+  rest :     F  line :     F  zaxe :     F  FIT  :     T  test :     F
+  GRV  :     T  old  :     T  axonl:     F

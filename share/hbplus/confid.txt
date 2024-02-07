@@ -1,0 +1,126 @@
+Correspondence to:
+Ian McDonald (PG)
+Biological Structure and Modelling Unit
+Department of Biochemistry and Molecular Biology
+University College London
+Gower Street
+LONDON WC1E 6BT
+UK / EC
+
+Email mcdonald@uk.ac.ucl.bsm
+
+
+                    HBPLUS - Hydrogen Bond Calculation
+                    ----------------------------------          
+
+			CONFIDENTIALITY AGREEMENT
+			-------------------------
+
+
+
+In regard to the HBPLUS program, specified in Appendix 1 herewith (the
+Software) supplied to us, the copyright and other intellectual property
+rights to which belong to the authors, we
+
+    __________________________________________________________________
+
+undertake to the authors that we shall be bound by the following terms and
+conditions:-
+
+1. We will receive the Software and any related documentation in confidence
+and will not use the same except for the purpose of the department's own 
+research. The Software will be used only by such of our officers or
+employees to whom it must reasonably be communicated to enable us to
+undertake our research and who agree to be bound by the same confidence.
+The department shall procure and enforce such agreement from its staff for
+the benefit of the authors.
+
+2. The publication of research using the Software must reference "McDonald
+IK & Thornton JM (1994), 'Satisfying Hydrogen Bonding Potential in
+Proteins', Journal of Molecular Biology 238:777-793"
+
+3. Research shall take place solely at the department's premises at
+
+    __________________________________________________________________
+
+4. All forms of the Software will be kept in a reasonably secure place to
+prevent unauthorised access.
+
+5. Each copy of the Software or, if not practicable then, any package
+associated therewith shall be suitably marked (and such marking maintained)
+with the following copyright notice: "Copyright 1991-3 Ian McDonald, Dorica
+Naylor, David Jones, S Hubbard, R A Laskowski and Janet M Thornton All
+Rights Reserved".
+
+6. The Software may be modified but any changes made shall be made
+available to the authors.
+
+7. The Software shall be used exclusively for academic teaching and
+research. The Software will not be used for any commercial research or
+research associated with an industrial company.
+
+8. The confidentiality obligation in paragraph one shall not apply:
+
+   (i)  to information and data known to the department at the time of
+	receipt hereunder (as evidenced by its written records);
+
+  (ii)	to information and data which was at the time of receipt in the 
+	public domain or thereafter becomes so through no wrongful act of
+	the department;
+
+ (iii)	to information and data which the department receives from a third
+	party not in breach of any obligation of confidentiality owed to
+	the authors.
+
+
+
+Please sign this Undertaking and return a copy of it to indicate that you 
+have read, understood and accepted the above terms.
+
+
+
+		      For and on behalf of _____________________________
+
+		      _________________________________________________
+		     
+		      ..................................................
+
+		      Dated ............................................
+
+
+                      Address __________________________________________
+
+		      _________________________________________________
+		     
+		      _________________________________________________
+		     
+		      Country _________________ Postcode ______________
+		     
+                      Telephone ________________________________________
+
+                      Electronic Mail Address to which HBPLUS shall be
+
+                      sent _____________________________________________
+
+		      _________________________________________________
+		     
+
+APPENDIX 1 - DETAILS OF THE HBPLUS PROGRAM PROVIDED
+---------------------------------------------------
+
+Files to be included
+--------------------
+
+         1. hbplus.h              }
+         2. hbp_gen.c             } Source program files,
+         3. hbp_inpdb.c           } ,formerly hbplus.c
+         4. hbp_findh.c           }
+         5. hbp_hhb.c             }
+         6. hbp_main.c            }
+         7. hbplus.man         } Documentation
+	 8. accall.f              } Supplemental, (c) S. Hubbard
+	 9. vdw.radii	          } "ACCESS" / "NACCESS"
+	10. clean.f	       } Supplemental, (c) DK Smith et al.
+	11. brkcln.par         } "BRKCLN"
+	12. chkqnh		  } C Shell Script
+	13. Makefile	       } Unix Makefile

@@ -1,0 +1,21 @@
+{
+	"JASPAR": {
+		"release": "JASPAR2022",
+		"cached_index_file": "uniprot_to_jaspar.pkl"
+	},
+	"UNIPROT": {
+		"	
+	},
+	"RCSB": {
+		"graphql_url": "https://data.rcsb.org/graphql",
+		"graphql_query_template": "scripts/graphql_query.tmpl",
+		"search_url": "https://search.rcsb.org/rcsbsearch/v2/query",
+		"search_query_template": "scripts/search_query.tmpl",
+		"mmcif_data_url": "https://files.wwpdb.org/pub/pdb/data/structures/divided/mmCIF/{}/{}.cif.gz"
+	},
+	"MONGODB": {
+		"database": "dnaprodb",
+		"collection": "tst"
+	},
+	"ROOT": "/home/jared/Research/dnaprodb"
+}

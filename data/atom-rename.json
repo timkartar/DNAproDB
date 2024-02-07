@@ -1,0 +1,99 @@
+{
+    "DA": {
+        " O1P": " OP1",
+        " O2P": " OP2"
+    },
+    "DC": {
+        " O1P": " OP1",
+        " O2P": " OP2"
+    },
+    "DG": {
+        " O1P": " OP1",
+        " O2P": " OP2"
+    },
+    "DT": {
+        " O1P": " OP1",
+        " O2P": " OP2"
+    },
+    "ILE": {
+        " CD ": " CD1",
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "CYS": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "VAL": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "ARG": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "LYS": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "ALA": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "ASN": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "ASP": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "GLN": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "GLU": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "GLY": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "HIS": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "LEU": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "MET": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "PHE": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "PRO": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "SER": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "THR": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "TRP": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    },
+    "TYR": {
+        " OC1": " O  ",
+        " OC2": " OXT"
+    }
+}

@@ -1,0 +1,41 @@
+/home/raktim/md_contact_maps/pdbs/0720-DNA_entity_0.out: analyze failed to run.
+0720: Curves 5.3 failed to produce output!
+0720: Curves 5.3 failed to produce output!
+pdb/8ott: removed unknown residue PTD (A.201. )
+pdb/8ott: removed unknown residue PTD (A.202. )
+pdb/8ott: removed unknown residue PTD (A.203. )
+pdb/8ott: removed unknown residue PTD (C.200. )
+pdb/8ott: removed unknown residue PTD (D.201. )
+pdb/8ott: removed unknown residue PTD (D.202. )
+pdb/8ott: removed unknown residue PTD (E.201. )
+pdb/8ott: removed unknown residue PTD (H.200. )
+pdb/8ott: removed incomplete residue TYR (M.402. )
+pdb/8ott: removed incomplete residue TYR (N.70. )
+pdb/8ott: removed incomplete residue TYR (N.73. )
+pdb/8ott: removed unknown residue PTD (A.201. )
+pdb/8ott: removed unknown residue PTD (A.202. )
+pdb/8ott: removed unknown residue PTD (A.203. )
+pdb/8ott: removed unknown residue PTD (C.200. )
+pdb/8ott: removed unknown residue PTD (D.201. )
+pdb/8ott: removed unknown residue PTD (D.202. )
+pdb/8ott: removed unknown residue PTD (E.201. )
+pdb/8ott: removed unknown residue PTD (H.200. )
+pdb/8ott: removed incomplete residue TYR (M.402. )
+pdb/8ott: removed incomplete residue TYR (N.70. )
+pdb/8ott: removed incomplete residue TYR (N.73. )
+pdb/8ott: removed unknown residue PTD (A.201. )
+pdb/8ott: removed unknown residue PTD (A.202. )
+pdb/8ott: removed unknown residue PTD (A.203. )
+pdb/8ott: removed unknown residue PTD (C.200. )
+pdb/8ott: removed unknown residue PTD (D.201. )
+pdb/8ott: removed unknown residue PTD (D.202. )
+pdb/8ott: removed unknown residue PTD (E.201. )
+pdb/8ott: removed unknown residue PTD (H.200. )
+pdb/8ott: removed incomplete residue TYR (M.402. )
+pdb/8ott: removed incomplete residue TYR (N.70. )
+pdb/8ott: removed incomplete residue TYR (N.73. )
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.

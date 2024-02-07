@@ -1,0 +1,53 @@
+query {
+  entries(entry_ids: [${entry_ids_array}]) {
+    rcsb_id
+    pdbx_audit_revision_details {
+      data_content_type
+      description
+      details
+      ordinal
+      revision_ordinal
+      type
+    }
+    pdbx_audit_revision_history {
+      data_content_type
+      revision_date
+      ordinal
+    }
+    polymer_entities {
+      rcsb_id
+      entity_poly {
+        rcsb_entity_polymer_type
+      }
+      uniprots {
+        rcsb_id
+        rcsb_uniprot_accession
+        
+      }
+      rcsb_cluster_membership {
+        cluster_id
+        identity
+      }
+      rcsb_polymer_entity_annotation {
+        type
+        annotation_id
+        name
+        provenance_source
+      }
+      polymer_entity_instances {
+        rcsb_id
+        rcsb_polymer_entity_instance_container_identifiers {
+          asym_id
+          auth_asym_id
+          entry_id
+          entity_id
+        }
+        rcsb_polymer_instance_annotation {
+          annotation_id
+          name
+          type
+        }
+      }
+    }
+  }
+}

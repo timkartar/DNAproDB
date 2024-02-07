@@ -1,0 +1,1087 @@
+HBPLUS.MAN - A HBPLUS v3.06 MANUAL
+==================================
+
+
+CONTENTS
+========
+
+1 How to Use HBPLUS - Quick Instructions
+
+2 How to Use HBPLUS - Full Instructions
+
+2.1 Installation
+2.2 Glossary of terms used in this guide, and in the program
+2.3 The Command-Line Options
+2.4 Input Files
+2.5 Output File(s) Format
+2.6 Adding New Residue Types
+
+3 The Science
+
+3.1 Introduction to Hydrogen Bonds
+3.2 The Algorithm
+     3.2.1 Calculation of the Hydrogen Positions
+          3.2.1.1 Hydrogens Bound to sp2 Hybridised (Trigonal Planar) Donors
+	  3.2.1.2 Hydrogens Bound to sp3 Hybridised (Tetrahedral) Donors
+3.3 Selecting Potential Hydrogen Bonds
+3.4 Orienting ASN, GLN and HIS side-chains
+     3.4.1 Introduction	
+     3.4.2 The Algorithm	
+4 References
+
+5 Confidentiality Agreement
+
+
+SECTION 1. HOW TO USE HBPLUS - QUICK INSTRUCTIONS
+=================================================
+
+hbplus.exe [options] [cleaned filename] [uncleaned filename]
+
+HBPLUS inputs a Brookhaven Protein Database (Bernstein et al 1977) format
+file, and outputs a list of potential hydrogen bonds.  
+
+The interactions that qualify as hydrogen bonds must be between listed
+donor and acceptor atoms, and have acceptable geometries.  A series of
+command-line options can be used to change these criteria, output a
+PDB-format file including generated hydrogen positions and extend the
+hydrogen bonding atoms, amongst other possibilities.
+
+The program is sensitive to relatively trivial mistakes in Brookhaven
+files, and it is stronly recommended that you run a program to check and
+correct the Brookhaven file before running HBPLUS.  Such a program,
+"Clean", by DK Smith, R Laskowski and G Hutchinson, is distributed with
+HBPLUS subject to the same conditions of use.
+
+If HBPLUS is already installed, then to run it simply type . . .
+
+example% hbplus /idata/new/p1mbd.new /data/pdb/p1mbd.pdb
+
+The following output should be produced . . .
+
+HBPLUS Hydrogen Bond Calculator v 2.25            Jan 22 14:54:13 GMT 1994
+(c) I McDonald, D Naylor, D Jones and J Thornton 1993 All Rights Reserved.
+
+Configured for 60000 atoms and 20000 residues.
+
+Criteria
+
+Minimum Angles; DHA 90.00, HAAA 90.00, DAAA 90.00
+Maximum Distances; D-A 3.9, H-A 2.5, S-S 3.0
+Maximum angles at aromatic acceptors DAAX 20.00, HAAAX 20.00
+Minimum covalent separation 3 Covalent bonds
+
+Processing "/idata/new/p1mbd.new"
+
+Reading PDB file "/data/pdb/p1mbd.pdb" for CONECTs . . .
+PDB file contained 50 CONECT records
+1653 atoms selected from 541 residues.
+
+50 CONRECS used.
+
+Adding Polar Hydrogens.
+NOTE: 1MBD/-0093-HIS NE2 forms 3 covalent bonds.
+Checking for disulphide bridges . . .
+0 disulphide bonds found.
+
+Opened output file "p1mbd.hb2".
+Checking for hydrogen bonds . . .
+1244 hydrogen bonds found.
+[end of output]
+
+Your file of hydrogen bonds should be called p1mbd.hb2, and lie in the
+current directory.  If HBPLUS is not already installed in your machine,
+installion instructions can be found in section 2.1.
+
+
+SECTION 2. HOW TO USE HBPLUS - FULL INSTRUCTIONS
+================================================
+
+2.1 Installation
+
+You should be an academic user and have sent a signed confidentiality
+agreement to the authors (address at the end of the instructions).  If you
+do not have a copy of HBPLUS and would like to receive one (free to
+academic users), please detach the confidentiality agreement from the
+end of this document, sign it, and send to the address given.  Please allow
+other people in your department to use your copy of HBPLUS, but do not
+allow them to make their own copy.
+
+HBPLUS is now distributed with two other programs, "Clean" by DK Smith, R
+Laskowski and G Hutchinson, and "Access" by S Hubbard.  "Clean" is
+recommended for use on brookhaven files before HBPLUS is used on them.
+"Access" is included so that the tools for the algorithm for analysis of
+Asn, Gln and His side-chains that is built into HBPLUSv3.0 can be fully
+exploited.  The package also includes a simple C Shell script, "chkqnh",
+that calls "Clean", "Access" and "HBPLUS" to provide an analysis of the
+hydrogen bonding around Asn, Gln and His side-chains.
+
+HBPLUS is available by anonymous ftp as a 'crypt'ed file, hbplus.tar.Z.cr.
+On a unix system, use
+
+unix> crypt [password] < hbplus.tar.Z.cr >! hbplus.tar.Z
+unix> uncompress hbplus.tar.Z
+unix> tar xf hbplus.tar
+unix> make
+
+The password changes regularly to prevent people who have not signed the
+confidentiality agreement form getting copies - the current password will
+be emailed to you when we receive the document.
+
+If you have problems compiling HBPLUS using 'make', then edit 'Makefile'.
+A couple of lines in the Makefile are preceded by '#' - these lines are
+ignored by 'make'.  Some lines have suggested alternatives next
+to them in the file, preceded by '#'.  If none of these options seem
+appropriate, or they don't work, then email mcdonald@biochem.ucl.ac.uk,
+and I'll try to work out why.
+
+Most compilers generate one or more warnings about the source code, but no
+errors.  HBPLUS has been compiled and run on UNIX systems and VAX/VMS but
+proved too large for some IBM PC clones.  It should be quite simple to
+arrange the system to call the executable file.
+
+On VAX/VMS, I compile with
+
+"cc hbp_gen.c"
+"cc hbp_inpdb.c"
+"cc hbp_findh.c"
+"cc hbp_hhb.c"
+"cc hbp_qnh.c"
+"cc hbp_main.c"
+"link /executable=hbplus.exe
+hbp_inpdb.obj,hbp_hhb.obj,hbp_qnh.obj,hbp_main.obj"
+
+The .com script to analyse Asn, Gln and His side-chains, using both access
+and brkcln, has not yet been implemented for VAX/VMS.  If you are on a VAX
+or VMS and want to run access and clean before HBPLUS in order to analyse
+Asn and Gln side-chains, then use these lines.
+
+"fortran clean"
+"link /executable=clean.exe clean.obj"
+
+"fortran asurf"
+"link /executable=asurf.exe asurf.obj"
+
+If you want to use command-line parameters, you must execute "HBPLUS :==
+$DRIVE[DIRECTORY.NAME]HBPLUS.EXE" after compilation, preferably placing it
+in your login.com file.
+
+
+2.2 Glossary of terms used in this guide, and in the program.
+
+Atoms are described by their position relative to the hydrogen bonds.
+
+Fig 1:  abbreviations used for atoms round H-bonds
+
+     DD1         AA1         DDD    D                                       
+        \       /               \  / \                                  
+         D--H::A                 DD   H::A                                  
+        /       \                         \                               
+     DD2         AA2                       AA                               
+
+Legend
+
+-- Covalent Bond	H  Hydrogen	DD1,DD2 Donor Antecedents
+:: Hydrogen Bond	D  Donor	AA1,AA2 Acceptor Antecednets
+			A  Acceptor
+
+Atom Names
+
+Througout this document, and in the output files, atoms are named with the
+four-letter atom codes used in the Brookhaven database.  The first two
+letters specify the element name, eg C, N, O, CU etc.  The third digit is
+the greek letter remoteness code translated as A, B, G, D, E, Z, H instead
+of alpha, beta, gamma, delta, epsilon, zeta, eta.  The fourth digit is a
+numeric branch designator.  For instance the two side-chain oxygens of
+glutamate are labelled "GLU OE1" and "GLU OE2".
+
+A hydrogen atom is specified slightly differently.  The third and fourth
+digits are the same as for the atom it is attached to, the second digit is
+the chemical symbol and the first digit is an additional branch
+designator.  For instance, the hydrogens on the side-chain nitrogen of a
+glutamine are labelled "GLN1HE2" and "GLN2HE2".
+
+
+2.3 The Command-Line Options
+
+Most of these options can be combined together, eg -IxLo, but those options
+that expect an argument must be solitary (eg -a 60.0) or at the end of a
+"set" (eg -ILoxa 60.0).  The most oft-used command-line options are '-O' (to
+give a PDB format file that includes all polar hydrogens) and '-Q' (to
+analyse the preferred orientations of Asn, Gln and His side-chains).
+
+-a      The next argument is the minimum angle.  This option sets the
+minimum D-H-A, H-A-AA and D-A-AA angles (Default 90.0 degrees).  See below
+for the definition of these angles.
+
+-A	The next three arguments are the minimum D-H-A, H-A-AA and D-A-AA
+angles, respectively.
+
+-b      The next argument is the maximum angle with the perpendicular for
+amino-aromatic hydrogen bonds (Default 20.0 degrees).  This only matters if
+the "R" option has been used to switch aromatic hydrogen bonds on.
+
+-B      The next two arguments are the maximum H-A-Perpendicular and
+D-A-Perpendicular, respectively, where "Perpendicular" is the line
+perpendicular to the plane of an aromatic acceptor running throught the
+putative acceptor.
+
+-c/C	In the output, change CYS SG to CSS SG or CYH SG, the former
+indicating that the sulphur is involved in a disulphide bridge.  (The default
+is to refer to all cysteines and cystines as CYS).
+
+-d/D	The next argument is the maximum D-A distance, in Angstroms
+(Default 3.9 Angstroms).
+
+-e/E    This is used in the form "-e/E atomname number".  The number of
+hydrogen bonds that atom "atomname" is theoretically able to donate ("E")
+or accept ("e") is set to "number".  Although it rarely makes practical
+difference in this release of HBPLUS whether an atom is declared to be able
+to accept 1, 2 or 3 hydrogen bonds, including the number is still
+obligatory.  It DOES make a difference to donors, as it is also the number
+of hydrogens to add to the *.h structure output with the "o" option.  The
+setting "-1" is used for aromatic acceptors.  The format of "atomname" is
+the same as in the output files and must be exactly seven characters long.
+Preceding and trailing spaces must be included.  For example "-e 'MET SG '
+0" redeclares the methionine sulphur as incapable of hydrogen bonding, and
+"-e 'PRO N ' 1" declares the proline nitrogen as a hydrogen bond acceptor.
+See section 2.6.
+
+-f	The next argument names a file of command-line options.  The syntax
+of this file is rather like the UNIX shell - "#" introduces comments and
+the three quote types """, "`" and "'" are used, but escape characters are not
+recognised.
+
+-h/H	The next argument is the maximum H-A distance, in Angstroms
+(Default 2.5 Angstroms).
+
+-K	Use Kabsch-Sander positions for the hydrogens (ie with the NH bond
+parralel to the preceding CO bond) rather than the Pauling position
+(bisecting CA-N-C).
+
+-k	Use the Pauling position (default).
+
+-M	The next two arguments are a residue name and a list of atoms to be
+added to that residue's list of included atoms.  See section 2.6
+
+-N 	Generate a list of neighbours, rather than hydrogen bonds.
+Covalently bonded and nearly-bonded contacts are excluded, but all other
+contacts within the maximum D-A distance are listed.  The output file
+suffix changes from .hb2 to .nb2 [or, if used with the -L options, from
+.hhb to .nnb].
+
+-n      Disables "neighbours" option.  Generate the list of hydrogen bonds.
+As you may have gathered, this is the default.
+
+-o/O	Output a *.h file of atomic co-ordinates that include hydrogens.
+The format is an abbreviation of the Brookhaven data file.  (Default is not
+to do this.)
+
+-P	Output a list of all donors and acceptors.  Aromatic acceptors can
+accept "-1 H-Bonds".
+
+-q	Input a .asa file output by Simon Hubbard's program ACCESS (1992,4).
+HBPLUS looks for a file in the current directory that has the same name as
+the brookhaven file, but the .asa suffix. [Version 3.0 onwards]
+
+-Q 	Input a .asa file from ACCESS, and investigate the H-bonding 
+patterns of ASN, GLN and HIS side-chains, producing a listing of H-bonds by
+side-chain and atom accessibilities, and classifying the conformation in
+the PDB file relative to the alternative as "Highly Suspect", "Slightly
+Suspect", "Indifferent", "Slightly Optimal" or "Highly Optimal", depending
+on which conformation further satisfied hydrogen bonding potential.  This
+automatically triggers the '-X' option. [Version 3.0 onwards]
+
+-R      Allow atoms in the aromatic rings of Tyr, Trp and Phe to accept
+amino-aromatic hydrogen bonds.
+
+-r      Disables amino-aromatic hydrogen bonds (the default).
+
+-s/S	The next argument is the cutoff distance for assigning a disulphide
+bridge.  (Default 3.0 Angstroms)
+
+-T	The next argument is a residue and the subsequent argument is a
+list of covalent bonds formed within that residue.  See section 2.6.
+
+-u      The next argument is a residue to be added to the HBPLUS residue
+list.  See section 2.6
+
+-U	The next argument is a residue that is predefined as having all the
+atoms, covalent bonds and hydrogen bond donors and acceptors of the residue
+named in the subsequent argument.  See section 2.6
+
+-v/V    The next argument is the number of covalent bonds that count as
+nearly bonded.  Contacts that are "nearly bonded" do not count as hydrogen
+bonded.  The default is two.
+
+-x      Exchange the side-chains of Histidine, Glutamine and Asparagnine.
+These side-chains are difficult to resolve crystallographically with
+certainty, which is why there is the option of adding potential hydrogen
+bonds that would be formed if HIS CD2 was actually ND1, HIS CE1 was NE2 and
+the nitrogens and oxygens of the ASN / GLN amide groups were actually the
+other way round.  (Default is not to do this.)
+
+-X      As -x, but only hydrogen bonds formed by HIS, GLN and ASN side-chains
+are included in the hydrogen bond list.  This is a time-saving option when
+your purpose is to investigate the hydrogen bonding of HIS, GLN and ASN
+side-chains.
+
+[ The following options relate to the way the program is used in its "home"
+laboratory, and are only really included for completeness ]
+
+-i	Do not attempt to load an sst file and input the secondary
+structure of the protein (default).
+
+-I      Attempt to load an sst file and input the secondary structure.  The
+program looks for a file with the filename "p????.sst" where ???? is the
+ four-letter brookhaven code taken from the header line.
+
+-l	Output in *.hb2 format (the default).
+
+-L      Output in long *.hhb format, which is an extended version of the
+HBOND table in IDITIS (Oxford Molecular 1993), and includes the secondary
+structural information taken from an sst file.
+
+
+2.4 Input Files
+
+HBPLUS.EXE requires a "clean" brookhaven (PDB) file, where all the atoms are
+accurately named and ordered, and no atoms have alternate locations.
+I expect that most "uncleaned" brookhaven files will work with HBPLUS, but
+if you want to be certain of your results, run a program to clean up the
+PDB file.
+
+HBPLUS will also attempt to find the an original "unclean" PDB file which
+contains the CONECT records, but will run the program anyway if that
+fails.  If two files are named in the command line, then the second file is
+taken as being the old PDB file.  If no such file is named, HBPLUS looks
+for a file with the name "p" + brookhaven code + ".pdb" in the current
+directory.
+
+If two files are named in the command line, then the first file is a
+"cleaned" file
+
+2.5 Output File(s) Format
+
+The format of the main output file, the hydrogen bond list, is given in
+Table I below.
+
+============================================================================
+                         Table I: *.hb2 format
+
+01-13 Donor Atom, including . . .
+
+01    Chain ID (defaults to '-')
+02-05 Residue Number 
+06    Insertion Code (defaults to '-')
+07-09 Amino Acid Three Letter Code
+10-13 Atom Type Four Letter Code
+
+15-27 Acceptor Atom, same format as Donor atom
+28-32 Donor - Acceptor distance, in Angstroms
+34-35 Atom Categories - M(ain-chain), S(ide-chain) or H(etatm) - of D & A
+37-39 Gap between donor and acceptor groups, in amino acids
+      (-1 if not applicable)
+41-45 Distance between the CA atoms of the donor and acceptor residues
+      (-1 if one of the two atoms is in a hetatm)
+47-51 Angle formed by the Donor and Acceptor at the hydrogen, in degrees.
+      (-1 if the hydrogen is not defined)
+53-57 Distance between the hydrogen and the Acceptor, in Angstroms
+      (-1 if the hydrogen is not defined)
+59-63 The smaller angle at the Acceptor formed by the hydrogen and an
+      acceptor antecedent (-1 if the hydrogen, or the acceptor antecedent,
+      is not defined)
+65-69 The smaller angle at the Acceptor formed by the donor and an acceptor
+      antecedent (-1 if not applicable)
+71-75 Count of hydrogen bonds
+
+For example:
+
+HBPLUS Hydrogen Bond Calculator v 2.06            Jul 30 13:24:14 BST 1993
+(c) I McDonald, D Naylor, D Jones and J Thornton 1993 All Rights Reserved.
+1MBD <- Brookhaven Code "/idata/new/p1mbd.new" <- PDB file
+<---DONOR---> <-ACCEPTOR-->    atom                        ^
+c    i                          cat <-CA-CA->   ^        H-A-AA   ^      H-
+h    n   atom  resd res      DA  || num        DHA   H-A  angle D-A-AA Bond
+n    s   type  num  typ     dist DA aas  dist angle  dist       angle   num
+-0002-LEU N   -0153-HOH O   2.94 MH  -1 -1.00 151.8  2.02  -1.0  -1.0     1
+-0146-HOH O   -0002-LEU O   2.78 HM  -1 -1.00  -1.0 -1.00  -1.0 128.7     2
+-0289-HOH O   -0002-LEU O   3.45 HM  -1 -1.00  -1.0 -1.00  -1.0 136.5     3
+============================================================================
+
+In addition, the *.h file is used for the optional output file - the
+structure of the protein, with added hydrogens.  The format is based on the
+Brookhaven PDB file.  There is no temperature factor or occupancy in the
+ATOM or HETATM records.  The only records included are HEADER, some
+REMARKs and the ATOM and HETATM records.
+
+HEADER    PDB FORMAT FILE                         30-JUL-93   1MBD
+REMARK   1 REFERENCE 1
+REMARK   1  AUTH   I.K.MCDONALD,D.NAYLOR,D.T.JONES,J.M.THORNTON
+...
+...
+REMARK   4 CONTACT I.K.MCDONALD AT ABOVE ADDRESS OR ON ELECTRONIC
+REMARK   4 MAIL AT \MCDONALD@UK.AC.UCL.BSM$ FOR INFORMATION
+ATOM      1  N   VAL     1      -0.594  14.769  15.940  7.00 44.29
+ATOM      2 1H   VAL     1      -0.641  14.029  15.248  7.00 44.29
+ATOM      3 2H   VAL     1      -0.737  14.334  16.845  7.00 44.29
+
+
+2.6 Adding New Residue Types
+
+If HBPLUS does not recognise an atom, or a residue, it will issue a warning
+statement.  For instance "WARNING: Residue SO4 is not recognized by HBPLUS".
+If one of the unrecognised atoms has an role in hydrogen bonding - for
+instance it is a donor or acceptor, or connected to a donor or acceptor,
+you will probably want to define the residue or atoms within HBPLUS.
+
+This requires the five command line options -U/u (new residUe, with or
+without a similar old residue), -M (new atoM), -T (connecT) and -e/E (new
+donor/acceptor).  You will probably find it wise to use the -f option and
+place the additional information in a separate file.  The syntax for these
+commands is quite important.  Residue names are always three characters
+long, and atom names are always four.  If neccessary, use quotes to make
+the presence of trailing spaces obvious.  Each bond in the list of bonds
+given to the -T command is in the form of two four-letter atom code with
+each bond terminated by a colon.
+
+For instance
+
+#HBPLUS option file to add SO4 residue
+-u SO4 #name the residue
+-M SO4 " S  " #first atom
+-M SO4 " O1  O2  O3  O4 " #more atoms
+-T SO4 " S   O1 : S   O2 : S   O3 : S   O4 :" #the bonds
+-e SO4 " O1 " 2 #each oxygen can accept two H-bonds
+-e SO4 " O2 " 2
+-e SO4 " O3 " 2
+-e SO4 " O4 " 2
+
+If the new residue is similar to one of the old residues and the atoms bear
+the same four-letter names, then the '-U' option can be used and the other
+atoms and covalent bonds added.
+
+For instance
+
+#HBPLUS option file to add NADP+ residue, called NAP
+-U NAP NAD                         #Similar structure and atom names to NAD
+-M NAP "AP2*AOP1AOP2AOP3"           #the new phosphate group
+-T NAP "AP2*AOP1:AP2*AOP2:AP2*AOP3:" #Covalent bonds within the phosphate
+-T NAP "AO2*AP2*:"                   #Covalent bond to the phosphate
+-e NAP "AOP1" 2                      #each oxygen can accept two H-bonds
+-e NAP "AOP2" 2
+-e NAP "AOP3" 2
+
+
+SECTION 3. THE SCIENCE
+======================
+
+
+3.1 Introduction to Hydrogen Bonds
+
+In basic terms, a hydrogen bond (or H-bond) is an attractive interaction
+between two elctronegative atoms, a donor and an acceptor (Latimer and
+Rodebush 1920; Huggins 1971; Baker and Hubbard 1984; Ippolito, Alexander at
+al 1990; Stickle, Presta et al 1992).  A hydrogen atom lies aligned between
+them and covalently bound to the donor.  The donor attracts the electron on
+the hydrogen from its orbital towards the donor itself.  This leaves a
+partial positive charge on the hydrogen, which is electrostatically
+attracted towards the elctronegative acceptor.  The interaction is
+energetically favourable in a number of ways, including polarisation energy
+and covalent energy, but particularly the electrostatic energy.
+
+Some studies (eg Levitt and Perutz 1988) have suggested that the pi
+electron shells of aromatic rings may act as weak hydrogen bond acceptors.
+Because the pi electron shells are perpendicular to the plane of the
+aromatic ring rather than coplanar with it, the angles at the acceptor are
+formed by the perpendicular to the plane rather than the other covalent
+bonds (not including those to hydrogens) with the acceptor.
+
+3.2 The Algorithm
+
+The algorithm for locating hydrogen bonds involves two steps.  Firstly,
+finding the positions of the hydrogens, and secondly, calculating the
+hydrogen bonds.  An interaction is counted as a hydrogen bond if (i) it is
+between a listed donor and acceptor (Table II) and (ii) the angles and
+distances formed by the atoms surrounding the hydrogen bond lie within
+the set criteria.  If the donor and acceptor are only one or two covalent
+bonds apart, the interaction is not counted as a hydrogen bond.
+
+Cysteines are treated specially.  Any two Cysteines which have their
+sulphur atoms within three Angstroms (this distance can be changed using the
+command line arguments) are defined as Cystines, and treated separately.
+In principle, Cystines can accept two bonds but cannot donate.
+
+==============================================================================
+	Table II - List of Hydrogen Bond Donors and Acceptors
+
+Donors
+
+1.  N (ie Main Chain NHs of recognised residues)
+
+2.  CYH SG, HIS NE2, HIS ND1, LYS NZ, ASN ND2, GLN NE2, ARG NE, ARG NH1, 
+    ARG NH2, SER OG, THR OG1, TYR OH, TRP NE1
+
+3.  Recognised donors of non-standard recognised molecules
+
+4.  Nitrogen atoms in unrecognised molecules
+
+5.  Oxygen atoms of recognised water molecules
+
+Acceptors
+
+1.  O (ie Main Chain COs of recognised amino - not imino - acid residues)
+
+2.  CYH SG, CSS SG, ASP OD1, ASP OD2, GLU OE1, GLU OE2, HIS ND1, MET SD,
+    ASN OD1, GLN OE1, SER OG, THR OG1, TYR OH  
+
+3.  Recognised acceptors of non-standard recognised molecules
+
+4.  Oxygen atoms in HETATM molecules (including waters)
+
+Atoms that may act as both donors and acceptors under the -X or -x options
+
+1.  HIS CD2, HIS CE1, ASN OD1, ASN ND2, GLN OE1, GLN NE2
+
+Non-Standard Recognised Molecules
+
+1.  Standard Nucleotides C, A, U, G, T, also ATP.  
+
+2.  Coenzymes COA, FMN, HEM, NAD 
+
+3.  Small Molecules MTX, ACE, FOR 
+
+4.  Amino Acids AIB, PHL, SEC, ALM, MPR, FRD, LYM, GLM, PPH, PGL, OLE, ABA,
+    NLE, B2V, B2I, B1F, BNO, B2A, B2F, IVA, LOV, STA, PVL, CAL, PHA, DCI, 
+    AHS, CHS, MSE, ETA, PCA, ASX, GLX, UNK, CYH, CSS
+
+These can be listed with the -P option.
+==============================================================================
+
+3.2.1 Calculation of the Hydrogen Positions
+
+The programs makes one first pass through the protein structure calculating
+a locus for each donor heavy atom.  
+
+The positions of the hydrogens are taken from Momany, McGuire et al (1975)
+and the main-chain NH hydrogen from Pauling and Corey et al (1951).  They
+are illustrated in figures 2 and 3, together with information on planarity
+and loci.  The precise bond angles and lengths are listed in table III.
+Each donor heavy atom in an amino acid is classified according to the
+hybridization of its electron orbitals and how many hydrogens or heavy
+atoms it is covalently bound to.  The hybridization may be sp2 (trigonal
+planar) or sp3 (tetrahedral).  The numbers of bound atoms are listed as 1,
+2 or 3 hydrogens and then 1 or 2 DDs.  The method of calculation is
+described below.
+
+The hydrogens bound to "sp2" and "sp3" hybridised atoms have different
+geometries.  An atom with sp2 hybridisation has three orbitals projecting
+at about 120 degrees to each other, all in the same plane.  These orbitals
+may or may not be part of covalent bonds to other atoms.  For instance, ARG
+NE covalently bonds to two Cs and an H.  In an optimal conformation, the
+C-N-C angle would be 120 degrees and the H would be exactly along the
+bisector.  An atom with sp3 hybridisation has four orbitals pointing
+towards the corners of an imaginary tetrahedron.  In an ideal conformation,
+the angles between any two orbitals would be 109.5 degrees.  For instance,
+SER OG has sp3 hybridisation and a tetrahedral conformation.  It is only
+attached to two atoms - a C and an H - and the C-O-H angle is still 109.5
+degrees.
+
+3.2.1.1 Hydrogens Bound to sp2 Hybridised (Trigonal Planar) Donors
+
+sp2 1H, 2DDs 
+
+This includes NH groups on the main chain or Arg, His and Trp side chains.
+The donor atom is known to be attached to two DD heavy atoms and to the
+hydrogen.  The angle DD1-D-DD2 is bisected by finding the mean of the
+directions of the vectors DD1-D and DD2-D.  For main-chain groups the
+hydrogen is rotated within the plane of the peptide bond towards the CA in
+accordance with Pauling, Corey et al (1951).  The hydrogen is placed a set
+distance away from D (usually 1.00 Angstroms for N donors)
+
+Fig 2: sp2 Hybridised (trigonal planar) hydrogen positions
+                                                                            
+ sp2 1H 2DDs             sp2 1H 1DD               sp2 2H 1DD                  
+                                                                            
+                   DDD1    DDD2  DDD1    DDD2    DDD1    DDD2                  
+     H                 \  /          \  /            \  /                      
+     |                  DD            DD              DD                       
+     D                   |     or      |               |                      
+    /:\                  D             D               D                      
+ DD1 : DD2                \           /               / \                     
+     :                     H         H               H   H                   
+                                                                            
+ Planarity ? Y          Planarity ? Y             Planarity ? Y             
+ Fixed hydrogen ? Y     Fixed hydrogen ? N        Fixed hydrogens ? Y       
+                        The locus is composed                               
+ eg NH on main-chains   of the two alternative    eg ARG NH, ASN ND2, GLN OE2
+ Arg, His and Trp       conformations shown                                
+ side-chains            above                                               
+                                                                            
+                        eg TYR OH                                           
+                                                                            
+                                                                            
+sp2 1H, 1DD
+
+Although there are no standard amino acid donors that fall into this
+category, the Tyr OH, which is a combination of sp2 and sp3 hybridisation,
+behaves in a geometrically similar fashion and is modelled with this part
+of the algorithm.  The H, DD, and one of the donor's lone electron pairs
+form a planar trigonal arrangement around D.  the hydrogen may take one of
+the two positions where H, DD, DDD1 and DDD2 are coplanar and the H-D-DD
+angle takes the angle given in table 2.  This locus is determined by first
+calculating hydrogen positions in a local co-ordinate system, and then
+transforming and translating them onto the donor atom.
+
+sp2 2H, 1DD
+
+This includes Asn and Gln amide groups and ARG NE.  These all have a donor
+bound to three atoms that lie in the same plane and all angles at D are 120
+degrees.  DD, DDD1 and DDD2 also lie in the same plane.  The two hydrogen
+positions are calculated in a local co-ordinate system before being
+transformed and translated onto the donor atom.
+
+3.2.1.2 Hydrogens Bound to sp3 Hybridised (Tetrahedral) Donors
+
+Irrespective of the number of hydrogens, if there is only one DD heavy atom
+attached to the donor, then they may rotate around the D-DD bond, forming a
+circular locus.  Steric hindrance is known to favour three particular
+staggered H-D-DD-DDD torsion angles 120 degrees apart.  It is not obvious
+whether the expected locu of an sp3 hydrogen should be a circle or three
+alternative staggered points.  The algorithm makes it is the former for
+single sp3 hydrogens and the latter for triple sp3 hydrogens.
+
+sp3 1 H, 1 DD
+
+These include OH on Ser and Thr, and SH on Cyh.  The centre of the circular
+locus is found by projecting the D-DD bond a distance that depends on the
+lengths and angles for the group in question.  A default position,
+staggered relative to the D-DD line, is calculated in a local co-ordinate
+system, then transformed and translated.  the circular locus that the
+hydrogen is allowed to move along is normal to the D-DD line.
+
+sp3 3 Hs, 1 DD 
+
+The only example of this is LYS NZ, and terminal amino groups.  the
+combined locus is made up of three alternative points, equally spaced and
+staggred relative to DDD, where DDD is one covalent bond beyond DD from D.
+The positions are calculated using a local co-ordinate system and relevant
+bond lengths and angles, and transformed and translated onto the donor.
+
+Fig 3: sp3 hybridised ( tetrahedral orientations ) hydrogen positions
+                                                                            
+ sp3 1H 1DD	 			sp3 3Hs 1DD
+ 
+ H -> (goes in a circle)            *H H H      Planarity ? N               
+  \                                   \|/       (although the H marked * is
+   D                                   D         in the same plane as D, DD 
+   |                                   |         and DDD)                   
+  DD                                  DD                                    
+    \                                   \       Fixed Hydrogens ? Y         
+     DDD                                 DDD                                
+                                                                            
+ Planarity ? N                           H                                  
+ Fixed Hydrogen ? N                     /                                   
+                                    *H-D -DDD   <- DD is hidden by D        
+ The hydrogen may swivel round          \          All three DD-D-H angles are
+ the DD-D axis towards the               H         equal.             
+ acceptor.                                                                  
+                                                                            
+ eg SER OG, THR OG1, CYH OG1         eg LYS NZ, terminyl amino groups      
+                                                                            
+===================================================================
+TABLE III - DONOR GROUP GEOMETRIES FOR CALCULATED HYDROGENS
+
+Name of Donor Atom 	H   Bonds	Angles etc		D-H 
+====================================================================
+HIS ND1, HIS NE2	sp2 1H 2DD	DD1-D-H = DD2-D-H	1.00
+ARG NE , TRP NE1
+--------------------------------------------------------------------
+TYR OH			sp2 1H 1DD	DD-D-H = 110, 250	1.00
+					DD1,DD2,D,H are planar	   
+--------------------------------------------------------------------
+ASN ND2, GLN NE2	sp2 2H 1DD	DD-D-H = 120		1.00
+ARG NH1, ARG NH2			DDD-DD-D-H = 0, 180	
+====================================================================
+CYH SG , CYS SG		sp3 1H 1DD	DD-D-H = 96		1.33
+--------------------------------------------------------------------
+SER OG , THR OG		sp3 1H 1DD	DD-D-H = 110		1.00
+--------------------------------------------------------------------
+LYS NZ, any amino	sp3 3H 1DD	DD-D-H = 110		1.01
+terminus				DDD-DD-D0H = 180
+====================================================================
+Backbone N		sp2 1H 2DD	(C-N-H)-(CA-N-H) = 4	1.00
+					C, CA, N, H are planar
+====================================================================
+
+H	hybridisation - sp2 (trigonal planar) or sp3 (tetrahedral)
+
+Bonds	number of covalently attached hydrogens (H) and heavy atoms (DDs)
+
+Angles	Angles and conditions used to precisely define hydrogen position
+
+D-H	D-H distance for the calculated hydrogen in Angstroms
+====================================================================
+
+
+3.3 Selecting Potential Hydrogen Bonds
+
+Once the hydrogen positions have been determined as far as possible, each
+donor/acceptor pair is examined in turn to see if it fits the geometric
+criteria.  
+
+It is intended that geometric criteria will tend to be determined by the
+purpose of the study.  For maximum comparability, this program defaults to
+the same minimum angles and maximum distances as Baker and Hubbard (1984).
+These are : -
+
+Maximum Distances D-A of 3.9 Angstroms
+	 	  H-A of 2.5 Angstroms
+Minimum Angles  D-H-A of 90.0 degrees
+               D-A-AA of 90.0 degrees
+	       H-A-AA of 90.0 degrees
+
+Maximum Angles D-A-AX of 20.0 degrees } for amino-aromatic interactions
+               H-A-AX of 20.0 degrees } (AX is at L to aromatic plane)
+
+The -d -h -b -B -a and -A command line options exist to allow the criteria
+to be customised.
+
+There are rules to cover contingencies.  If the hydrogen on the donor is
+not fixed then the point on the hydrogen's locus that is closest to the
+acceptor being investigated is selected.  If no position was given for the
+hydrogen on the donor (for instance, for a water oxygen or an unrecognised
+nitrogen) then it is assumed to be directly between the donor and acceptor,
+one angstrom away from the donor.  If the acceptor is covalently bound to
+more than one heavy atom, yielding more than one possible "angle at the
+acceptor", the lower value is given.
+
+The algorithm is slightly inflexible.  It finds potential hydrogen bonds
+rather than real ones, and frequently, such as in the case of those donors
+for which the hydrogen could not be positioned (eg serine, threonine or
+tyrosine oxgygens), the hydrogen bonds can be mutually exclusive.  If a
+pair of atoms could act both as donor and acceptor to each other, for
+instance a "SER OG " and a "HOH O ", then they are listed as forming two
+hydrogen bonds.  If more than one location is given for any particular atom
+then the different locations are treated as different atoms that simply
+happen to have the same name.  In these circumstances, a donor / acceptor
+pair can have two hydrogen bonds listed with different geometries.
+
+3.4 Orienting ASN, GLN and HIS side-chains
+
+3.4.1 Introduction
+
+To define a structure by X-ray crystallography a protein must be modelled
+into an electron density map that at usual resolutions rarely shows
+hydrogen atoms and shows little or no difference between carbon, nitrogen
+and oxygen atoms.  There are now a few structures (three in the October
+1993 release of the Brookhaven Protein Database (Bernsteine et. al. 1977))
+at resolutions as high as 1.0A where the carbon, nitrogen and oxygen atoms
+can sometimes be differentiated and some of the hydrogens can be observed.
+However, given the diffracting power of most protein crystals, these will
+probably remain the exceptions.  For the majority of side-chains the atoms
+can be uniquely identified from the shape of the electron density map, but
+for asparagine, glutamine and histidine, whose side-chains appear
+symmetrical in the electron density, some specific atoms can only be
+identified on the basis of their environment, principally their hydrogen
+bonds.
+
+It is also difficult to differentiate between the three different
+protonation states of histidine.  As the imidazole ring of histidine has a
+pK (6.5-7.0) close to physiological pH (~7-8) (Matuszak and Matuszak,
+1976), both the basic and charged forms occur in vivo.  The positively
+charged form is protonated on both imidazole nitrogens, whilst the basic
+form is protonated on only one imidazole nitrogen, and occurs as two
+tautomers which differ in which nitrogen is protonated. NMR studies on His
+at basic pH and in the polypeptide antibiotic Bacitracin suggested that the
+basic His is more usually protonated on NE2 rather than the ND1 (Reynolds
+et al 1973).  Because both charged and basic forms of histidine are stable,
+histidine often participates in catalysis, and is found in the active sites
+of enzymes (e.g. serine proteases such as chymotrypsin) or as an axial
+ligand in metalloproteins such as the cytochromes (e.g. Cytochrome b5).  In
+chymotrypsin, for instance, the active site histidine is involved in every
+step of catalysis and changes protonation state four times in the entire
+catalytic cycle.
+
+The chemistry of Asn and Gln is simpler.  Here the problem is only to
+distinguish between the side-chain nitrogen and oxygen atoms.
+Distinguishing between the two, if the hydrogens are not visible, can
+become difficult however because some nearby side-chain atoms or water
+molecules can act as either donors or acceptors.  Since the nitrogen can
+donate two H-bonds and the oxygen accept two H-bonds, it is sometimes
+possible to use the information on whether they form one or two hydrogen
+bonds to differentiate between the alternative conformations.
+
+3.4.2 The Algorithm
+
+The study used the list of hydrogen bonds, including those that could only
+occur if the Asn, Gln and His side-chains were assumed to be in the
+alternative conformations.  
+
+This algorithm works on the assumptions that (i) if an atom is accessible
+to solvent, however slightly, it can form a hydrogen bond to solvent and
+(ii) hydrogen bonds that are visible in X-ray structures are generally more
+energetically favourable than those implied by accessibility to solvent.
+Assumption (ii) is justified because if any atom appears in the electron
+density its location is well defined, and it is therefore tightly bound.
+If the H-bonded water molecule is not visible then by implication the
+binding site is not as well defined and the H-bonds are weaker.
+
+It is generally accepted that, of atoms which can donate more than one or
+accept more than one hydrogen bond, the additional hydrogen bonds are not
+as energetically favourable as the first hydrogen bond.  Since nearly as
+many Asn and Gln side-chain donors and acceptors form two visible hydrogen
+bonds as form one, this implies a significant but lesser energetic gain.
+Therefore, when analysing Asn and Gln side-chains, whether atoms formed one
+hydrogen bond rather than two, was used as a "tie-breaker" in cases where
+the two alternative conformations had the same numbers of both buried
+unsatisfied atoms and of atoms satisfied by implied H-bonds to solvent.
+
+Both hydrogen bonding atoms were examined for both conformations of each
+Asn, Gln and His side-chain, and classed as either satisfied by a visible
+hydrogen bond ("satisfied"), satisfied by an "implied" hydrogen bond to
+solvent ("implied"), or unsatisfied by either visible or implied hydrogen
+bonds ("unsatisfied").
+
+In His residues, the H-bonds formed by (i) ND1 and NE2 and (ii) CD2 and CE1
+were examined.  We would expect the atoms labelled as nitrogen to be
+involved in H-bonds rather than the carbons.  Occasionally we found that
+both nitrogens accepted H-bonds, and neither donated.  In principle, since
+it is not possible for both nitrogens to accept H-bonds, only one of the
+atoms is counted as satisfied in this situation.
+
+In the case of Asn (Gln) residues this means examining the OD1(OE1) and
+ND2(NE2) twice - once including H-bonds donated by the ND2(NE2) and
+accepted by the OD1(OE1), and once vice-versa.
+
+The degree of hydrogen bond satisfaction of either conformation of any Asn,
+Gln or His side- chain is described by giving a pair of classifications,
+one for each atom.  For instance "unsatisfied and satisfied", or "implied
+and implied".  The degrees of satisfaction can be compared between the PDB
+and the alternative conformation.  The side-chain is classed as follows:
+
+Highly Optimal, 
+
+if there is an "unsatisfied" atom in the alternative conformation but not
+in the PDB conformation, or if there are two "unsatisfied" atoms in the
+alternative conformation but only one in the PDB conformation.
+
+Slightly Optimal, 
+
+if the hydrogen bonding potential is more highly satisfied in the PDB
+orientation than in the alternative, but the hydrogen bonding patterns does
+not qualify as "Highly Optimal".  For instance, if the PDB conformation is
+"Satisfied and Satisfied" but the alternative conformation is "Implied and
+Satisfied".
+
+Indifferent, 
+
+if the PDB and the alternative conformation are equally favourable or
+unfavourable.
+
+Slightly Suspect, 
+
+if the alternative conformation is more favourable than the PDB
+conformation, but the number of buried unsatisfied atoms is the same for
+both conformers (i.e. the converse of "slightly optimal").
+
+Highly Suspect, 
+
+if the number of buried unsatisfied atoms is lower for the alternative
+conformation (i.e. the converse of "highly optimal").
+
+3.4.3 Accessibility and Implied Hydrogen Bonds
+
+A buried atom is defined as one having a zero solvent accessibility
+according to an implementation of the Lee and Richards (1971) algorithm
+calculated by the program ACCESS (Hubbard, 1992, 1994) with a probe size of
+1.4A.  Any hydrogen bond donor or acceptor with non-zero accessibility to
+solvent and no visible hydrogen bonds, is regarded as forming an implied
+hydrogen bond with solvent.
+
+
+SECTION 4. REFERENCES
+=====================
+
+Baker, E. N. and Hubbard, R. E. (1984). "Hydrogen Bonding in Globular
+Proteins." Prog Biophys Molec Biol 44: 97.
+
+Bernstein, F. C., Koetzle, T. F., et al. (1977). "The Protein Data Bank: A
+computer based archival file for macromolecular structures." J Mol Biol
+112: 535.
+
+Gardner, S. and Thornton, J. M. (1992). IDITIS. Oxford, Oxford Molecular
+Limited.
+
+Hubbard, S. (1992). "ACCESS", University College London.
+
+Hubbard, S. (1994). "NACCESS", Heidelberg.
+
+Huggins, M. L. (1971). "50 Years of Hydrogen Bonding Theory." Angewandte
+Chemie International Edition 10: 147.
+
+Ippolito, J. A., Alexander, R. S., et al. (1990). "Hydrogen Bond
+Stereochemistry in Protein Structure and Function." J Mol Biol 215: 457.
+
+Latimer, W. M. and Rodebush, W. H. (1920). "Polarity and Ionization." J Am
+Chem Soc 42: 1419.
+
+Lee, B. and Richards, F. (1971). J Mol Biol, 55: 379-400.
+
+Levitt, M. and Perutz, M.F. (1988). J Mol Biol 201: 751-754.
+
+Matuszak, C.A. and Matuszak, A.J. (1976) J Chem Educ 53: 280-284
+
+McDonald, I.K. and Thornton, J.M. (1994). J Mol Biol 238: 777-793
+
+Mitchell, J. B. O. (1990). "Theoretical Studies of Hydrogen Bonding" PhD
+Thesis, Churchill College Cambridge
+
+Momany, F. A., McGuire, R. F., et al. (1975). "Energy Parameters in
+Polypeptides. VII. Geometric Parameters, Partial Atomic Charges, Nonbonded
+Interactions, Hydrogen Bond Interactions, and Intrinsic Torsional
+Potentials for the Naturally Occuring Amino Acids." J Phys Chem 79(22):
+2373.
+
+Pauling, L., Corey, R.B. and Branson, H.R. (1951). "The Structure of
+proteins: Two hydrogen-bonded helical configurations of the polypeptide
+chain" P Nat Acad Sci USA 37: 205-211.
+
+Reynolds, W.F., Peat, I.R., Freedman, M.H. and Lyerla, J.R., Jr. (1973) J
+Amer. Chem Soc, 95: 328-331.
+
+Stickle, D. F., Presta, L. G., et al. (1992). "Hydrogen Bonding in Globular
+Proteins." J Mol Biol 226: 1143.
+
+Vriend, G., Berendsen, H., et al. (1991). "Stabilization of the neutral
+protease of Bacillus Stearothermophilus by Removal of a Buried Water
+Molecule." PE 4(8): 941.
+
+
+SECTION 5. CONFIDENTIALITY AGREEMENT
+====================================
+Correspondence to:
+Ian McDonald (PG)
+Biological Structure and Modelling Unit
+Department of Biochemistry and Molecular Biology
+University College London
+Gower Street
+LONDON WC1E 6BT
+UK / EC
+
+Email mcdonald@biochem.ucl.ac.uk
+
+
+                    HBPLUS - Hydrogen Bond Calculation
+                    ----------------------------------          
+
+			CONFIDENTIALITY AGREEMENT
+			-------------------------
+
+
+
+In regard to the HBPLUS program, specified in Appendix 1 herewith (the
+Software) supplied to us, the copyright and other intellectual property
+rights to which belong to the authors, we
+
+    __________________________________________________________________
+
+undertake to the authors that we shall be bound by the following terms and
+conditions:-
+
+1. We will receive the Software and any related documentation in confidence
+and will not use the same except for the purpose of the department's own 
+research. The Software will be used only by such of our officers or
+employees to whom it must reasonably be communicated to enable us to
+undertake our research and who agree to be bound by the same confidence.
+The department shall procure and enforce such agreement from its staff for
+the benefit of the authors.
+
+2. The publication of research using the Software must reference "McDonald
+IK & Thornton JM (1994), 'Satisfying Hydrogen Bonding Potential in
+Proteins', Journal of Molecular Biology 238:777-793"
+
+3. Research shall take place solely at the department's premises at
+
+    __________________________________________________________________
+
+4. All forms of the Software will be kept in a reasonably secure place to
+prevent unauthorised access.
+
+5. Each copy of the Software or, if not practicable then, any package
+associated therewith shall be suitably marked (and such marking maintained)
+with the following copyright notice: "Copyright 1991-3 Ian McDonald, Dorica
+Naylor, David Jones, S Hubbard, R A Laskowski and Janet M Thornton All
+Rights Reserved".
+
+6. The Software may be modified but any changes made shall be made
+available to the authors.
+
+7. The Software shall be used exclusively for academic teaching and
+research. The Software will not be used for any commercial research or
+research associated with an industrial company.
+
+8. The confidentiality obligation in paragraph one shall not apply:
+
+   (i)  to information and data known to the department at the time of
+	receipt hereunder (as evidenced by its written records);
+
+  (ii)	to information and data which was at the time of receipt in the 
+	public domain or thereafter becomes so through no wrongful act of
+	the department;
+
+ (iii)	to information and data which the department receives from a third
+	party not in breach of any obligation of confidentiality owed to
+	the authors.
+
+
+
+Please sign this Undertaking and return a copy of it to indicate that you 
+have read, understood and accepted the above terms.
+
+
+
+		      For and on behalf of _____________________________
+
+		      _________________________________________________
+		     
+		      ..................................................
+
+		      Dated ............................................
+
+
+                      Address __________________________________________
+
+		      _________________________________________________
+		     
+		      _________________________________________________
+		     
+		      Country _________________ Postcode ______________
+		     
+                      Telephone ________________________________________
+
+                      Electronic Mail Address to which HBPLUS shall be
+
+                      sent _____________________________________________
+
+		      _________________________________________________
+		     
+
+APPENDIX 1 - DETAILS OF THE HBPLUS PROGRAM PROVIDED
+---------------------------------------------------
+
+Files to be included
+--------------------
+
+         1. hbplus.h              }
+         2. hbp_gen.c             } Source program files,
+         3. hbp_inpdb.c           } ,formerly hbplus.c
+         4. hbp_findh.c           }
+         5. hbp_hhb.c             }
+         6. hbp_main.c            }
+         7. hbplus.man         } Documentation
+	 8. accall.f              } Supplemental, (c) S. Hubbard
+	 9. vdw.radii	          } "ACCESS" / "NACCESS"
+	10. clean.f	       } Supplemental, (c) DK Smith et al.
+	11. brkcln.par         } "BRKCLN"
+	12. chkqnh.scr		  } C Shell Script
+	13. Makefile	       } Unix Makefile
