@@ -603,20 +603,21 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
     for mi in range(N):
         model = INT_DATA[mi]
         
+        '''
         for res in model["basa"]["residues"]:
             rid = res["id"]
             fasa = res["fasa"]
             if(JSON["protein"]["residues"][rid]["fasa"] is None):
                 JSON["protein"]["residues"][rid]["fasa"] = []
             JSON["protein"]["residues"][rid]["fasa"].append(fasa)
-        
         for nuc in model["basa"]["nucleotides"]:
             nid = nuc["id"]
             fasa = nuc["fasa"]
             if(JSON["dna"]["nucleotides"][nid]["fasa"] is None):
                 JSON["dna"]["nucleotides"][nid]["fasa"] = []
             JSON["dna"]["nucleotides"][nid]["fasa"].append(fasa)
-    
+        '''
+        
     DELETE_MODELS = []
     ### Add nucleotide-residue interactions ###
     for mi in range(N):
@@ -650,6 +651,7 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
             interfaces[int_id]["nucleotide-residue_interactions"][nr_id].update(nr)
             
         # Add BASA information
+        '''
         for nr in model["basa"]["interactions"]:
             if(not (nr["nuc_id"] in dna_entity_lookup[mi])):
                 continue
@@ -661,7 +663,7 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
             if(int_id in interfaces):
                 if(nr_id in interfaces[int_id]["nucleotide-residue_interactions"]):
                     interfaces[int_id]["nucleotide-residue_interactions"][nr_id].update(nr)
-        
+        '''
         # Add hydrogen bonds
         for hb in model["hbond"]:
             # check if in valid DNA entity
@@ -925,9 +927,10 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
             # Compute residue propensities and surface geometries
             for chain in interfaces[int_id]["protein_chains"]:
                 res_ids = JSON["protein"]["chains"][chain]["residue_ids"]
-                interfaces[int_id]["interface_features"][chain]["residue_propensities"] = getPropensities(mi, res_ids, interfaces[int_id]["residue_data"], JSON["protein"]["residues"])
-                interfaces[int_id]["interface_features"][chain]["protein_surface_geometry"]["cv_fine"] = getCVRatios(mi, res_ids, JSON["protein"]["residues"], "cv_fine")
-                interfaces[int_id]["interface_features"][chain]["protein_surface_geometry"]["cv_coarse"] = getCVRatios(mi, res_ids, JSON["protein"]["residues"], "cv_coarse")
+                #TOO LONG
+                #interfaces[int_id]["interface_features"][chain]["residue_propensities"] = getPropensities(mi, res_ids, interfaces[int_id]["residue_data"], JSON["protein"]["residues"])
+                #interfaces[int_id]["interface_features"][chain]["protein_surface_geometry"]["cv_fine"] = getCVRatios(mi, res_ids, JSON["protein"]["residues"], "cv_fine")
+                #interfaces[int_id]["interface_features"][chain]["protein_surface_geometry"]["cv_coarse"] = getCVRatios(mi, res_ids, JSON["protein"]["residues"], "cv_coarse")
             
             # Compile SSE data from residue data
             for rid in interfaces[int_id]["residue_data"]:
@@ -1044,11 +1047,13 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
                 interfaces[int_id]["residue_data"][res_id]["interacts_by"] = list(interfaces[int_id]["residue_data"][res_id]["interacts_by"])
                 interfaces[int_id]["residue_data"][res_id]["interacts_with"] = list(interfaces[int_id]["residue_data"][res_id]["interacts_with"])
                 interfaces[int_id]["residue_data"][res_id]["interacting_nucleotides"] = list(interfaces[int_id]["residue_data"][res_id]["interacting_nucleotides"])
+                ## TOO LONG
+                '''
                 if(JSON["protein"]["residues"][res_id]["sap_score"][mi] is not None):
                     interfaces[int_id]["interface_features"][res_chain]["mean_hydrophobicity_score"] += (JSON["protein"]["residues"][res_id]["fasa"][mi]["sc"]
                         *JSON["protein"]["residues"][res_id]["sap_score"][mi])
                     interfaces[int_id]["interface_features"][res_chain]["weight_sum"] += JSON["protein"]["residues"][res_id]["fasa"][mi]["sc"]
-            
+                '''
             # SSE interaction classifications
             for sse_id in interfaces[int_id]["sse_data"]:
                 interfaces[int_id]["sse_data"][sse_id]["interacts_with"] = list(interfaces[int_id]["sse_data"][sse_id]["interacts_with"])
@@ -1064,6 +1069,8 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
                 Ssum = 0.0
                 Lsum = 0.0
                 
+                ##TOO LONG
+                '''
                 for resID in interfaces[int_id]["interface_features"][chain]["residue_ids"]:
                     fasa = JSON["protein"]["residues"][resID]["fasa"][mi]["sc"]
                     totFASA += fasa
@@ -1089,7 +1096,7 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
                 del interfaces[int_id]["interface_features"][chain]["weight_sum"]
                 del interfaces[int_id]["interface_features"][chain]["stack_count"]
                 del interfaces[int_id]["interface_features"][chain]["pair_count"]
-        
+                '''
         # Delete non-interacting SSEs from protein data #
         delete = []
         for i in range(len(JSON["protein"]["models"][mi]["secondary_structure_elements"])):
