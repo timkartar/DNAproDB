@@ -169,3 +169,5 @@ pdb/4noe: removed incomplete residue GLU (A.72. )
 pdb/4noe: removed incomplete residue TRP (G.66. )
 pdb/4noe: removed incomplete residue GLU (G.72. )
 pdb/4noe-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+pdb/2r5z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
