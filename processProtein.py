@@ -831,7 +831,6 @@ def process(prefix, N, COMPONENTS, REGEXES, IDs,
             for rid in surface_residues:
                 RES_MAP[rid]["surface"] = True
             
-            ''' TOO LONG
             # Add CV score to residues
             cvFineScores = computeCV(model, res_ids, surface_residues, CV_FINE_CUTOFF_DISTANCE)
             for cv in cvFineScores:
@@ -839,7 +838,7 @@ def process(prefix, N, COMPONENTS, REGEXES, IDs,
             cvCoarseScores = computeCV(model, res_ids, surface_residues, CV_COARSE_CUTOFF_DISTANCE)
             for cv in cvCoarseScores:
                 RES_MAP[cv["id"]]["cv_coarse"] = cv["cv"]
-            '''
+        
         # Add data to OUT
         OUT.append({
             'chains': PRO_CHAINS,
