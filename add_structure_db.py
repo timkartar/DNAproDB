@@ -1,12 +1,13 @@
 from pymongo import MongoClient
 import json
+import sys
 
 # MongoDB connection string
 # Adjust the connection string if you have authentication enabled or if you're not running on the default port
 connection_string = "mongodb://localhost:27017/"
 
 # Path to your JSON file
-json_file_path = '/home/aricohen/Desktop/dnaprodb/2r5z-assembly1.json'
+json_file_path = '/home/aricohen/Desktop/dnaprodb/{}.json'.format(sys.argv[1])
 
 # Connect to MongoDB
 client = MongoClient(connection_string)
