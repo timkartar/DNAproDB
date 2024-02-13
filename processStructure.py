@@ -1119,8 +1119,6 @@ def main(file_name):
     )
     
     # Process Interactions
-    print(REGEXES)
-
     INT_DATA = processComplex.process(pdbid, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTIDES, IDs)
     
     # Combine all data for final JSON output
