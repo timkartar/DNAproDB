@@ -2099,7 +2099,7 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             print(PairObject)
             print("eout[strands]")
             print(eout["strands"])
-            '''
+            
             if(PairObject.hasPseudoknots()):
                 # print("Attemping to remove any false Pseudoknots")
                 # # Try to remove any false pseudoknots we may have created
@@ -2114,10 +2114,10 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             print(ordered_ids)
             eout["visualization"]["dbn"] = inc_length(Pairs(pair_tuples)).toVienna(len(ordered_ids))
             print("eout[\"visualization\"][\"dbn\"]")
-            print(eout["visualization"]["dbn"])
-            '''
+            #print(eout["visualization"]["dbn"])
+            
             eout["nucleotides"] = ordered_ids
-            eout["visualization"]["dbn"] = dssrout["dbn"]
+            #eout["visualization"]["dbn"] = dssrout["dbn"]
             # Sort Strands
             si = []
             for s in eout["strands"]:
@@ -2147,8 +2147,8 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             xs /= scale
             ys /= scale
 
-            plt.scatter(xs, ys)
-            plt.show()
+            #plt.scatter(xs, ys)
+            #plt.show()
             i = 0
             link_dist = []
             for j in range(len(eout["nucleotides"])):
