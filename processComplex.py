@@ -258,6 +258,7 @@ def getVDW(model, nuc_list, res_list, HBHASH, REGEXES):
     return VDW
 
 def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
+    print(REGEXES)
     # Attempt to run HBPLUS, or fallback to x3dna-snap hbond output.
     FNULL = open(os.devnull, 'w')
     #rc = subprocess.call(['hbadd', '{}.pdb'.format(prefix), os.path.join(DATA_PATH,'components.cif')], stdout=FNULL, stderr=FNULL)
@@ -492,6 +493,8 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
         }
         
         # Get pair list
+        import time
+        print(1, time.time())
         int_pairs, nuc_list, res_list = getInteractingPairs(assembly[i], REGEXES)
         if(len(int_pairs) == 0):
             log("No nucleotide-residue pairs meet the interaction cut-off threshold.", prefix)
@@ -501,6 +504,7 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
             "nuc_ids": nuc_list,
             "complex_ids": res_list + nuc_list
         }
+        print(2, time.time())
         
         ## Determine a list of DNA and protein entity pairs for consideration
         #dna_entity_lookup = {}
@@ -510,14 +514,16 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
             #pairs.add((dna_entity_lookup[nr["nuc_id"]], pro_entity_lookup[nr["pro_id"]]))
         
         # Perform BASA calculations
-        interactions['basa'] = getBASA.basa(assembly[i], COMPONENTS, REGEXES, DATA_PATH, NUCLEOTIDES[i], IDS, interface_ids, dssp=DSSP[i])
+        #interactions['basa'] = getBASA.basa(assembly[i], COMPONENTS, REGEXES, DATA_PATH, NUCLEOTIDES[i], IDS, interface_ids, dssp=DSSP[i])
         
+        print(3, time.time())
         # Get Hydrogen Bonds and VdW contacts
         HBONDS = calculateHBONDS(h, DATA_PATH, REGEXES)
         VDW = getVDW(assembly[i], nuc_list, res_list, HBONDS, REGEXES)
         interactions['hbond'] = HBONDS
         interactions['vdw'] = VDW
         
+        print(4, time.time())
         # Get Residue-Nucleotide interaction geometry
         GEO = getGeometry(c)
         interactions['geometry'] = GEO
