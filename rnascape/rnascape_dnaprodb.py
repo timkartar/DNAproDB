@@ -5,8 +5,11 @@ import re, os, sys
 import numpy as np
 from sklearn.decomposition import PCA
 #import matplotlib.pyplot as plt
-from .get_helix_coords import get_helix_coords, process_resid
 from .plot import Plot
+from .get_helix_coords import get_helix_coords, process_resid, get_cetroid
+
+#from plot import Plot
+>>>>>>> f902552312f9c118f8dd2235200615bb8677fb2f
 from math import cos, sin
 import re 
 from sklearn.neighbors import KDTree
@@ -402,7 +405,6 @@ def rnascape(prefix, structure, dssr, cond_bulging=True, mDSSR_PATH='', mFIG_PAT
 
     helices = get_helix_coords(dssrout, model)
     if helices == None:
-        from .get_helix_coords import get_cetroid
         coords = []
         markers = []
         ids = []
