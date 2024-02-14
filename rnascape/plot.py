@@ -4,7 +4,7 @@ import numpy as np
 import sre_yield
 from copy import deepcopy
 from math import cos, sin
-from get_helix_coords import process_resid
+from .get_helix_coords import process_resid
 import time
 import random
 import os, sys
@@ -347,7 +347,8 @@ def getResNumPoints(points, ids, G, k=10, separation=1):
         labels.append(l)
     return rett, labels
 
-def Plot(points, markers, ids, chids, dssrids, dssrout, prefix="", rotation=False, bp_type='DSSR',
+def Plot(points, markers, ids, chids, dssrids, dssrout, prefix="", rotation=False,
+        bp_type='dssrLw',
         out_path=None, time_string="ac1", extra={'arrowsize':1, 'circlesize':1,
             'circle_labelsize':1, 'cols':['#FF9896', '#AEC7E8', '#90CC84', '#DBDB8D', '#FFFFFF'],
             'showNumberLabels': True, 'numberSeparation': 1, 'numberSize': 1, 'markerSize': 1
@@ -499,8 +500,11 @@ def Plot(points, markers, ids, chids, dssrids, dssrout, prefix="", rotation=Fals
 
     plt.tight_layout()
     plt.gca().set_aspect('equal')
-    plt.savefig('{}/{}/{}{}{}.png'.format(MEDIA_PATH,FIG_PATH,prefix,time_string, int(extra['counter'])))
-    plt.savefig('{}/{}/{}{}{}.svg'.format(MEDIA_PATH,FIG_PATH,prefix,time_string, int(extra['counter'])))
+    curr = os.path.abspath(os.path.dirname(__file__))
+    MEDIA_PATH = curr + "/output"
+    FIG_PATH = "processed_images"
+    plt.savefig('{}/{}/{}.png'.format(MEDIA_PATH,FIG_PATH,prefix))
+    plt.savefig('{}/{}/{}.svg'.format(MEDIA_PATH,FIG_PATH,prefix))
 
 
     plt.close()
@@ -518,6 +522,6 @@ def Plot(points, markers, ids, chids, dssrids, dssrout, prefix="", rotation=Fals
     # plt.savefig('{}/{}/legend.svg'.format(MEDIA_PATH,FIG_PATH))
 
     # return '{}/{}{}{}.png'.format(FIG_PATH,prefix,time_string,rotation_string)
-    return '{}/{}{}{}.svg'.format(FIG_PATH,prefix,time_string,int(extra['counter'])),'{}/{}{}{}.png'.format(FIG_PATH,prefix,time_string,int(extra['counter'])), "\n".join(log)
+    #return '{}/{}{}{}.svg'.format(FIG_PATH,prefix,time_string,int(extra['counter'])),'{}/{}{}{}.png'.format(FIG_PATH,prefix,time_string,int(extra['counter'])), "\n".join(log)
 
 

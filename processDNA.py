@@ -2100,12 +2100,15 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             print("eout[strands]")
             print(eout["strands"])
             
-            '''
+            
             if(PairObject.hasPseudoknots()):
                 # print("Attemping to remove any false Pseudoknots")
                 # # Try to remove any false pseudoknots we may have created
-                ordered_ids, pair_tuples = removeFalsePseudoknots(ordered_ids, PAIR_MAP, eout["strands"])
-                eout["visualization"]["contains_pseudoknots"] = Pairs(pair_tuples).hasPseudoknots()
+                try:
+                    ordered_ids, pair_tuples = removeFalsePseudoknots(ordered_ids, PAIR_MAP, eout["strands"])
+                    eout["visualization"]["contains_pseudoknots"] = Pairs(pair_tuples).hasPseudoknots()
+                except:
+                    pass
             
             # TODO ###
             #eout["visualization"]["dbn"] = inc_length(pair_tuples).toVienna(len(ordered_ids))
@@ -2115,10 +2118,10 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             print(ordered_ids)
             eout["visualization"]["dbn"] = inc_length(Pairs(pair_tuples)).toVienna(len(ordered_ids))
             print("eout[\"visualization\"][\"dbn\"]")
-            #print(eout["visualization"]["dbn"])
-            '''
+            print(eout["visualization"]["dbn"])
+            
             eout["nucleotides"] = ordered_ids
-            eout["visualization"]["dbn"] = dssrout["dbn"]
+            #eout["visualization"]["dbn"] = dssrout["dbn"]
             # Sort Strands
             si = []
             for s in eout["strands"]:
@@ -2129,18 +2132,19 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             eout["id"] = getHash(*eout["id"])
             
             # # Add radial layout coordinates
-            #coords = RNA.get_xy_coordinates(eout["visualization"]["dbn"]) #likely takes dot bracket notation and outputs 2d visualization in x-y coordinates
-            #xs = np.array([coords.get(i).X for i in range(len(eout["visualization"]["dbn"]))])
-            #ys = np.array([coords.get(i).Y for i in range(len(eout["visualization"]["dbn"]))])
+            coords = RNA.get_xy_coordinates(eout["visualization"]["dbn"]) #likely takes dot bracket notation and outputs 2d visualization in x-y coordinates
+            xs = np.array([coords.get(i).X for i in range(len(eout["visualization"]["dbn"]))])
+            ys = np.array([coords.get(i).Y for i in range(len(eout["visualization"]["dbn"]))])
             
             #print(eout['nucleotides'], rnascape_nts)
             
-            ### NEW use RNAscape coordinates ###
-            xs = []
-            ys = []
-            for item in eout['nucleotides']:
-                xs.append(rnascape_coords[rnascape_nts.index(item),0])
-                ys.append(rnascape_coords[rnascape_nts.index(item),1])
+            ### use RNAscape coordinates ###
+            #xs = []
+            #ys = []
+            #for item in eout['nucleotides']:
+            #    xs.append(-1*rnascape_coords[rnascape_nts.index(item),0])
+            #    ys.append(-1*rnascape_coords[rnascape_nts.index(item),1])
+            
             xs -= np.mean(xs)
             ys -= np.mean(ys)
             

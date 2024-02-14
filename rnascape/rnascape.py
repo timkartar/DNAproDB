@@ -104,12 +104,76 @@ def generate_coords(helix_coords, helix_ids, dic, helix_dssrids, dssrout):
 
         l = len(val)
         
+        def check_multichain(val):
+            chains = [item[2] for item in val]
+            chains = list(set(chains))
+            if len(chains) > 1:
+                return True
+            else:
+                return False
+        multi_chain = check_multichain(val)
+        c1 = []
+        c2 = []
+        chains = []
+        for item in val:
+            if item[2] not in chains:
+                chains.append(item[2])
+        #chains = list(chains)
+        #print(chains)
+        for item in val:
+            if item[2] == chains[0]:
+                c1.append(item)
+            else:
+                c2.append(item)
+        #print(c1, c2)
+
         for i in range(len(val)):
             item = val[i]
             t_ids.append(item[0]) 
             t_markers.append("${}$".format(item[1]))
             v = (end_pos - start_pos)
             pos = start_pos + v*(i+1)/(l+1)
+            
+            if multi_chain:
+                if item in c1:
+                    try:
+                        c1_p11 = helix_coords[start - 2]
+                    except:
+                        c1_p11 = helix_coords[start + 2]
+                    try:
+                        c1_p12 = helix_coords[start + 2]
+                    except:
+                        c1_p12 = helix_coords[start - 2]
+                    c1_p2 = helix_coords[start]
+                    if np.linalg.norm(c1_p2 - c1_p11) < np.linalg.norm(c1_p2 - c1_p12):
+                        c1_p1 = c1_p11
+                    else:
+                        c1_p1 = c1_p12
+
+                    pos = c1_p2 + (c1.index(item)+1)*(c1_p2 - c1_p1)
+                    if pos in helix_coords:
+                        pos = c1_p2 - (c1.index(item)+1)*(c1_p2 - c1_p1)
+                if item in c2:
+                    c2_p1 = helix_coords[end]
+                    try:
+                        c2_p21 = helix_coords[end-2]
+                    except:
+                        c2_p21 = helix_coords[end+2]
+                    try:    
+                        c2_p22 = helix_coords[end+2]
+                    except:
+                        c2_p22 = helix_coords[end-2]
+
+                    if np.linalg.norm(c2_p1 - c2_p21) < np.linalg.norm(c2_p1 - c2_p22):
+                        c2_p2 = c2_p21
+                    else:
+                        c2_p2 = c2_p22
+                    
+                    #for i in range(len(c2)):
+                    pos = c2_p1 + (len(c2) - (c2.index(item)))*(c2_p1 - c2_p2)
+                    if pos in helix_coords:
+                        pos = c2_p1 - (len(c2) - (c2.index(item)))*(c2_p1 - c2_p2)
+                
             if pos in helix_coords:
                 p = perp(v)
                 tpos = pos + p*2 + v/(2*(l+1)) ## perpeindicular and out shift for overlap
@@ -127,14 +191,17 @@ def generate_coords(helix_coords, helix_ids, dic, helix_dssrids, dssrout):
             t_chids.append(item[2])
             t_dssrids.append(item[3])
         v = helix_coords[start] - helix_coords[end]
-        if not conditional_bulging:
-            t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords, factor=False)
-        elif (helix_dssrids[start], helix_dssrids[end]) in pairs or (helix_dssrids[end], helix_dssrids[start]) in pairs:
-            t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords)
-        elif np.linalg.norm(v) < 3: #threshold for bulging
-            t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords, factor=True) 
-        elif np.linalg.norm(v)/(len(val) +  0.0001) < 1.5: #threshold for bulging
-            t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords, factor=True) 
+        
+        if not multi_chain or (multi_chain and np.linalg.norm(v) < 5):
+            if not conditional_bulging:
+                t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords, factor=False)
+            elif (helix_dssrids[start], helix_dssrids[end]) in pairs or (helix_dssrids[end], helix_dssrids[start]) in pairs:
+                t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords)
+            elif np.linalg.norm(v) < 3: #threshold for bulging
+                t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords, factor=True) 
+            elif np.linalg.norm(v)/(len(val) +  0.0001) < 1.5: #threshold for bulging
+                t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords, factor=True)
+
         #else:
         #    t_poses = updateLoopPoints(start_pos, end_pos, val, helix_coords) 
         positions+=(t_poses)
@@ -263,6 +330,7 @@ def getTails(helix_dssrids, dssrids, chids, points):
             starting = False
             if chids[i+1] != chid:
                 starting=True
+
     
     ending = True
     rev_dssrids = dssrids[::-1]
@@ -277,6 +345,8 @@ def getTails(helix_dssrids, dssrids, chids, points):
             if rev_chids[i+1] != chid:
                 ending=True
     
+    #print([(item, starters[item]) for item in starters])
+    #print([(item, enders[item]) for item in enders])
     for k in starters.keys():
         if len(starters[k]) == 0:
             continue
