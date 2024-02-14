@@ -9,7 +9,6 @@ from .plot import Plot
 from .get_helix_coords import get_helix_coords, process_resid, get_cetroid
 
 #from plot import Plot
->>>>>>> f902552312f9c118f8dd2235200615bb8677fb2f
 from math import cos, sin
 import re 
 from sklearn.neighbors import KDTree
