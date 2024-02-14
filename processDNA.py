@@ -1717,7 +1717,7 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
     
     # Run DSSR and load the output json
     DSSR = runDSSR(prefix, N, quiet)
-    rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape("rnascape", structure, DSSR,
+    rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, structure, DSSR,
         cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =
         'x3dna-dssr')
     rnascape_nts = [convertId(item) for item in dssrids]
