@@ -15,6 +15,8 @@ from pymongo import MongoClient
 import sys
 import json
 import requests
+from query_jaspar import getJasparLogo
+from getUniprot import getUniprot
 
 connection_string = "mongodb://localhost:27017/"
 pdb_id = '3ldy'
@@ -63,7 +65,6 @@ try:
             chains = protein['chains']
             for chain in chains:
                 if 'id' in chain:
-                    print(chain['id'])
                     list_of_ids.append(chain['id'])
         else:
             print("Error: 'chains' list not found in the 'protein' object.")
@@ -76,7 +77,6 @@ try:
             chains = dna['chains']
             for chain in chains:
                 if 'id' in chain:
-                    print(chain['id'])
                     list_of_ids.append(chain['id'])
         else:
             print("Error: 'chains' list not found in the 'dna' object.")
@@ -93,7 +93,34 @@ try:
             continue
     
     for id, uniprot_id in id_uniprot_map.items():
-        pass
+        
+        # Get Jaspar stuff!
+        jaspar_path = None
+        organism = None
+        go_terms_c = None
+        go_terms_p = None
+        go_terms_f = None
+        try:
+            jaspar_path = getJasparLogo(uniprot_id)
+            if jaspar_path == False:
+                jaspar_path = None
+        except:
+            print("Error getting jaspar logo!")
+
+        # Get Uniprot data
+        try:
+            organism, go_terms_c, go_terms_p, go_terms_f = getUniprot(uniprot_id)
+            print(organism)
+            if not go_terms_c:
+                go_terms_c = None
+            if not go_terms_f:
+                go_terms_f = None
+            if not go_terms_p:
+                go_terms_p = None
+        except:
+            print("Error getting uniprot data")
+
+
 
 except Exception as e:
     print(f"An error occurred: {e}")
