@@ -51,6 +51,7 @@ dependencies:
       - pyjaspar==3.0.0
       - pymongo==4.6.1
       - pyparsing==3.1.1
+      - pypdb==2.3
       - python-dateutil==2.8.2
       - pytz==2024.1
       - requests==2.31.0
