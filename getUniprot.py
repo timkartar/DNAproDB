@@ -22,7 +22,8 @@ def getUniprot(uniprot):
                 go_terms_p.append(spl[1])
 
     organism = response["organism"]["scientificName"]
-    return organism, go_terms_c, go_terms_p, go_terms_f
+    protein_name = response['proteinDescription']['recommendedName']['fullName']['value']
+    return organism, go_terms_c, go_terms_p, go_terms_f, protein_name
 
 if __name__=="__main__":
     print(getUniprot("Q9RY80"))

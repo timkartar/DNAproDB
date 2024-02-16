@@ -115,7 +115,7 @@ try:
 
         # Get Uniprot data
         try:
-            organism, go_terms_c, go_terms_p, go_terms_f = getUniprot(uniprot_id)
+            organism, go_terms_c, go_terms_p, go_terms_f, protein_name = getUniprot(uniprot_id)
             # print(organism)
             if not go_terms_c:
                 go_terms_c = []
