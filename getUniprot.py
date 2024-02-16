@@ -22,7 +22,6 @@ def getUniprot(uniprot):
                 go_terms_p.append(spl[1])
 
     organism = response["organism"]["scientificName"]
-
     return organism, go_terms_c, go_terms_p, go_terms_f
 
 if __name__=="__main__":
