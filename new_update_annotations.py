@@ -17,9 +17,10 @@ import json
 import requests
 from query_jaspar import getJasparLogo
 from getUniprot import getUniprot
+from get_citation_data import get_citation_data
 
 connection_string = "mongodb://localhost:27017/"
-pdb_id = '2r5z'
+pdb_id = sys.argv[1]
 #NOTE: 1jgg doesn't map correctly
 
 #chid = chain id
@@ -43,7 +44,9 @@ def get_uniprot_id(entity_id):
         return uniprot_id
     except:
         raise Exception("Could not get Uniprot ID")
+    
 
+# Wrap everything in try to catch errors
 try:
     client = MongoClient(connection_string)
     db = client['dnaprodb2']
@@ -136,6 +139,20 @@ try:
         uniprot_dict[uniprot_id] = uniprot_object
     # print(uniprot_dict)
     document['protein_metadata'] = uniprot_dict
+
+    citation_title, year, authors, doi, pubmed, method, keywords, release_date, title = get_citation_data(pdb_id)
+    citation_data = {}
+    citation_data['doi'] = doi
+    citation_data['structure_title'] = title
+    citation_data['release_data'] = release_date
+    citation_data['year'] = year
+    citation_data['exp_method'] = method
+    citation_data['citation_title'] = citation_title
+    citation_data['pubmed_id'] = pubmed
+    citation_data['authors'] = authors
+    citation_data['keywords'] = keywords
+
+    document['meta_data']['citation_data'] = citation_data
     collection.replace_one({"structure_id": pdb_id}, document)
     print(f"Document with structure_id {pdb_id} has been updated.")
 except Exception as e:
