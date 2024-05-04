@@ -29,16 +29,18 @@ GO_DIR = os.path.join(ROOT_DIR, "MAPPINGS/GO")
 CIF_DIR = os.path.join(ROOT_DIR, "CIFFILES")
 MAP_DIR = os.path.join(ROOT_DIR, "MAPPINGS")
 
+resources_link = "https://cdn.rcsb.org/resources"
+
 # Database URLS
 DATA = [
     # PDB sequence clusters
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-30.out", "bc-30.out", PDB_DIR), # 0
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-40.out", "bc-40.out", PDB_DIR), # 1
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-50.out", "bc-50.out", PDB_DIR), # 2
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-70.out", "bc-70.out", PDB_DIR), # 3
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-90.out", "bc-90.out", PDB_DIR), # 4
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-95.out", "bc-95.out", PDB_DIR), # 5
-    ("ftp://resources.rcsb.org/sequence/clusters/bc-100.out", "bc-100.out", PDB_DIR), #6
+    ("{}/sequence/clusters/clusters-by-entity-30.txt".format(resources_link), "bc-30.out", PDB_DIR), # 0
+    ("{}/sequence/clusters/clusters-by-entity-40.txt".format(resources_link), "bc-40.out", PDB_DIR), # 1
+    ("{}/sequence/clusters/clusters-by-entity-50.txt".format(resources_link), "bc-50.out", PDB_DIR), # 2
+    ("{}/sequence/clusters/clusters-by-entity-70.txt".format(resources_link), "bc-70.out", PDB_DIR), # 3
+    ("{}/sequence/clusters/clusters-by-entity-90.txt".format(resources_link), "bc-90.out", PDB_DIR), # 4
+    ("{}/sequence/clusters/clusters-by-entity-95.txt".format(resources_link), "bc-95.out", PDB_DIR), # 5
+    ("{}/sequence/clusters/clusters-by-entity-100.txt".format(resources_link), "bc-100.out", PDB_DIR), #6
     # CATH data
     ("ftp://orengoftp.biochem.ucl.ac.uk/cath/releases/daily-release/newest/cath-b-newest-all.gz", "cath_domains_list.dat.gz", CATH_DIR), #7
     # SIFTS mappings
@@ -62,7 +64,7 @@ if(not args.no_databases):
         print(("Retrieving {}".format(url)))
         try:
             REP = urllib.request.urlopen(url)
-            data = REP.read()
+            data = REP.read().decode('utf-8')
             REP.close()
             
             path = os.path.join(dirName, fileName)

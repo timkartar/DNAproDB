@@ -1717,11 +1717,12 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
     
     # Run DSSR and load the output json
     DSSR = runDSSR(prefix, N, quiet)
-    rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, structure, DSSR,
-        cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =
-        'x3dna-dssr')
-    rnascape_nts = [convertId(item) for item in dssrids]
-    #print(points, markers, ids, chids, dssrids, dssrout, prefix)
+    #ARI COMMENT OUT
+    # rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, structure, DSSR,
+    #     cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =
+    #     'x3dna-dssr')
+    # rnascape_nts = [convertId(item) for item in dssrids]
+    # print(rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix)
     # Array to store DNA data. Each entry is a dict which contains a 
     # list of entities, where each entity describes some assembly of 
     # nucleotides.
@@ -2139,9 +2140,9 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             #print(eout['nucleotides'], rnascape_nts)
             
             ### use RNAscape coordinates ###
-            #xs = []
-            #ys = []
-            #for item in eout['nucleotides']:
+            # xs = []
+            # ys = []
+            # for item in eout['nucleotides']:
             #    xs.append(-1*rnascape_coords[rnascape_nts.index(item),0])
             #    ys.append(-1*rnascape_coords[rnascape_nts.index(item),1])
             
@@ -2152,8 +2153,8 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             xs /= scale
             ys /= scale
 
-            #plt.scatter(xs, ys)
-            #plt.show()
+            plt.scatter(xs, ys)
+            plt.show()
             i = 0
             link_dist = []
             for j in range(len(eout["nucleotides"])):

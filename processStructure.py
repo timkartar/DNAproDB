@@ -9,6 +9,7 @@ import argparse
 import operator
 import signal
 import networkx as nx
+import sys
 # Biopython Disordered Atom Fix
 import Bio.PDB 
 copy = Bio.PDB.Atom.copy
@@ -561,7 +562,9 @@ def cleanAssembly(pdbid, assembly, filter_chains, META, N):
             if(G.has_node(r)):
                 G.remove_node(r)
         if(G.order() > 0):
-            for S in nx.connected_component_subgraphs(G):
+            # ARI UPDATE
+            for component in nx.connected_components(G):
+                S = G.subgraph(component).copy()
                 _disconnectGraph(S, assembly[i], 2, REMOVED)
     
     # Verify that each MODEL has same residue/nucleotide set
@@ -928,7 +931,7 @@ def writeStructures(pdbid, assembly, filter_chains, COMPONENTS, c=True, d=True, 
         pname = "{}-protein.pdb".format(pdbid)
         io.save(pname, Protein_select(filter_chains, COMPONENTS))
 
-def main(file_name):
+def main(file_name, mPRE_PDB2PQR=False):
     """This module processes a PDB or mmCIF file and performs the 
     following functions:
     1. Builds the biological assembly for a given mmCIF file. If a PDB 
@@ -944,6 +947,9 @@ def main(file_name):
         A PDB id or prefex of the file to be processed. Should be named 
         either 'pdbid'.pdb or 'pdbid'.cif. 
     """
+    PRE_PDB2PQR = mPRE_PDB2PQR
+    signal.signal(signal.SIGALRM, timedOut)
+    signal.alarm(__TIMEOUT_LENGTH)
     pdbid, ext = file_name.split('.')
     print(("Structure ID: {}".format(pdbid)))
     print(("BioPython Version: {}".format(BPV)))
@@ -975,6 +981,7 @@ def main(file_name):
             "x3dna-snap": "beta-r10-2017apr10"
         }
     }
+    print("YO I HERE")
     if ext == "cif":
         # Process mmCIF file if exists
         parser = MMCIFParser(QUIET=True)
@@ -990,7 +997,8 @@ def main(file_name):
         PDB = True
         mmcif_dict = None
     else:
-        log("No PDB/mmCIF file found.", pdbid)
+        print("No PDB/mmCIF file found.", pdbid)
+        return "No PDB/mmCIF file found."
     META_DATA["ensemble"] = ENSEMBLE and (N > 1)
     
     # Clean the assembly
@@ -1020,8 +1028,12 @@ def main(file_name):
     
     # Optionally repair with PDB2PQR
     if(PRE_PDB2PQR):
+        print("RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         runPDB2PQR(pdbid, assembly, META_DATA, N)
-    
+    else:
+        print("NOOOT RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+
     if(os.access('{}_cleaned.pdb'.format(pdbid), os.R_OK)):
         os.remove('{}_cleaned.pdb'.format(pdbid))
     
@@ -1096,7 +1108,7 @@ def main(file_name):
             })
             log("deleted model {}, no DNA entities detected.".format(i), pdbid, Exit=False)
     REGEXES.nucleotides = NUCLEOTIDES
-    if(args.debug_dna):
+    if(DEBUG_DNA):
         exit(0)
     
     # Write unprotonated structure to file
@@ -1130,44 +1142,56 @@ def main(file_name):
     MOUT = open("{}-meta.json".format(pdbid),'w')
     MOUT.write(json.dumps(META_DATA,indent=None,separators=(',', ':')))
     MOUT.close()
+    signal.alarm(0)
+    return True
+
 
 ########################################################################
 # Get arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("file_name",
-                help="PDB or mmCIF file of a protein-DNA complex structure.")
-parser.add_argument("-p", "--pdb2pqr", dest="pdb2pqr", action='store_true',
-                help="Process the structure with PDB2PQR.")
+# parser = argparse.ArgumentParser()
+# parser.add_argument("file_name",
+#                 help="PDB or mmCIF file of a protein-DNA complex structure.")
+# parser.add_argument("-p", "--pdb2pqr", dest="pdb2pqr", action='store_true',
+#                 help="Process the structure with PDB2PQR.")
 
-parser.add_argument("-D", "--DNA_debug", dest="debug_dna", action='store_true',
-                help="Exit after processing DNA (debug).")
+# parser.add_argument("-D", "--DNA_debug", dest="debug_dna", action='store_true',
+#                 help="Exit after processing DNA (debug).")
 
-group1 = parser.add_mutually_exclusive_group()
-group1.add_argument("-c", "--clean", dest="clean", action='store_true',
-                help="If -c|--clean is selected, attempt to protonate and add missing heavy atoms.")
-group1.add_argument("-C", "--no_clean", dest="clean", action='store_false',
-                help="If -C|--no_clean is selected, do not attempt to protonate and add missing heavy atoms.")
+# group1 = parser.add_mutually_exclusive_group()
+# group1.add_argument("-c", "--clean", dest="clean", action='store_true',
+#                 help="If -c|--clean is selected, attempt to protonate and add missing heavy atoms.")
+# group1.add_argument("-C", "--no_clean", dest="clean", action='store_false',
+#                 help="If -C|--no_clean is selected, do not attempt to protonate and add missing heavy atoms.")
 
-group2 = parser.add_mutually_exclusive_group()
-group2.add_argument("-e", "--ensemble", dest="ensemble", action='store_true',
-                help="Treat multiple MODEL entries as a statistical ensemble, if present.")
-group2.add_argument("-E", "--no_ensemble", dest="ensemble", action='store_false',
-                help="Ignore multiple MODEL entries, only process the first.")
+# group2 = parser.add_mutually_exclusive_group()
+# group2.add_argument("-e", "--ensemble", dest="ensemble", action='store_true',
+#                 help="Treat multiple MODEL entries as a statistical ensemble, if present.")
+# group2.add_argument("-E", "--no_ensemble", dest="ensemble", action='store_false',
+#                 help="Ignore multiple MODEL entries, only process the first.")
 
-group3 = parser.add_mutually_exclusive_group()
-group3.add_argument("-m", "--meta", dest="meta", action='store_true',
-                help="Process meta data from mmcif file.")
-group3.add_argument("-M", "--no_meta", dest="meta", action='store_false',
-                help="Do not attempt to process meta data from mmcif file.")
+# group3 = parser.add_mutually_exclusive_group()
+# group3.add_argument("-m", "--meta", dest="meta", action='store_true',
+#                 help="Process meta data from mmcif file.")
+# group3.add_argument("-M", "--no_meta", dest="meta", action='store_false',
+#                 help="Do not attempt to process meta data from mmcif file.")
 
-parser.set_defaults(clean=True, pdb2pqr=False, ensemble=True, meta=False, debug_dna=False)
-args = parser.parse_args()
+# parser.set_defaults(clean=True, pdb2pqr=False, ensemble=True, meta=False, debug_dna=False)
+# args = parser.parse_args()
 
-FILE_NAME = args.file_name
-CLEAN_STRUCTURE = args.clean
-PRE_PDB2PQR = args.pdb2pqr
-ENSEMBLE = args.ensemble
-ADD_MMCIF = args.meta
+# FILE_NAME = args.file_name
+# CLEAN_STRUCTURE = args.clean
+# PRE_PDB2PQR = args.pdb2pqr
+# ENSEMBLE = args.ensemble
+# ADD_MMCIF = args.meta
+# DEBUG_DNA = args.debug_dna
+
+
+FILE_NAME = ""
+CLEAN_STRUCTURE = True
+PRE_PDB2PQR = False
+ENSEMBLE = True
+ADD_MMCIF = False
+DEBUG_DNA = False
 
 # Load PDB Components dictionary
 with open(os.path.join(DATA_PATH,'components.json')) as FILE:
@@ -1180,7 +1204,4 @@ with open(os.path.join(DATA_PATH,'regexes.json')) as FILE:
 REGEXES = Regexes(regexes=r, components=COMPONENTS)
 
 if __name__ == '__main__':
-    signal.signal(signal.SIGALRM, timedOut)
-    signal.alarm(__TIMEOUT_LENGTH)
-    main(FILE_NAME)
-    signal.alarm(0)
+    main(sys.argv[1])

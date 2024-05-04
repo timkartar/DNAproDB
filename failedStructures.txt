@@ -1,0 +1,6 @@
+2xm3
+2xm3-DNA
+2xm3-noH
+2xm3-protein
+1a1p
+1AFS
