@@ -17,7 +17,7 @@ import json
 import shutil
 import glob
 
-UPLOAD_PATH = '/home/aricohen/Desktop/dnaprodb.usc.edu/htdocs/uploads'
+UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
     file_paths = []  # List to store file paths
@@ -106,7 +106,7 @@ def cleanupFiles():
             except OSError as e:
                 print(f"Error deleting {file}: {e}")
 
-def cleanupAndMove(pdbid, frontendFolder="/home/aricohen/Desktop/dnaprodb.usc.edu/htdocs/data"):
+def cleanupAndMove(pdbid, frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/data"):
     # List of files to delete
     cleanupFiles()
 
