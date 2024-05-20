@@ -106,26 +106,27 @@ def cleanupFiles():
             except OSError as e:
                 print(f"Error deleting {file}: {e}")
 
-def cleanupAndMove(pdbid, frontendFolder="/home/aricohen/Desktop/dnaprodb.usc.edu/htdocs/data"):
+def cleanupAndMove(pdbid, frontendFolder="/home/aricohen/Desktop/dnaprodb.usc.edu/htdocs/data", isUpload=True):
     # List of files to delete
     cleanupFiles()
 
-    # Move pdbid.pdb into mvLocation
-    mvLocation = os.path.join(frontendFolder, pdbid[-1])
-    pdb_file = f"{pdbid}.pdb"
+    if not isUpload:
+        # Move pdbid.pdb into mvLocation
+        mvLocation = os.path.join(frontendFolder, pdbid[-1])
+        pdb_file = f"{pdbid}.pdb"
 
-    # Ensure the directory exists
-    if not os.path.exists(mvLocation):
-        os.makedirs(mvLocation)
+        # Ensure the directory exists
+        if not os.path.exists(mvLocation):
+            os.makedirs(mvLocation)
 
-    # Move the file
-    try:
-        shutil.move(pdb_file, os.path.join(mvLocation, pdb_file))
-        print(f"Moved {pdb_file} to {mvLocation}")
-    except FileNotFoundError:
-        print(f"File {pdb_file} not found. Cannot move.")
-    except Exception as e:
-        print(f"Error moving {pdb_file}: {e}")
+        # Move the file
+        try:
+            shutil.move(pdb_file, os.path.join(mvLocation, pdb_file))
+            print(f"Moved {pdb_file} to {mvLocation}")
+        except FileNotFoundError:
+            print(f"File {pdb_file} not found. Cannot move.")
+        except Exception as e:
+            print(f"Error moving {pdb_file}: {e}")
 
     # Delete files starting with pdbid in the current directory
     for file in glob.glob(f"{pdbid}*"):
