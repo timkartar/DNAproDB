@@ -418,7 +418,7 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
             log('HBPLUS and x3dna-snap failed to run.', prefix)
     return list(HBONDS.values()), water_hbonds
 
-def getWaterHbonds(water_hbonds, REGEXES, HBONDS):
+def getWaterHbonds(water_hbonds, REGEXES, HBONDS, int_pairs):
     water_dict = {}
     for item in water_hbonds:
         cond = item[1]
@@ -483,8 +483,26 @@ def getWaterHbonds(water_hbonds, REGEXES, HBONDS):
             "nuc_moiety": grv,
             "res_moiety": mty
         })
-
-    return HBONDS
+        int_pair_whbonds = []
+        if key not in int_pairs.keys():
+            pair = {    
+            "res_id": res_id,
+            "res_name": d[1][2],
+            "res_number": d[1][1],
+            "res_chain": d[1][0],
+            "res_ins": d[1][3],
+            "nuc_id": nuc_id,
+            "nuc_name": d[0][2],
+            "nuc_number":  d[0][1],
+            "nuc_chain": d[0][0],
+            "nuc_ins": d[0][3],
+            "min_distance": d[0][5],
+            "mean_nn_distance": d[0][5],
+            "cm_distance": d[0][5]
+            }
+            int_pair_whbonds.append(pair)
+    
+    return HBONDS, int_pair_whbonds
 
 def splitEnsemble(prefix, N, REGEXES):
     """ Docstring """
@@ -586,8 +604,13 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
         
         # Get pair list
         int_pairs, nuc_list, res_list = getInteractingPairs(assembly[i], REGEXES)
+        
+        #print(nuc_list, res_list, json.dumps(int_pairs, indent=4))
+        #exit()
         if(len(int_pairs) == 0):
             log("No nucleotide-residue pairs meet the interaction cut-off threshold.", prefix)
+
+        
         interactions["nucleotide-residue_interactions"] = list(int_pairs.values())
         interface_ids = {
             "res_ids": res_list,
@@ -614,7 +637,8 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
         # Get Residue-Nucleotide interaction geometry
         GEO = getGeometry(c)
         interactions['geometry'] = GEO
-        HBONDS = getWaterHbonds(WHBONDS, REGEXES, HBONDS)
+        HBONDS, int_pairs_whbonds = getWaterHbonds(WHBONDS, REGEXES, HBONDS, int_pairs)
+        interactions["nucleotide-residue_interactions"] += int_pairs_whbonds
         OUT.append(interactions)
     
     # Write data to file
