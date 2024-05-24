@@ -64,8 +64,8 @@ class no_hydrogen(Select):
     def accept_chain(self,chain):
         return chain.get_id() in self.chain_list
     
-    def accept_residue(self, residue):
-        return residue.get_resname() != 'HOH'
+    #def accept_residue(self, residue):
+    #    return residue.get_resname() != 'HOH'
     
     def accept_atom(self, atom):
         return (not atom.is_disordered() and atom.element != 'H')
