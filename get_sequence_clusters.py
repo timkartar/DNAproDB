@@ -6,7 +6,7 @@ from get_current_pdb_ids import get_current_pdb_ids
 resources_link = "."
 CLUSTERS = ["30", "40", "50", "70", "90", "95", "100"]
 CLUSTER_MAP = {}
-PDB_DIR = "/home/aricohen/Desktop/dnaprodb/sequence/clusters/"
+PDB_DIR = "/srv/www/dnaprodb.usc.edu/DNAProDB/sequence/clusters/"
 
 
 def updateExistingDB():
