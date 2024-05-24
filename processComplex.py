@@ -461,6 +461,8 @@ def getWaterHbonds(water_hbonds, REGEXES, HBONDS, int_pairs):
             del water_dict[item]
     
     print(water_dict)
+    int_pair_whbonds = []
+
     for water in water_dict.keys():
         d = water_dict[water]
         water_id = getID(*water.split("_"))
@@ -483,7 +485,6 @@ def getWaterHbonds(water_hbonds, REGEXES, HBONDS, int_pairs):
             "nuc_moiety": grv,
             "res_moiety": mty
         })
-        int_pair_whbonds = []
         if key not in int_pairs.keys():
             pair = {    
             "res_id": res_id,
