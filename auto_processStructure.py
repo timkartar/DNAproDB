@@ -17,7 +17,7 @@ import json
 import shutil
 import glob
 
-UPLOAD_PATH = '/home/aricohen/Desktop/dnaprodb.usc.edu/htdocs/uploads'
+UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
     file_paths = []  # List to store file paths

@@ -10,6 +10,7 @@ from dnaprodb_utils import CHAIN_RE, RESN_RE, RESI_RE, ATOM_RE
 from dnaprodb_utils import residueMoiety
 from dnaprodb_utils import nucleotideMoiety
 from dnaprodb_utils import log, getHash, getID, getCM, C, roundFloats
+#from water_hbond import getWaterHbonds
 
 VDW_CUTOFF_DISTANCE = C["VDW_CUTOFF_DISTANCE"]
 INTERACTION_DISTANCE_CUTOFF = C["INTERACTION_DISTANCE_CUTOFF"]
@@ -41,6 +42,7 @@ def getMinDistance(nuc, res):
     return float(mindist), float(minNNDist)/count, float(np.linalg.norm(rCM-nCM))
 
 def getInteractingPairs(model, REGEXES):
+
     atoms = []
     for chain in model.get_list():
         for residue in chain.get_list():
@@ -264,6 +266,7 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
     rc = subprocess.call(['hbplus', '-h', '3.0', '-d', '3.5', '{}.pdb'.format(prefix), '{}.pdb'.format(prefix)], stdout=FNULL, stderr=FNULL)
     FNULL.close()
     HBONDS = {}
+    water_hbonds = []
     if(rc == 0 and os.access('{}.hb2'.format(prefix), os.R_OK) and method=="hbplus"):
         HB = open('{}.hb2'.format(prefix),'r').readlines()
         for i in range(8,len(HB)):
@@ -278,6 +281,21 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
             a_resn = HB[i][20:23].strip()
             a_atom = HB[i][23:27].strip()
             dist = float(HB[i][27:32].strip())
+            
+            items = {}
+            items["d_chain"] = d_chain
+            items["d_resi"] = d_resi
+            items["d_resn"] = d_resn
+            items["d_ins"] = d_ins
+            items["d_atom"] = d_atom
+            items["a_chain"] = a_chain
+            items["a_chain"] = a_chain
+            items["a_resi"] = a_resi
+            items["a_resn"] = a_resn
+            items["a_ins"] = a_ins
+            items["a_atom"] = a_atom
+            items["dist"] = dist
+
             if(REGEXES.isDNA(d_resn) and REGEXES.isProtein(a_resn)):
                 res_id = getID(a_chain, a_resi, a_ins)
                 nuc_id = getID(d_chain, d_resi, d_ins)
@@ -316,6 +334,12 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
                     "nuc_moiety": grv,
                     "res_moiety": mty
                 }
+            elif(d_resn == "HOH" and (REGEXES.isDNA(a_resn) or REGEXES.isProtein(a_resn))):
+                toappend = [items, "donor"] # water donates 
+                water_hbonds.append(toappend) 
+            elif(a_resn == "HOH" and (REGEXES.isDNA(d_resn) or REGEXES.isProtein(d_resn))):
+                toappend = [items, "acceptor"] # water accepts
+                water_hbonds.append(toappend) 
             else:
                 continue
         os.remove('{}.hb2'.format(prefix))
@@ -358,7 +382,7 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
                             "nuc_moiety": grv,
                             "res_moiety": mty
                         }
-                    elif(REGEXES.isDNA(m2.group(3)) and REGEXES.isProteins(m1.group(3))):
+                    elif(REGEXES.isDNA(m2.group(3)) and REGEXES.isProtein(m1.group(3))):
                         if(m2.group(5)):
                             nuc_id = getID(m2.group(2), m2.group(4), m2.group(5))
                         else:
@@ -392,7 +416,75 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
             os.remove('{}.hbond'.format(prefix))
         else:
             log('HBPLUS and x3dna-snap failed to run.', prefix)
-    return list(HBONDS.values())
+    return list(HBONDS.values()), water_hbonds
+
+def getWaterHbonds(water_hbonds, REGEXES, HBONDS):
+    water_dict = {}
+    for item in water_hbonds:
+        cond = item[1]
+        if cond == "acceptor":
+            key = "{}_{}_{}".format(item[0]['a_chain'],item[0]['a_resi'],item[0]['a_ins'])
+            if key not in water_dict.keys():
+                water_dict[key] = [None, None]
+            d_resn = item[0]['d_resn']
+            if(REGEXES.isDNA(d_resn)):
+                idx = 0
+            elif(REGEXES.isProtein(d_resn)):
+                idx = 1
+            water_dict[key][idx]  = [item[0]['d_chain'],
+                    item[0]['d_resi'],
+                    item[0]['d_resn'],
+                    item[0]['d_ins'],
+                    item[0]['d_atom'],
+                    item[0]['dist'],
+                    "donor"]
+
+        if cond == "donor":
+            key = "{}_{}_{}".format(item[0]['d_chain'],item[0]['d_resi'],item[0]['d_ins'])
+            if key not in water_dict.keys():
+                water_dict[key] = [None, None]
+            a_resn = item[0]['a_resn']
+            if(REGEXES.isDNA(a_resn)):
+                idx = 0
+            elif(REGEXES.isProtein(a_resn)):
+                idx = 1
+            water_dict[key][idx]  = [item[0]['a_chain'],
+                    item[0]['a_resi'],
+                    item[0]['a_resn'],
+                    item[0]['a_ins'],
+                    item[0]['a_atom'],
+                    item[0]['dist'],
+                    "acceptor"] 
+    waters = list(water_dict.keys())
+    for item in waters:
+        if None in water_dict[item]:
+            del water_dict[item]
+    
+    print(water_dict)
+    for water in water_dict.keys():
+        d = water_dict[water]
+        water_id = getID(*water.split("_"))
+        res_id = getID(d[1][0], d[1][1], d[1][3])
+        nuc_id = getID(d[0][0], d[0][1], d[0][3])
+        grv = nucleotideMoiety(d[0][4], nuc_id, REGEXES)
+        mty = residueMoiety(d[1][4], d[1][2], REGEXES)
+        key = getHash(nuc_id, d[0][4], res_id, d[1][4])
+        #if(key in HBONDS and HBONDS[key]['distance'] <= d[0][5]):
+        #    continue
+        HBONDS.append({
+            "nuc_atom": d[0][4],
+            "nuc_name": d[0][2],
+            "res_atom": d[1][4],
+            "res_name": d[1][2],
+            "distance": d[0][5], ## DNA to water
+            "distance_WA": d[1][5], ## water to Amino acid
+            "nuc_id": nuc_id,
+            "res_id": res_id,
+            "nuc_moiety": grv,
+            "res_moiety": mty
+        })
+
+    return HBONDS
 
 def splitEnsemble(prefix, N, REGEXES):
     """ Docstring """
@@ -491,6 +583,7 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
             "nucleotide-residue_interactions": None
         }
         
+        
         # Get pair list
         int_pairs, nuc_list, res_list = getInteractingPairs(assembly[i], REGEXES)
         if(len(int_pairs) == 0):
@@ -513,15 +606,15 @@ def process(prefix, N, COMPONENTS, assembly, DSSP, DATA_PATH, REGEXES, NUCLEOTID
         interactions['basa'] = getBASA.basa(assembly[i], COMPONENTS, REGEXES, DATA_PATH, NUCLEOTIDES[i], IDS, interface_ids, dssp=DSSP[i])
         
         # Get Hydrogen Bonds and VdW contacts
-        HBONDS = calculateHBONDS(h, DATA_PATH, REGEXES)
+        HBONDS, WHBONDS  = calculateHBONDS(h, DATA_PATH, REGEXES)
         VDW = getVDW(assembly[i], nuc_list, res_list, HBONDS, REGEXES)
         interactions['hbond'] = HBONDS
         interactions['vdw'] = VDW
-        
+        #interactions['whbonds'] = WHBONDS
         # Get Residue-Nucleotide interaction geometry
         GEO = getGeometry(c)
         interactions['geometry'] = GEO
-        
+        HBONDS = getWaterHbonds(WHBONDS, REGEXES, HBONDS)
         OUT.append(interactions)
     
     # Write data to file
