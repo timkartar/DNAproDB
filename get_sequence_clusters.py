@@ -2,12 +2,29 @@ import os
 import json
 from pymongo import MongoClient, UpdateOne
 from get_current_pdb_ids import get_current_pdb_ids
+import requests
 
 resources_link = "."
 CLUSTERS = ["30", "40", "50", "70", "90", "95", "100"]
 CLUSTER_MAP = {}
 PDB_DIR = "/home/aricohen/Desktop/dnaprodb/sequence/clusters/"
 
+def downloadClusters():
+    if not os.path.exists(PDB_DIR):
+        os.makedirs(PDB_DIR)
+
+    for cluster in CLUSTERS:
+        url = f"https://cdn.rcsb.org/resources/sequence/clusters/clusters-by-entity-{cluster}.txt"
+        local_filename = os.path.join(PDB_DIR, f"clusters-by-entity-{cluster}.txt")
+
+        response = requests.get(url, stream=True)
+        if response.status_code == 200:
+            with open(local_filename, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
+            print(f"Downloaded {local_filename}")
+        else:
+            print(f"Failed to download {url}, status code: {response.status_code}")
 
 def updateExistingDB():
     connection_string = "mongodb://localhost:27017/"
@@ -103,6 +120,7 @@ def createUpdateFile(curUpdates, cluster):
             FH.write("{}\n".format(json.dumps(item)))
 
 def main():
+    downloadClusters()
     for cluster in CLUSTERS:
         with open('{}/clusters-by-entity-{}.txt'.format(PDB_DIR, cluster), 'r') as FH:
             index = 1
