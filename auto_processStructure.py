@@ -83,6 +83,7 @@ def autoProcessStructure(pdbid, type=".pdb", fpath=None, mPRE_PDB2PQR=False, isU
             # check if JSON contains error key
 
             try:
+                shutil.copy(json_path, os.path.join(UPLOAD_PATH, json_path)) ## also keep json
                 add_structure_db(json_path)
             except Exception as e:
                 writeFailedStructure(pdbid)
