@@ -24,3 +24,5 @@ k0nON0edXKa633Z: Curves 5.3 failed to produce output!
 k0nON0edXKa633Z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
 K04BHfIlLp8WlQc: Curves 5.3 failed to produce output!
 K04BHfIlLp8WlQc-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+1bss: removed incomplete residue TYR (A.18. )
+1bss: removed incomplete residue TYR (B.12. )

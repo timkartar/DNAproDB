@@ -6689,3 +6689,1969 @@ WARNING: atom H3'1 from DCT will be treated as hydrogen
 WARNING: atom H2'' from DCT will be treated as hydrogen
 WARNING: atom H2'' from DCT will be treated as hydrogen
 WARNING: atom H2'' from DCT will be treated as hydrogen
+2024-05-28 15:57:55,620 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpy/T: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpy/T
+2024-05-28 15:57:55,620 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpy/1: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpy/1
+2024-05-28 15:57:55,665 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpy/None: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpy/None
+2024-05-28 15:57:55,667 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpy/P: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpy/P
+2024-05-28 15:57:55,726 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpy/None: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpy/None
+2024-05-28 15:57:55,811 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpy/1: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpy/1
+2024-05-28 15:57:56,625 - INFO - Document with structure_id 1bpy has been updated.
+False
+Structure ID: 1bpy
+BioPython Version: 1.83
+YO I HERE
+NOOOT RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+RNASCAPE run SUCCESS !!
+Number of DNA entities: 1
+Helix score: 0.8666666666666666
+Helix score: 0.9696969696969696
+other
+PAIR_MAP
+{'T.1. ': 'D.5. ', 'T.2. ': 'D.4. ', 'T.3. ': 'D.3. ', 'T.4. ': 'D.2. ', 'T.5. ': 'D.1. ', 'T.6. ': 'A.338. ', 'T.7. ': 'P.10. ', 'T.8. ': 'P.9. ', 'T.9. ': 'P.8. ', 'T.10. ': 'P.7. ', 'T.11. ': 'P.6. ', 'T.12. ': 'P.5. ', 'T.13. ': 'P.4. ', 'T.14. ': 'P.3. ', 'T.15. ': 'P.2. ', 'T.16. ': 'P.1. ', 'P.1. ': 'T.16. ', 'P.2. ': 'T.15. ', 'P.3. ': 'T.14. ', 'P.4. ': 'T.13. ', 'P.5. ': 'T.12. ', 'P.6. ': 'T.11. ', 'P.7. ': 'T.10. ', 'P.8. ': 'T.9. ', 'P.9. ': 'T.8. ', 'P.10. ': 'T.7. ', 'D.1. ': 'T.5. ', 'D.2. ': 'T.4. ', 'D.3. ': 'T.3. ', 'D.4. ': 'T.2. ', 'D.5. ': 'T.1. ', 'A.338. ': 'T.6. '}
+pair tuples
+[(0, 20), (1, 19), (2, 18), (3, 17), (4, 16), (5, 31), (6, 30), (7, 29), (8, 28), (9, 27), (10, 26), (11, 25), (12, 24), (13, 23), (14, 22), (15, 21), (16, 4), (17, 3), (18, 2), (19, 1), (20, 0), (21, 15), (22, 14), (23, 13), (24, 12), (25, 11), (26, 10), (27, 9), (28, 8), (29, 7), (30, 6), (31, 5)]
+PairObject
+[(0, 20), (1, 19), (2, 18), (3, 17), (4, 16), (5, 31), (6, 30), (7, 29), (8, 28), (9, 27), (10, 26), (11, 25), (12, 24), (13, 23), (14, 22), (15, 21), (16, 4), (17, 3), (18, 2), (19, 1), (20, 0), (21, 15), (22, 14), (23, 13), (24, 12), (25, 11), (26, 10), (27, 9), (28, 8), (29, 7), (30, 6), (31, 5)]
+eout[strands]
+[{'ids': ['T.1. ', 'T.2. ', 'T.3. ', 'T.4. ', 'T.5. ', 'T.6. ', 'T.7. ', 'T.8. ', 'T.9. ', 'T.10. ', 'T.11. ', 'T.12. ', 'T.13. ', 'T.14. ', 'T.15. ', 'T.16. '], 'sequence': 'CCGACGGCGCATCAGC', 'length': 16, 'chain_id': 'T', 'strand_id': 'T1', '5p_end': 'T.16. ', '3p_end': 'T.1. ', 'GC_content': 0.75, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': False}}, {'ids': ['P.1. ', 'P.2. ', 'P.3. ', 'P.4. ', 'P.5. ', 'P.6. ', 'P.7. ', 'P.8. ', 'P.9. ', 'P.10. '], 'sequence': 'GCTGATGCGX', 'length': 10, 'chain_id': 'P', 'strand_id': 'P1', '5p_end': 'P.10. ', '3p_end': 'P.1. ', 'GC_content': 0.6, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': True}}, {'ids': ['D.1. ', 'D.2. ', 'D.3. ', 'D.4. ', 'D.5. '], 'sequence': 'GTCGG', 'length': 5, 'chain_id': 'D', 'strand_id': 'D1', '5p_end': 'D.5. ', '3p_end': 'D.1. ', 'GC_content': 0.8, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': False}}, {'ids': ['A.338. '], 'sequence': 'X', 'length': 1, 'chain_id': 'A', 'strand_id': 'A1', '5p_end': 'A.338. ', '3p_end': 'A.338. '}]
+Length of ordered_ids
+32
+ordered_ids
+['T.1. ', 'T.2. ', 'T.3. ', 'T.4. ', 'T.5. ', 'T.6. ', 'T.7. ', 'T.8. ', 'T.9. ', 'T.10. ', 'T.11. ', 'T.12. ', 'T.13. ', 'T.14. ', 'T.15. ', 'T.16. ', 'D.1. ', 'D.2. ', 'D.3. ', 'D.4. ', 'D.5. ', 'P.1. ', 'P.2. ', 'P.3. ', 'P.4. ', 'P.5. ', 'P.6. ', 'P.7. ', 'P.8. ', 'P.9. ', 'P.10. ', 'A.338. ']
+eout["visualization"]["dbn"]
+.....(((((((((((.....)))))))))))
+{'T_589_ ': [['T', '6', 'DG', ' ', 'OP2', 2.5, 'acceptor'], ['A', '280', 'LYS', ' ', 'NZ', 3.06, 'donor']], 'T_708_ ': [['T', '7', 'DG', ' ', 'OP1', 2.65, 'acceptor'], ['A', '293', 'ILE', ' ', 'O', 3.29, 'acceptor']], 'T_700_ ': [['T', '8', 'DC', ' ', 'O2', 3.19, 'acceptor'], ['A', '295', 'GLU', ' ', 'OE2', 3.22, 'acceptor']], 'A_570_ ': [['T', '7', 'DG', ' ', 'N3', 3.25, 'acceptor'], ['A', '295', 'GLU', ' ', 'OE1', 2.29, 'acceptor']], 'T_610_ ': [['T', '10', 'DC', ' ', 'O2', 3.46, 'acceptor'], ['A', '229', 'SER', ' ', 'OG', 3.11, 'donor']], 'T_517_ ': [['T', '10', 'DC', ' ', 'OP2', 2.73, 'acceptor'], ['A', '232', 'GLU', ' ', 'N', 2.78, 'donor']], 'T_540_ ': [['T', '11', 'DA', ' ', "O4'", 3.15, 'acceptor'], ['A', '229', 'SER', ' ', 'OG', 3.48, 'donor']], 'T_641_ ': [['T', '12', 'DT', ' ', 'OP1', 2.92, 'acceptor'], ['A', '135', 'HIS', ' ', 'N', 3.03, 'donor']], 'A_515_ ': [['T', '12', 'DT', ' ', 'OP1', 2.78, 'acceptor'], ['A', '134', 'HIS', ' ', 'N', 2.76, 'donor']], 'A_533_ ': [['P', '7', 'DG', ' ', 'OP1', 3.01, 'acceptor'], ['A', '109', 'SER', ' ', 'OG', 2.95, 'donor']], 'P_751_ ': [['P', '9', 'DG', ' ', 'OP1', 2.76, 'acceptor'], ['A', '104', 'SER', ' ', 'OG', 3.31, 'donor']], 'P_697_ ': [['P', '9', 'DG', ' ', 'OP2', 3.32, 'acceptor'], ['A', '27', 'LYS', ' ', 'NZ', 3.46, 'donor']], 'A_592_ ': [['P', '9', 'DG', ' ', "O3'", 3.06, 'acceptor'], ['A', '135', 'HIS', ' ', 'NE2', 3.19, 'donor']], 'A_820_ ': [['P', '10', 'DOC', ' ', "O4'", 2.73, 'acceptor'], ['A', '234', 'LYS', ' ', 'NZ', 2.42, 'donor']], 'D_590_ ': [['D', '1', 'DG', ' ', "O3'", 3.27, 'donor'], ['A', '39', 'TYR', ' ', 'OH', 2.79, 'donor']], 'D_680_ ': [['D', '1', 'DG', ' ', 'OP2', 2.29, 'acceptor'], ['A', '72', 'LYS', ' ', 'NZ', 3.31, 'donor']], 'A_730_ ': [['D', '2', 'DT', ' ', "O4'", 3.11, 'acceptor'], ['A', '41', 'LYS', ' ', 'NZ', 2.52, 'donor']], 'A_545_ ': [['A', '338', 'DCT', ' ', 'O3G', 2.88, 'acceptor'], ['A', '149', 'ARG', ' ', 'NH1', 2.53, 'donor']], 'A_645_ ': [['A', '338', 'DCT', ' ', 'O2G', 2.51, 'acceptor'], ['A', '149', 'ARG', ' ', 'NH2', 3.2, 'donor']], 'A_530_ ': [['A', '338', 'DCT', ' ', 'O1G', 2.88, 'acceptor'], ['A', '192', 'ASP', ' ', 'OD2', 2.71, 'acceptor']], 'A_609_ ': [['A', '338', 'DCT', ' ', 'O3G', 2.87, 'acceptor'], ['A', '190', 'ASP', ' ', 'OD2', 2.92, 'acceptor']], 'A_546_ ': [['A', '338', 'DCT', ' ', 'O1B', 2.67, 'acceptor'], ['A', '276', 'ASP', ' ', 'N', 2.92, 'donor']]}
+Updated document with structure_id 1bpy.
+Document with structure_id 1bpy has been updated.
+1bpy-noH.pdb
+Moved 1bpy-noH.pdb to /home/raktim/dnaprodb.usc.edu/htdocs/data/y
+Deleted 1bpy.cif.1
+Deleted 1bpy-DNA.json
+Deleted 1bpy-protein.json
+Deleted 1bpy-DNA_entity_0.lis
+Deleted 1bpy-meta.json
+Deleted 1bpy.cif
+Deleted 1bpy-DNA_entity_0.crv
+Deleted 1bpy-interactions.json
+Deleted 1bpy-protein.pdb
+Deleted 1bpy.json
+Deleted 1bpy.cif.2
+Deleted 1bpy-DNA.pdb
+Deleted 1bpy-DNA-dssr.json
+Deleted 1bpy.pdb
+-------------------- RUNNING 1bpz ----------------------
+--2024-05-28 15:57:58--  https://files.rcsb.org/download/1bpz.cif
+Resolving files.rcsb.org (files.rcsb.org)... 132.249.213.241
+Connecting to files.rcsb.org (files.rcsb.org)|132.249.213.241|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/octet-stream]
+Saving to: ‘1bpz.cif’
+
+     0K .......... .......... .......... .......... .......... 6.99M
+    50K .......... .......... .......... .......... .......... 13.9M
+   100K .......... .......... .......... .......... ..........  264M
+   150K .......... .......... .......... .......... ..........  112M
+   200K .......... .......... .......... .......... .......... 16.4M
+   250K .......... .......... .......... .......... ..........  120M
+   300K .......... .......... .......... .......... ..........  113M
+   350K .......... .......... .......... .......... ..........  107M
+   400K ..                                                      115M=0.02s
+
+2024-05-28 15:57:58 (25.5 MB/s) - ‘1bpz.cif’ saved [412109]
+
+
+......Processing structure #1: <1bpz-DNA_entity_0.inp>......
+[i] missing ' P  ' atom : residue name ' DC', chain T, number [   1 ]
+[i] missing ' OP1' atom : residue name ' DC', chain T, number [   1 ]
+[i] missing ' OP2' atom : residue name ' DC', chain T, number [   1 ]
+[i] missing ' P  ' atom : residue name ' DC', chain T, number [   1 ]
+[i] missing ' P  ' atom : residue name ' DG', chain P, number [   1 ]
+
+Time used: 00:00:00:00
+
+......Processing structure #1: <1bpz-DNA_entity_0.inp>......
+[i] missing ' P  ' atom : residue name ' DG', chain P, number [   1 ]
+[i] missing ' OP1' atom : residue name ' DG', chain P, number [   1 ]
+[i] missing ' OP2' atom : residue name ' DG', chain P, number [   1 ]
+[i] missing ' P  ' atom : residue name ' DC', chain T, number [   1 ]
+[i] missing ' P  ' atom : residue name ' DG', chain P, number [   1 ]
+
+Time used: 00:00:00:00
+WARNING: atom NA from  NA will be treated as sodium
+WARNING: atom NA from  NA will be treated as sodium
+2024-05-28 15:59:26,318 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpz/1: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpz/1
+2024-05-28 15:59:26,319 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpz/T: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpz/T
+2024-05-28 15:59:26,365 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpz/None: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpz/None
+2024-05-28 15:59:26,366 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpz/P: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1bpz/P
+2024-05-28 15:59:26,423 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1bpz/None: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1bpz/None
+2024-05-28 15:59:27,297 - INFO - Document with structure_id 1bpz has been updated.
+False
+Structure ID: 1bpz
+BioPython Version: 1.83
+YO I HERE
+NOOOT RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+RNASCAPE run SUCCESS !!
+Number of DNA entities: 1
+Helix score: 0.8666666666666666
+Helix score: 0.8787878787878789
+other
+PAIR_MAP
+{'T.1. ': 'D.5. ', 'T.2. ': 'D.4. ', 'T.3. ': 'D.3. ', 'T.4. ': 'D.2. ', 'T.5. ': 'D.1. ', 'T.6. ': 'P.11. ', 'T.7. ': 'P.10. ', 'T.8. ': 'P.9. ', 'T.9. ': 'P.8. ', 'T.10. ': 'P.7. ', 'T.11. ': 'P.6. ', 'T.12. ': 'P.5. ', 'T.13. ': 'P.4. ', 'T.14. ': 'P.3. ', 'T.15. ': 'P.2. ', 'T.16. ': 'P.1. ', 'P.1. ': 'T.16. ', 'P.2. ': 'T.15. ', 'P.3. ': 'T.14. ', 'P.4. ': 'T.13. ', 'P.5. ': 'T.12. ', 'P.6. ': 'T.11. ', 'P.7. ': 'T.10. ', 'P.8. ': 'T.9. ', 'P.9. ': 'T.8. ', 'P.10. ': 'T.7. ', 'P.11. ': 'T.6. ', 'D.1. ': 'T.5. ', 'D.2. ': 'T.4. ', 'D.3. ': 'T.3. ', 'D.4. ': 'T.2. ', 'D.5. ': 'T.1. '}
+pair tuples
+[(0, 20), (1, 19), (2, 18), (3, 17), (4, 16), (5, 31), (6, 30), (7, 29), (8, 28), (9, 27), (10, 26), (11, 25), (12, 24), (13, 23), (14, 22), (15, 21), (16, 4), (17, 3), (18, 2), (19, 1), (20, 0), (21, 15), (22, 14), (23, 13), (24, 12), (25, 11), (26, 10), (27, 9), (28, 8), (29, 7), (30, 6), (31, 5)]
+PairObject
+[(0, 20), (1, 19), (2, 18), (3, 17), (4, 16), (5, 31), (6, 30), (7, 29), (8, 28), (9, 27), (10, 26), (11, 25), (12, 24), (13, 23), (14, 22), (15, 21), (16, 4), (17, 3), (18, 2), (19, 1), (20, 0), (21, 15), (22, 14), (23, 13), (24, 12), (25, 11), (26, 10), (27, 9), (28, 8), (29, 7), (30, 6), (31, 5)]
+eout[strands]
+[{'ids': ['T.1. ', 'T.2. ', 'T.3. ', 'T.4. ', 'T.5. ', 'T.6. ', 'T.7. ', 'T.8. ', 'T.9. ', 'T.10. ', 'T.11. ', 'T.12. ', 'T.13. ', 'T.14. ', 'T.15. ', 'T.16. '], 'sequence': 'CCGACCACGCATCAGC', 'length': 16, 'chain_id': 'T', 'strand_id': 'T1', '5p_end': 'T.16. ', '3p_end': 'T.1. ', 'GC_content': 0.6875, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': False}}, {'ids': ['P.1. ', 'P.2. ', 'P.3. ', 'P.4. ', 'P.5. ', 'P.6. ', 'P.7. ', 'P.8. ', 'P.9. ', 'P.10. ', 'P.11. '], 'sequence': 'GCTGATGCGTG', 'length': 11, 'chain_id': 'P', 'strand_id': 'P1', '5p_end': 'P.11. ', '3p_end': 'P.1. ', 'GC_content': 0.6363636363636364, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': False}}, {'ids': ['D.1. ', 'D.2. ', 'D.3. ', 'D.4. ', 'D.5. '], 'sequence': 'GTCGG', 'length': 5, 'chain_id': 'D', 'strand_id': 'D1', '5p_end': 'D.5. ', '3p_end': 'D.1. ', 'GC_content': 0.8, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': False}}]
+Length of ordered_ids
+32
+ordered_ids
+['T.1. ', 'T.2. ', 'T.3. ', 'T.4. ', 'T.5. ', 'T.6. ', 'T.7. ', 'T.8. ', 'T.9. ', 'T.10. ', 'T.11. ', 'T.12. ', 'T.13. ', 'T.14. ', 'T.15. ', 'T.16. ', 'D.1. ', 'D.2. ', 'D.3. ', 'D.4. ', 'D.5. ', 'P.1. ', 'P.2. ', 'P.3. ', 'P.4. ', 'P.5. ', 'P.6. ', 'P.7. ', 'P.8. ', 'P.9. ', 'P.10. ', 'P.11. ']
+eout["visualization"]["dbn"]
+.....(((((((((((.....)))))))))))
+{'A_511_ ': [['T', '6', 'DC', ' ', 'OP1', 2.98, 'acceptor'], ['A', '37', 'ASN', ' ', 'OD1', 3.32, 'acceptor']], 'T_519_ ': [['T', '8', 'DC', ' ', 'OP1', 2.55, 'acceptor'], ['A', '296', 'TYR', ' ', 'OH', 3.0, 'acceptor']], 'A_501_ ': [['T', '12', 'DT', ' ', 'OP1', 2.91, 'acceptor'], ['A', '135', 'HIS', ' ', 'N', 2.66, 'donor']], 'A_500_ ': [['P', '9', 'DG', ' ', 'OP1', 2.92, 'acceptor'], ['A', '103', 'VAL', ' ', 'O', 3.44, 'acceptor']], 'A_517_ ': [['P', '11', 'DG', ' ', 'OP1', 3.21, 'acceptor'], ['A', '192', 'ASP', ' ', 'OD2', 3.01, 'acceptor']], 'A_502_ ': [['D', '3', 'DC', ' ', 'OP1', 3.07, 'acceptor'], ['A', '62', 'LEU', ' ', 'O', 2.29, 'acceptor']]}
+Updated document with structure_id 1bpz.
+Document with structure_id 1bpz has been updated.
+1bpz-noH.pdb
+Moved 1bpz-noH.pdb to /home/raktim/dnaprodb.usc.edu/htdocs/data/z
+Deleted 1bpz.cif
+Deleted 1bpz.pdb
+Deleted 1bpz-protein.pdb
+Deleted 1bpz-DNA-dssr.json
+Deleted 1bpz-meta.json
+Deleted 1bpz-protein.json
+Deleted 1bpz.json
+Deleted 1bpz-DNA.pdb
+Deleted 1bpz-interactions.json
+Deleted 1bpz-DNA.json
+-------------------- RUNNING 1brn ----------------------
+--2024-05-28 15:59:28--  https://files.rcsb.org/download/1brn.cif
+Resolving files.rcsb.org (files.rcsb.org)... 132.249.213.241
+Connecting to files.rcsb.org (files.rcsb.org)|132.249.213.241|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/octet-stream]
+Saving to: ‘1brn.cif’
+
+     0K .......... .......... .......... .......... .......... 6.95M
+    50K .......... .......... .......... .......... .......... 15.5M
+   100K .......... .......... .......... .......... .......... 15.1M
+   150K .......... .......... .......... .......... .......... 15.1M
+   200K .......... .......... .......... .......... ..........  104M
+   250K .......... .                                            279M=0.02s
+
+2024-05-28 15:59:30 (14.9 MB/s) - ‘1brn.cif’ saved [267393]
+
+2024-05-28 15:59:39,855 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1brn/L: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/polymer_entity_instance/1brn/L
+2024-05-28 15:59:39,902 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1brn/None: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1brn/None
+2024-05-28 15:59:39,940 - ERROR - Failed to fetch data from https://data.rcsb.org/rest/v1/core/uniprot/1brn/1: 404 Client Error:  for url: https://data.rcsb.org/rest/v1/core/uniprot/1brn/1
+False
+Structure ID: 1brn
+BioPython Version: 1.83
+YO I HERE
+NOOOT RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+RNASCAPE run SUCCESS !!
+Number of DNA entities: 1
+('ssDNA', 1.0)
+PAIR_MAP
+{'A.2. ': None, 'A.3. ': None, 'A.4. ': None}
+pair tuples
+[(0, None), (1, None), (2, None)]
+PairObject
+[(0, None), (1, None), (2, None)]
+eout[strands]
+[{'ids': ['A.2. ', 'A.3. ', 'A.4. '], 'sequence': 'GAC', 'length': 3, 'chain_id': 'A', 'strand_id': 'A1', '5p_end': 'A.4. ', '3p_end': 'A.2. ', 'GC_content': 0.6666666666666666, 'interacts_with_protein': False, 'chemical_modifications': {'5_methylated_cytosine': False, 'non-standard_nucleotides': False}}]
+Length of ordered_ids
+3
+ordered_ids
+['A.2. ', 'A.3. ', 'A.4. ']
+eout["visualization"]["dbn"]
+...
+{'L_214_ ': [['A', '2', 'DG', ' ', 'OP2', 3.24, 'acceptor'], ['L', '59', 'ARG', ' ', 'NH2', 2.91, 'donor']], 'L_176_ ': [['A', '2', 'DG', ' ', 'N7', 3.5, 'acceptor'], ['L', '57', 'SER', ' ', 'OG', 2.71, 'acceptor']], 'L_137_ ': [['A', '2', 'DG', ' ', 'N2', 3.03, 'donor'], ['L', '104', 'GLN', ' ', 'OE1', 3.04, 'acceptor']], 'A_107_ ': [['A', '3', 'DA', ' ', "O3'", 2.78, 'acceptor'], ['L', '83', 'ARG', ' ', 'O', 3.0, 'acceptor']], 'L_169_ ': [['A', '3', 'DA', ' ', 'N1', 2.92, 'acceptor'], ['L', '104', 'GLN', ' ', 'OE1', 3.32, 'acceptor']], 'A_19_ ': [['A', '4', 'DC', ' ', 'OP1', 2.58, 'acceptor'], ['L', '37', 'ALA', ' ', 'O', 2.92, 'acceptor']]}
+Updated document with structure_id 1brn.
+Document with structure_id 1brn has been updated.
+1brn-noH.pdb
+Moved 1brn-noH.pdb to /home/raktim/dnaprodb.usc.edu/htdocs/data/n
+Deleted 1brn-DNA.json
+Deleted 1brn.json
+Deleted 1brn-meta.json
+Deleted 1brn.cif
+Deleted 1brn-DNA.pdb
+Deleted 1brn-interactions.json
+Deleted 1brn-protein.json
+Deleted 1brn-protein.pdb
+Deleted 1brn-DNA-dssr.json
+Deleted 1brn.pdb
+-------------------- RUNNING 1bss ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1bss
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1bss.cif'
+-------------------- RUNNING 1bsu ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1bsu
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1bsu.cif'
+-------------------- RUNNING 1bua ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1bua
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1bua.cif'
+-------------------- RUNNING 1bvo ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1bvo
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1bvo.cif'
+-------------------- RUNNING 1by4 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1by4
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1by4.cif'
+-------------------- RUNNING 1c0w ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1c0w
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1c0w.cif'
+-------------------- RUNNING 1c7u ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1c7u
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1c7u.cif'
+-------------------- RUNNING 1c7y ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1c7y
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1c7y.cif'
+-------------------- RUNNING 1c8c ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1c8c
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1c8c.cif'
+-------------------- RUNNING 1ca5 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ca5
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ca5.cif'
+-------------------- RUNNING 1ca6 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ca6
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ca6.cif'
+-------------------- RUNNING 1cbv ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cbv
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cbv.cif'
+-------------------- RUNNING 1cdw ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cdw
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cdw.cif'
+-------------------- RUNNING 1cez ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cez
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cez.cif'
+-------------------- RUNNING 1cf7 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cf7
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cf7.cif'
+-------------------- RUNNING 1cgp ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cgp
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cgp.cif'
+-------------------- RUNNING 1cit ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cit
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cit.cif'
+-------------------- RUNNING 1cjg ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cjg
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cjg.cif'
+-------------------- RUNNING 1ckq ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ckq
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ckq.cif'
+-------------------- RUNNING 1ckt ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ckt
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ckt.cif'
+-------------------- RUNNING 1cl8 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cl8
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cl8.cif'
+-------------------- RUNNING 1clq ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1clq
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1clq.cif'
+-------------------- RUNNING 1cma ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cma
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cma.cif'
+-------------------- RUNNING 1co0 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1co0
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1co0.cif'
+-------------------- RUNNING 1cqt ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cqt
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cqt.cif'
+-------------------- RUNNING 1crx ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1crx
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1crx.cif'
+-------------------- RUNNING 1cw0 ----------------------
+python: can't open file 'auto_processStructure.py': [Errno 2] No such file or directory
+-------------------- RUNNING 1cyq ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cyq
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cyq.cif'
+-------------------- RUNNING 1cz0 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1cz0
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1cz0.cif'
+-------------------- RUNNING 1d02 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d02
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d02.cif'
+-------------------- RUNNING 1d0e ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d0e
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d0e.cif'
+-------------------- RUNNING 1d1u ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d1u
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d1u.cif'
+-------------------- RUNNING 1d2i ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d2i
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d2i.cif'
+-------------------- RUNNING 1d3u ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d3u
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d3u.cif'
+-------------------- RUNNING 1d5y ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d5y
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d5y.cif'
+-------------------- RUNNING 1d66 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d66
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d66.cif'
+-------------------- RUNNING 1d8y ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1d8y
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1d8y.cif'
+-------------------- RUNNING 1dc1 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dc1
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dc1.cif'
+-------------------- RUNNING 1dct ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dct
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dct.cif'
+-------------------- RUNNING 1ddn ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ddn
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ddn.cif'
+-------------------- RUNNING 1de8 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1de8
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1de8.cif'
+-------------------- RUNNING 1de9 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1de9
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1de9.cif'
+-------------------- RUNNING 1dew ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dew
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dew.cif'
+-------------------- RUNNING 1dfm ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dfm
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dfm.cif'
+-------------------- RUNNING 1dgc ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dgc
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dgc.cif'
+-------------------- RUNNING 1dh3 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dh3
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dh3.cif'
+-------------------- RUNNING 1diz ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1diz
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1diz.cif'
+-------------------- RUNNING 1dmu ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dmu
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dmu.cif'
+-------------------- RUNNING 1dnk ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dnk
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dnk.cif'
+-------------------- RUNNING 1dp7 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dp7
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dp7.cif'
+-------------------- RUNNING 1drg ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1drg
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1drg.cif'
+-------------------- RUNNING 1dsc ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dsc
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dsc.cif'
+-------------------- RUNNING 1dsd ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dsd
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dsd.cif'
+-------------------- RUNNING 1dsz ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dsz
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dsz.cif'
+-------------------- RUNNING 1du0 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1du0
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1du0.cif'
+-------------------- RUNNING 1dux ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1dux
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1dux.cif'
+-------------------- RUNNING 1e3m ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1e3m
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1e3m.cif'
+-------------------- RUNNING 1e3o ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1e3o
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1e3o.cif'
+-------------------- RUNNING 1e7j ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1e7j
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1e7j.cif'
+-------------------- RUNNING 1ea4 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ea4
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ea4.cif'
+-------------------- RUNNING 1ebm ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ebm
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ebm.cif'
+-------------------- RUNNING 1ecr ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ecr
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ecr.cif'
+-------------------- RUNNING 1efa ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1efa
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1efa.cif'
+-------------------- RUNNING 1egw ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1egw
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1egw.cif'
+-------------------- RUNNING 1ehl ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ehl
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ehl.cif'
+-------------------- RUNNING 1ej9 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ej9
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ej9.cif'
+-------------------- RUNNING 1emh ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1emh
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1emh.cif'
+-------------------- RUNNING 1emj ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1emj
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1emj.cif'
+-------------------- RUNNING 1eo3 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eo3
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eo3.cif'
+-------------------- RUNNING 1eo4 ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eo4
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eo4.cif'
+-------------------- RUNNING 1eon ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eon
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eon.cif'
+-------------------- RUNNING 1eoo ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eoo
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eoo.cif'
+-------------------- RUNNING 1eop ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eop
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eop.cif'
+-------------------- RUNNING 1eqz ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eqz
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eqz.cif'
+-------------------- RUNNING 1eri ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1eri
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1eri.cif'
+-------------------- RUNNING 1esg ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1esg
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1esg.cif'
+-------------------- RUNNING 1evw ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1evw
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1evw.cif'
+-------------------- RUNNING 1ewn ----------------------
+PDB2PQR
+0
+False
+Structure ID: 1ewn
+BioPython Version: 1.83
+YO I HERE
+Traceback (most recent call last):
+  File "auto_processStructure.py", line 172, in <module>
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+  File "auto_processStructure.py", line 64, in autoProcessStructure
+    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+  File "/home/raktim/DNAProDBmay24/processStructure.py", line 988, in main
+    asymmetric_unit = parser.get_structure(pdbid, file_name)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIFParser.py", line 73, in get_structure
+    self._mmcif_dict = MMCIF2Dict(filename)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/PDB/MMCIF2Dict.py", line 26, in __init__
+    with as_handle(filename) as handle:
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/contextlib.py", line 113, in __enter__
+    return next(self.gen)
+  File "/home/raktim/anaconda3/envs/dnaprodb/lib/python3.8/site-packages/Bio/File.py", line 72, in as_handle
+    with open(handleish, mode, **kwargs) as fp:
+FileNotFoundError: [Errno 2] No such file or directory: '1ewn.cif'
+-------------------- RUNNING 1ewq ----------------------
