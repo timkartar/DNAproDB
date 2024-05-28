@@ -1,0 +1,26 @@
+1jgg-DNA_entity_0.out: analyze failed to run.
+1jgg-DNA_entity_0.out: analyze failed to run.
+1jgg: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
+1jgg-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+1jgg: Curves 5.3 failed to produce output!
+1jgg-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+CfyClBtKM6wU6pR: Curves 5.3 failed to produce output!
+CfyClBtKM6wU6pR-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+OGpu1wPgnC2z8WH: Curves 5.3 failed to produce output!
+OGpu1wPgnC2z8WH-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+Nk4JSKqRNYrCvKU-DNA_entity_0.out: analyze failed to run.
+3RUpVTS2yVaGC1s-DNA_entity_0.out: analyze failed to run.
+ReugXOEBmJk5maH: Curves 5.3 failed to produce output!
+ReugXOEBmJk5maH-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+hV1ecD5ZqDRuFFb-DNA_entity_0.out: analyze failed to run.
+R4AhOmliJOdRZtZ: Curves 5.3 failed to produce output!
+R4AhOmliJOdRZtZ-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+k0nON0edXKa633Z: Curves 5.3 failed to produce output!
+k0nON0edXKa633Z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+K04BHfIlLp8WlQc: Curves 5.3 failed to produce output!
+K04BHfIlLp8WlQc-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
