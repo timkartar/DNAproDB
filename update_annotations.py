@@ -175,4 +175,5 @@ def update_single_annotation(pdb_id):
     update_annotation(pdb_id, client)
 
 if __name__ == "__main__":
-    update_all_annotations()
+    import sys
+    update_single_annotation(sys.argv[1])

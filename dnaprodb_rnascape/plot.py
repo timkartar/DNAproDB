@@ -465,8 +465,8 @@ def Plot(points, markers, ids, chids, dssrids, dssrout, prefix="", rotation=Fals
 
     plt.tight_layout()
     plt.gca().set_aspect('equal')
-    plt.savefig('{}/{}/{}{}{}.png'.format(MEDIA_PATH,FIG_PATH,prefix,time_string, int(extra['counter'])))
-    plt.savefig('{}/{}/{}{}{}.svg'.format(MEDIA_PATH,FIG_PATH,prefix,time_string, int(extra['counter'])))
+    #plt.savefig('{}/{}/{}{}{}.png'.format(MEDIA_PATH,FIG_PATH,prefix,time_string, int(extra['counter'])))
+    #plt.savefig('{}/{}/{}{}{}.svg'.format(MEDIA_PATH,FIG_PATH,prefix,time_string, int(extra['counter'])))
 
 
     plt.close()

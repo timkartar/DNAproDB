@@ -481,6 +481,7 @@ def getWaterHbonds(water_hbonds, REGEXES, HBONDS, int_pairs):
             "res_name": d[1][2],
             "distance": d[0][5], ## DNA to water
             "distance_WA": d[1][5], ## water to Amino acid
+            "water_id": water_id,
             "nuc_id": nuc_id,
             "res_id": res_id,
             "nuc_moiety": grv,

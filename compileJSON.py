@@ -671,8 +671,10 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
                 continue
             if("distance_WA" not in hb.keys()):
                 distance_WA = "NA"
+                water_id = "NA"
             else:
                 distance_WA = hb["distance_WA"]
+                water_id = hb["water_id"]
             
             nr_id = getHash(hb["nuc_id"], hb["res_id"])
             int_id = getHash(pro_entity_lookup[mi][hb["res_id"]], dna_entity_lookup[mi][hb["nuc_id"]])
@@ -686,8 +688,8 @@ def comp(pdbid, N, assembly, PRO_DATA, DSSP, DNA_DATA, INT_DATA, REGEXES, NUCLEO
                             "nuc_atom": hb["nuc_atom"],
                             "nuc_moiety": hb["nuc_moiety"],
                             "res_moiety": hb["res_moiety"],
-                            "distance_WA": distance_WA
-
+                            "distance_WA": distance_WA,
+                            "water_id": water_id
                         }
                     )
         
