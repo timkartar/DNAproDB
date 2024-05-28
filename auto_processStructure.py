@@ -17,8 +17,8 @@ import json
 import shutil
 import glob
 
-UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
-#UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
+#UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
+UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
     file_paths = []  # List to store file paths
@@ -108,7 +108,7 @@ def cleanupFiles():
             except OSError as e:
                 print(f"Error deleting {file}: {e}")
 
-def cleanupAndMove(pdbid, frontendFolder="/home/aricohen/Desktop/dnaprodb.usc.edu/htdocs/data", isUpload=True):
+def cleanupAndMove(pdbid, frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/data", isUpload=True):
     # List of files to delete
     cleanupFiles()
 
@@ -162,16 +162,12 @@ def bulkAutoProcessStructures():
 if __name__ == '__main__':
     # NOTE: FIGURE OUT TITLE LATER!!
     pdbid = sys.argv[1][:-4]
-    import subprocess
-    subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(sys.argv[1])])
+    # import subprocess
+    # subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(sys.argv[1])])
     file_type = sys.argv[1][-4:]
     print("PDB2PQR")
     print(sys.argv[2])
     mPRE_PDB2PQR = bool(int(sys.argv[2]))
     print(mPRE_PDB2PQR)
-    try:
-        autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
-    except Exception as e:
-        print("Failed")
-    finally:
-        cleanupAndMove(pdbid, frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/data/", isUpload=False)
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+    cleanupAndMove(pdbid, frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads", isUpload=True)
