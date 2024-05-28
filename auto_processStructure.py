@@ -127,7 +127,15 @@ def cleanupAndMove(pdbid, frontendFolder="/home/aricohen/Desktop/dnaprodb.usc.ed
             print(f"File {pdb_file} not found. Cannot move.")
         except Exception as e:
             print(f"Error moving {pdb_file}: {e}")
-
+        finally:
+            # Delete files starting with pdbid in the current directory
+            for file in glob.glob(f"{pdbid}*"):
+                try:
+                    os.remove(file)
+                    print(f"Deleted {file}")
+                except OSError as e:
+                    print(f"Error deleting {file}: {e}")
+    
     # Delete files starting with pdbid in the current directory
     for file in glob.glob(f"{pdbid}*"):
         try:
@@ -152,7 +160,13 @@ if __name__ == '__main__':
     # NOTE: FIGURE OUT TITLE LATER!!
     pdbid = sys.argv[1][:-4]
     file_type = sys.argv[1][-4:]
+    print("PDB2PQR")
+    print(sys.argv[2])
     mPRE_PDB2PQR = bool(int(sys.argv[2]))
     print(mPRE_PDB2PQR)
-    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
-    cleanupAndMove(pdbid)
+    try:
+        autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+    except Exception as e:
+        print("Failed")
+    finally:
+        cleanupAndMove(pdbid)
