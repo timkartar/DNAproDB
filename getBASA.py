@@ -650,7 +650,7 @@ def getComplexBASA(model, classifier, REGEXES, NUCLEOTIDES, IDS, INT_IDS, dssp=N
     # Remove indirect interactions (i.e. where one or both have no non-overlapping BASA components
     deleteList = []
     for key in INT:
-        if(INT[key]['res_basa']['total'] <= 0 or INT[key]['nuc_basa']['total'] <= 0):
+        if(INT[key]['res_basa']['total'] == None or INT[key]['res_basa']['total'] <= 0 or INT[key]['nuc_basa']['total'] <= 0):
             deleteList.append(key)
     for key in deleteList:
         del INT[key]
