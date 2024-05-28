@@ -15,7 +15,7 @@ from forgi._k2n_standalone.knots import inc_length
 from forgi._k2n_standalone.rna2d import Pairs
 from dnaprodb_utils import log, getHash, getID, C
 from dnaprodb_utils import ATOM_RE
-from rnascape.rnascape_dnaprodb import rnascape
+from dnaprodb_rnascape.rnascape import rnascape
 
 import numpy as np
 from sklearn import linear_model
@@ -1718,10 +1718,19 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
     # Run DSSR and load the output json
     DSSR = runDSSR(prefix, N, quiet)
     #ARI COMMENT OUT
-    # rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, structure, DSSR,
-    #     cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =
-    #     'x3dna-dssr')
-    # rnascape_nts = [convertId(item) for item in dssrids]
+    
+    '''
+    try:
+        rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, structure, DSSR,
+            cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =
+            'x3dna-dssr')
+        rnascape_nts = [convertId(item) for item in dssrids]
+        RNASCAPE=True
+        print("RNASCAPE run SUCCESS !!")
+    except Exception as e:
+        RNASCAPE=False
+        print("RNASCAPE could not run", e)
+    '''
     # print(rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix)
     # Array to store DNA data. Each entry is a dict which contains a 
     # list of entities, where each entity describes some assembly of 
@@ -1737,6 +1746,17 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
         else:
             data = DSSR
         
+        try:
+            rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, model,
+                    data, cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =
+                'x3dna-dssr')
+            rnascape_nts = [convertId(item) for item in dssrids]
+            RNASCAPE=True
+            print("RNASCAPE run SUCCESS !!")
+        except Exception as e:
+            RNASCAPE=False
+            print("RNASCAPE could not run", e)
+   
         # Add nucleotides
         nuc_list = []
         nuc_dict = {}
@@ -2140,35 +2160,61 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
             #print(eout['nucleotides'], rnascape_nts)
             
             ### use RNAscape coordinates ###
-            # xs = []
-            # ys = []
-            # for item in eout['nucleotides']:
-            #    xs.append(-1*rnascape_coords[rnascape_nts.index(item),0])
-            #    ys.append(-1*rnascape_coords[rnascape_nts.index(item),1])
-            
+            if RNASCAPE:
+                rnascape_xs = []
+                rnascape_ys = []
+                for item in eout['nucleotides']:
+                    rnascape_xs.append(-1*rnascape_coords[rnascape_nts.index(item),1]) ## SWITCH X AND Y
+                    rnascape_ys.append(-1*rnascape_coords[rnascape_nts.index(item),0])
+                rnascape_xs -= np.mean(rnascape_xs)
+                rnascape_ys -= np.mean(rnascape_ys)
+                scale = max(abs(np.max(rnascape_xs)), abs(np.max(rnascape_ys)),
+                        abs(np.min(rnascape_xs)), abs(np.min(rnascape_ys)))
+                rnascape_xs /= scale
+                rnascape_ys /= scale
+
             xs -= np.mean(xs)
             ys -= np.mean(ys)
             
+
             scale = max(abs(np.max(xs)), abs(np.max(ys)), abs(np.min(xs)), abs(np.min(ys)))
             xs /= scale
             ys /= scale
-
-            plt.scatter(xs, ys)
-            plt.show()
+            #plt.scatter(xs, ys)
+            #plt.show()
             i = 0
             link_dist = []
+            rnascape_link_dist = []
             for j in range(len(eout["nucleotides"])):
                 nid = eout["nucleotides"][j] #strand["ids"][j]
+                if RNASCAPE:
+                    nuc_dict[nid]["graph_coordinates"]["rnascape"] = {'x':None, 'y':None}
+                    nuc_dict[nid]["graph_coordinates"]["rnascape"]['x'] = rnascape_xs[i]
+                    nuc_dict[nid]["graph_coordinates"]["rnascape"]['y'] = rnascape_ys[i]
+                else:
+                    nuc_dict[nid]["graph_coordinates"]["rnascape"] = False
                 nuc_dict[nid]["graph_coordinates"]["radial"]["x"] = xs[i]
                 nuc_dict[nid]["graph_coordinates"]["radial"]["y"] = ys[i]
                 if(j+1 < len(eout["nucleotides"]) and strand_dict[nid]["strand_id"] == strand_dict[eout["nucleotides"][j+1]]["strand_id"]):
                     link_dist.append(np.sqrt((xs[i+1]-xs[i])**2 + (ys[i+1]-ys[i])**2))
+                
+                if RNASCAPE:
+                    if(j+1 < len(eout["nucleotides"]) and strand_dict[nid]["strand_id"] == strand_dict[eout["nucleotides"][j+1]]["strand_id"]):
+                        rnascape_link_dist.append(np.sqrt((rnascape_xs[i+1]-rnascape_xs[i])**2 +
+                            (rnascape_ys[i+1]-rnascape_ys[i])**2))
                 i += 1
+
             if(len(link_dist) > 0):
                 eout["visualization"]["radial"]["link_distance"] = np.mean(link_dist)
             else:
                 eout["visualization"]["radial"]["link_distance"] = None
             
+            if RNASCAPE:
+                eout["visualization"]["rnascape"] = {"link_distance":None}
+                if(len(link_dist) > 0):
+                    eout["visualization"]["rnascape"]["link_distance"] = np.mean(rnascape_link_dist)
+            
+
             # Add circular layout coordinates
             dl = 1.0
             Rmin = 4.0

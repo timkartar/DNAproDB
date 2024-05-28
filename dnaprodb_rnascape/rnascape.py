@@ -5,8 +5,8 @@ import re, os, sys
 import numpy as np
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-from get_helix_coords import get_helix_coords, process_resid
-from plot import Plot
+from .get_helix_coords import get_helix_coords, process_resid
+#from plot import Plot
 from math import cos, sin
 import re 
 from sklearn.neighbors import KDTree
@@ -381,32 +381,34 @@ cond_bulging: True = attempt to condense non-base-pairing nucleotides. False = a
 prefix: everything before .cif or .pdb in the file
 cif_file: cif or pdb file path
 """
-def rnascape(prefix, cif_file, json_file, cond_bulging=True, mDSSR_PATH='', mFIG_PATH='' ):
-    DSSR_PATH = mDSSR_PATH
+def rnascape(prefix, structure, dssr, cond_bulging=True, mDSSR_PATH='', mFIG_PATH='' ):
+    #DSSR_PATH = mDSSR_PATH
     FIG_PATH = mFIG_PATH
     global tree, dssrout, conditional_bulging, Model
+    dssrout=dssr
     conditional_bulging = cond_bulging
     #prefix = sys.argv[1]
     #if os.path.exists("{}/{}.png".format(FIG_PATH, prefix)):
     #    sys.exit()
 
     # support both CIF and PDB files
-    if cif_file.endswith(".cif"):
-        parser = MMCIFParser()
-    elif cif_file.endswith(".pdb"):
-        parser = PDBParser()
+    #if cif_file.endswith(".cif"):
+    #    parser = MMCIFParser()
+    #elif cif_file.endswith(".pdb"):
+    #    parser = PDBParser()
     #model = parser.get_structure(prefix,"./vn/{}-assembly1.cif".format(prefix))[0]
-    model = parser.get_structure(prefix,cif_file)[0]
+    #model = parser.get_structure(prefix,cif_file)[0]
+    model=structure #[0]
     Model = model
     
     figpath=''
 
-    with open(json_file,"r") as f:
-        dssrout = json.load(f)
+    #with open(json_file,"r") as f:
+    #    dssrout = json.load(f)
 
     helices = get_helix_coords(dssrout, model)
     if helices == None:
-        from get_helix_coords import get_cetroid
+        from .get_helix_coords import get_cetroid
         coords = []
         markers = []
         ids = []

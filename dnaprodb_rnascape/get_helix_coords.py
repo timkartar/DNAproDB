@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
-bp_width = 3
+bp_width = 2.5
 TIGHT_HELIX_THRES=0.5
 def get_cetroid(res):
     atoms = []

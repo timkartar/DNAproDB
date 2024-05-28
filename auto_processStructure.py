@@ -17,7 +17,8 @@ import json
 import shutil
 import glob
 
-UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
+UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
+#UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
     file_paths = []  # List to store file paths
@@ -69,12 +70,12 @@ def autoProcessStructure(pdbid, type=".pdb", fpath=None, mPRE_PDB2PQR=False, isU
 
             with open(json_path, 'r') as json_file:
                 data = json.load(json_file)
-
+                
                 if 'error' in data:
                    writeFailedStructure(pdbid)
 
                 # just move the JSON and PDB files back to uploads, do NOT add to database
-                if isUpload:
+                if isUpload:    
                     shutil.move(json_path, os.path.join(UPLOAD_PATH, json_path))
                     shutil.move(pdb_path, os.path.join(UPLOAD_PATH, pdb_path))
                     return
@@ -113,15 +114,16 @@ def cleanupAndMove(pdbid, frontendFolder="/home/aricohen/Desktop/dnaprodb.usc.ed
     if not isUpload:
         # Move pdbid.pdb into mvLocation
         mvLocation = os.path.join(frontendFolder, pdbid[-1])
-        pdb_file = f"{pdbid}.pdb"
+        pdb_file = f"{pdbid}-noH.pdb"
 
         # Ensure the directory exists
         if not os.path.exists(mvLocation):
             os.makedirs(mvLocation)
-
+            os.system('chmod -R 777 {}'.format(mvLocation))
         # Move the file
         try:
-            shutil.move(pdb_file, os.path.join(mvLocation, pdb_file))
+            print(pdb_file)
+            shutil.move(pdb_file, os.path.join(mvLocation, pdb_file.replace("-noH","")))
             print(f"Moved {pdb_file} to {mvLocation}")
         except FileNotFoundError:
             print(f"File {pdb_file} not found. Cannot move.")
@@ -151,8 +153,10 @@ def bulkAutoProcessStructures():
 if __name__ == '__main__':
     # NOTE: FIGURE OUT TITLE LATER!!
     pdbid = sys.argv[1][:-4]
+    import subprocess
+    subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(sys.argv[1])])
     file_type = sys.argv[1][-4:]
     mPRE_PDB2PQR = bool(int(sys.argv[2]))
     print(mPRE_PDB2PQR)
-    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
-    cleanupAndMove(pdbid)
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+    cleanupAndMove(pdbid, frontendFolder="/home/raktim/dnaprodb.usc.edu/htdocs/data/", isUpload=False)
