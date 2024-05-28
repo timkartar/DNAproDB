@@ -1,0 +1,73 @@
+-------------------- RUNNING 10mh ----------------------
+--2024-05-28 13:46:35--  https://files.rcsb.org/download/10mh.cif
+Resolving files.rcsb.org (files.rcsb.org)... 132.249.213.193
+Connecting to files.rcsb.org (files.rcsb.org)|132.249.213.193|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/octet-stream]
+Saving to: ‘10mh.cif’
+
+     0K .......... .......... .......... .......... .......... 7.12M
+    50K .......... .......... .......... .......... .......... 15.4M
+   100K .......... .......... .......... .......... ..........  250M
+   150K .......... .......... .......... .......... ..........  110M
+   200K .......... .......... .......... .......... .......... 18.3M
+   250K .......... .......... .......... .......... ..........  116M
+   300K .......... .......... .......... .......... ..........  105M
+   350K .......... .......... .......... .......... ..........  125M
+   400K ........                                                102M=0.01s
+
+2024-05-28 13:46:35 (27.1 MB/s) - ‘10mh.cif’ saved [418310]
+
+
+......Processing structure #1: <10mh-DNA_entity_0.inp>......
+This structure has broken O3'[i] to P[i+1] linkages
+[i] uncommon residue 5CM  407  on chain B [#6] assigned to: c
+[i] uncommon residue 5CM  407  on chain B [#6] assigned to: c
+[i] uncommon residue 5NC  427  on chain C [#18] assigned to: c
+[i] missing ' C5 ' atom in base ring atoms
+
+Time used: 00:00:00:00
+WARNING: atom H2'' from 5CM will be treated as hydrogen
+WARNING: atom H2'' from 5CM will be treated as hydrogen
+WARNING: atom H2'' from 5CM will be treated as hydrogen
+WARNING: atom HN41 from 5CM will be treated as hydrogen
+WARNING: atom HN41 from 5CM will be treated as hydrogen
+WARNING: atom HN42 from 5CM will be treated as hydrogen
+WARNING: atom HN42 from 5CM will be treated as hydrogen
+WARNING: atom HN41 from 5CM will be treated as hydrogen
+WARNING: atom HN42 from 5CM will be treated as hydrogen
+WARNING: atom HN42 from 5CM will be treated as hydrogen
+WARNING: atom HN41 from 5CM will be treated as hydrogen
+WARNING: atom H2'' from 5CM will be treated as hydrogen
+WARNING: atom H2'' from 5CM will be treated as hydrogen
+WARNING: atom H2'' from 5CM will be treated as hydrogen
+WARNING: atom H2'' from 5NC will be treated as hydrogen
+WARNING: atom H1'1 from 5NC will be treated as hydrogen
+WARNING: atom H1'1 from 5NC will be treated as hydrogen
+WARNING: atom H2'' from 5NC will be treated as hydrogen
+WARNING: atom H2'' from 5NC will be treated as hydrogen
+WARNING: atom HN41 from 5NC will be treated as hydrogen
+WARNING: atom HN41 from 5NC will be treated as hydrogen
+WARNING: atom HN42 from 5NC will be treated as hydrogen
+WARNING: atom HN42 from 5NC will be treated as hydrogen
+WARNING: atom HN41 from 5NC will be treated as hydrogen
+WARNING: atom HN42 from 5NC will be treated as hydrogen
+WARNING: atom HN42 from 5NC will be treated as hydrogen
+WARNING: atom HN41 from 5NC will be treated as hydrogen
+WARNING: atom H2'' from 5NC will be treated as hydrogen
+WARNING: atom H2'' from 5NC will be treated as hydrogen
+WARNING: atom H1'1 from 5NC will be treated as hydrogen
+WARNING: atom H1'1 from 5NC will be treated as hydrogen
+WARNING: atom H2'' from 5NC will be treated as hydrogen
+*WARNING*: Residues TYR 327  and SAH 328  in chain  A appear unbonded 
+            and will be treated as a chain break
+*WARNING*: Residues TYR 327  and SAH 328  in chain  A appear unbonded 
+            and will be treated as a chain break
+WARNING: atom HN61 from SAH will be treated as hydrogen
+WARNING: atom HN61 from SAH will be treated as hydrogen
+WARNING: atom HN62 from SAH will be treated as hydrogen
+WARNING: atom HN62 from SAH will be treated as hydrogen
+WARNING: atom HN61 from SAH will be treated as hydrogen
+WARNING: atom HN62 from SAH will be treated as hydrogen
+WARNING: atom HN62 from SAH will be treated as hydrogen
+WARNING: atom HN61 from SAH will be treated as hydrogen

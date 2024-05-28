@@ -1,4 +1,6 @@
 #!/bin/bash
+
+##command to run ./production.sh 2>&1 | tee -a production_log.txt
 while read p;
 do
         if grep -q $p don.txt;then
