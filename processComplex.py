@@ -342,8 +342,9 @@ def calculateHBONDS(prefix, DATA_PATH, REGEXES, method="hbplus"):
                 water_hbonds.append(toappend) 
             else:
                 continue
-        os.remove('{}.hb2'.format(prefix))
+        # os.remove('{}.hb2'.format(prefix))
     else:
+        print("HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.")
         log('HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.', prefix, Exit=False)
         rc = subprocess.call(['x3dna-snap', '-input={}.pdb'.format(prefix), '-output={}.hbond'.format(prefix), '--get-hbonds'])
         dataRe = re.compile('^({})@({}).({})({})(?:\^([A-Z]))?$'.format(ATOM_RE,CHAIN_RE,RESN_RE,RESI_RE))
