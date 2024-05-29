@@ -555,7 +555,8 @@ def cleanAssembly(pdbid, assembly, filter_chains, META, N):
         
         # Remove overlapping chains if any
         if(C.order() > 0):
-             for S in nx.connected_component_subgraphs(C):
+             C_subgraphs = list(C.subgraph(c) for c in nx.connected_components(C))
+             for S in C_subgraphs:
                 _disconnectGraph(S, assembly[i], 0.5, REMOVED, level='C', lengths=chain_count)
         # Remove already removed nodes from G
         for r in REMOVED:
