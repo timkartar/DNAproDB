@@ -17,7 +17,8 @@ import json
 import shutil
 import glob
 
-UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
+#UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
+UPLOAD_PATH = '/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/uploads'
 #UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
@@ -84,11 +85,11 @@ def autoProcessStructure(pdbid, type=".pdb", fpath=None, mPRE_PDB2PQR=False, isU
 
             try:
                 shutil.copy(json_path, os.path.join(UPLOAD_PATH, json_path)) ## also keep json
-                add_structure_db(json_path)
+                #add_structure_db(json_path)
             except Exception as e:
                 writeFailedStructure(pdbid)
             
-            update_single_annotation(pdbid)
+            #update_single_annotation(pdbid)
         else:
             print("JSON file does not exist for", pdbid)
             writeFailedStructure(pdbid)
@@ -171,5 +172,5 @@ if __name__ == '__main__':
     print(mPRE_PDB2PQR)
     autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
     cleanupAndMove(pdbid,
-            frontendFolder="/home/raktim/dnaprodb.usc.edu/htdocs/data/",
+            frontendFolder="/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/data/",
             isUpload=False)

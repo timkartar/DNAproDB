@@ -335,6 +335,7 @@ def _disconnectGraph(G, model, threshold, removed, level="R", lengths=None):
                 _disconnectGraph(G, model, threshold, removed, level=level, lengths=lengths)
             else:
                 node = o[2]
+                G = nx.Graph(G) ## guard against frozen graph error
                 G.remove_node(node)
                 chain = model[node]
                 for residue in chain:
@@ -801,8 +802,8 @@ def buildAssemblies(pdbid, asymmetric_unit, mmcif_dict, META):
         for instruction in assembly_instructions.values():
             for i in range(len(instruction['op_chains'])):
                 chain_ids = []
-                for asym_id in instruction['op_chains'][i]:
-                    if(not chain_map[asym_id] in chain_ids):
+                for asym_id in instruction['op_chains'][i]: #guard against chain_map key error
+                    if(asym_id in chain_map.keys() and (not chain_map[asym_id] in chain_ids)):
                         chain_ids.append(chain_map[asym_id])
                 instruction['op_chains'][i] = chain_ids
         
@@ -982,7 +983,6 @@ def main(file_name, mPRE_PDB2PQR=False):
             "x3dna-snap": "beta-r10-2017apr10"
         }
     }
-    print("YO I HERE")
     if ext == "cif":
         # Process mmCIF file if exists
         parser = MMCIFParser(QUIET=True)
@@ -1004,6 +1004,7 @@ def main(file_name, mPRE_PDB2PQR=False):
     
     # Clean the assembly
     if(CLEAN_STRUCTURE):
+        print("YO I HERE")
         cleanAssembly(pdbid, assembly, filter_chains, META_DATA, N)
     elif(not PDB):
         io = PDBIO()

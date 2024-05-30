@@ -2329,6 +2329,8 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
     
     # Write data to file
     JOUT = open("{}.json".format(prefix),"w")
+    ## Fix nodeview serialization error
+    OUT_DATA[0]['ignored_entities'] = [str(i) for i in OUT_DATA[0]['ignored_entities']]
     JOUT.write(json.dumps(OUT_DATA,indent=None,separators=(',', ':'),sort_keys=True))
     JOUT.close()
     
