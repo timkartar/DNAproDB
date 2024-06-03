@@ -18,7 +18,8 @@ import shutil
 import glob
 
 #UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
-UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
+UPLOAD_PATH = '/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/uploads'
+#UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
     file_paths = []  # List to store file paths
@@ -84,11 +85,11 @@ def autoProcessStructure(pdbid, type=".pdb", fpath=None, mPRE_PDB2PQR=False, isU
 
             try:
                 shutil.copy(json_path, os.path.join(UPLOAD_PATH, json_path)) ## also keep json
-                add_structure_db(json_path)
+                #add_structure_db(json_path)
             except Exception as e:
                 writeFailedStructure(pdbid)
             
-            update_single_annotation(pdbid)
+            #update_single_annotation(pdbid)
         else:
             print("JSON file does not exist for", pdbid)
             writeFailedStructure(pdbid)
@@ -162,12 +163,14 @@ def bulkAutoProcessStructures():
 if __name__ == '__main__':
     # NOTE: FIGURE OUT TITLE LATER!!
     pdbid = sys.argv[1][:-4]
-    # import subprocess
-    # subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(sys.argv[1])])
+    import subprocess
+    subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(sys.argv[1])])
     file_type = sys.argv[1][-4:]
     print("PDB2PQR")
     print(sys.argv[2])
     mPRE_PDB2PQR = bool(int(sys.argv[2]))
     print(mPRE_PDB2PQR)
-    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
-    cleanupAndMove(pdbid, frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads", isUpload=True)
+    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+    cleanupAndMove(pdbid,
+            frontendFolder="/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/data/",
+            isUpload=False)

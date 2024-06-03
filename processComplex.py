@@ -487,6 +487,8 @@ def getWaterHbonds(water_hbonds, REGEXES, HBONDS, int_pairs):
             "nuc_moiety": grv,
             "res_moiety": mty
         })
+       
+        key = nuc_id + "@" + res_id
         if key not in int_pairs.keys():
             pair = {    
             "res_id": res_id,

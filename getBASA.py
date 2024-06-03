@@ -63,6 +63,8 @@ class GeneralClassifier(freesasa.Classifier):
             # Standard Residue
             if(aName in self.radii[rName]):
                 return self.radii[rName][aName]
+            elif self.getElement(rName, atomName) == "H": ## fix H key error
+                return 0.53
             else:
                 return self.radii['element'][self.getElement(rName, atomName)]
         elif(rName in self.components):
@@ -70,6 +72,8 @@ class GeneralClassifier(freesasa.Classifier):
             parent = self.components[rName]['_chem_comp.mon_nstd_parent_comp_id']
             if(parent in self.radii and aName in self.radii[parent]):
                 return self.radii[parent][aName]
+            elif self.getElement(rName, atomName) == "H": ## Fix H key error
+                return 0.53
             else:
                 return self.radii['element'][self.getElement(rName, atomName)]
         else:
@@ -650,7 +654,7 @@ def getComplexBASA(model, classifier, REGEXES, NUCLEOTIDES, IDS, INT_IDS, dssp=N
     # Remove indirect interactions (i.e. where one or both have no non-overlapping BASA components
     deleteList = []
     for key in INT:
-        if(INT[key]['res_basa']['total'] <= 0 or INT[key]['nuc_basa']['total'] <= 0):
+        if(INT[key]['res_basa']['total'] == None or INT[key]['res_basa']['total'] <= 0 or INT[key]['nuc_basa']['total'] <= 0):
             deleteList.append(key)
     for key in deleteList:
         del INT[key]
