@@ -24,3 +24,45 @@ k0nON0edXKa633Z: Curves 5.3 failed to produce output!
 k0nON0edXKa633Z-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
 K04BHfIlLp8WlQc: Curves 5.3 failed to produce output!
 K04BHfIlLp8WlQc-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+FYOw0t7cpctBAzE: Curves 5.3 failed to produce output!
+FYOw0t7cpctBAzE-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+43cSnosg7HrBeQW: Curves 5.3 failed to produce output!
+43cSnosg7HrBeQW-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+HY8wR18b4iN601f: Curves 5.3 failed to produce output!
+HY8wR18b4iN601f-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+FdZztYo2fBXkwj0: Curves 5.3 failed to produce output!
+FdZztYo2fBXkwj0-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+95Ijn08dhI52iKn: Curves 5.3 failed to produce output!
+95Ijn08dhI52iKn-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+Og87lH8ldOqPcNR: Curves 5.3 failed to produce output!
+Og87lH8ldOqPcNR-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+aUOcbdJtJL8zYew: Curves 5.3 failed to produce output!
+aUOcbdJtJL8zYew-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+SbNsWCqyLbUnpis: Curves 5.3 failed to produce output!
+SbNsWCqyLbUnpis-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+SbNsWCqyLbUnpis: Curves 5.3 failed to produce output!
+SbNsWCqyLbUnpis-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+bCkZSBinyTjwT0l: Curves 5.3 failed to produce output!
+bCkZSBinyTjwT0l-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+7ftn: removed unknown residue FMT (A.603. )
+7ftn: removed unknown residue MLI (A.602. )
+7ftn: Curves 5.3 failed to produce output!
+7ftn-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+7fvs: removed unknown residue 61I (B.1504. )
+7fvs: removed unknown residue ACT (B.1503. )
+7fvs: removed incomplete residue DT (D.20. )
+7fvs: Curves 5.3 failed to produce output!
+B9iyvFwifLsG9Ie: Curves 5.3 failed to produce output!
+B9iyvFwifLsG9Ie-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+2mCwh3RMb0TCeYX: Curves 5.3 failed to produce output!
+2mCwh3RMb0TCeYX-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+UkJlf7k3uqFKZMN: Curves 5.3 failed to produce output!
+UkJlf7k3uqFKZMN-noH: HBPLUS failed to run or produce output. Attempting x3dna-snap for hydrogen bonds.
+HJGOCY8E1R4lu2n: Curves 5.3 failed to produce output!
+jtSCkzB0QQuBcJ4: Curves 5.3 failed to produce output!
+2r5z: Curves 5.3 failed to produce output!
+5jN5YzUZi16FkE4: Curves 5.3 failed to produce output!
+LfQiyUPIClAKIxY: Curves 5.3 failed to produce output!
+gdccuVNwzszjppT: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
+1jgg: Curves 5.3 failed to produce output!
