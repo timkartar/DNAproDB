@@ -5,8 +5,8 @@ def getJasparLogo(uniprot):
         spl = item.split("\t")
         mapd[spl[0]] = spl[1]
     if uniprot in mapd.keys():
-        return "/JASPAR/logos/{}.svg".format(mapd[uniprot])
+        return "/JASPAR/logos/{}.svg".format(mapd[uniprot]), mapd[uniprot]
     else:
-        return False
+        return False, "?"
 if __name__=="__main__":
     print(getJasparLogo('P17676'))

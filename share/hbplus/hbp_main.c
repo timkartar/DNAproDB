@@ -93,32 +93,32 @@
                    throw out CYS.ss SH Hydrogens when the SS bridges are
                    found in find_hb
 
-/* Version 1.0l    IM 31st August 1992
+   Version 1.0l    IM 31st August 1992
                    throw out all bonds where the hydrogen cannot be positioned
                    but the donor-acceptor distance is more than the allowed
                    hydrogen-acceptor distance plus one Donor-H bond length.
                    (set at one Angstrom)
 
-/* Version 1.0m    IM 19th September 1992
+   Version 1.0m    IM 19th September 1992
                    allow the -c option which refers to CYS SG atoms as either
                    CSS SG or CYH SG depending on whether they are Cystines or
                    Cysteines
 
-/* Version 1.0n    IM  9th October 1992
+   Version 1.0n    IM  9th October 1992
                    Check /data/pdb/prerelease/pdb????.ent as well as
                    /data/pdb/p????.pdb
 
-/* Version 1.0p    IM  7th November 1992
+   Version 1.0p    IM  7th November 1992
                    Tighten up the positioning of NHs on atoms with insertion
                    codes and the listing of pdbout (ie including said Hydrogen
                    positions) files.
 
-/* Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
+   Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
                    Redo the lines to read hydrogens from files
                    change oracle to idata
                    change angle at OH of Tyr from 120 to 110
 
-/* Version 1.0r    IM 27th December 1992
+   Version 1.0r    IM 27th December 1992
                    Remove un-needed debugging line */
 
 /* Version 1.0s    IM 28th December 1992 redo OH Tyr angle */
@@ -130,7 +130,7 @@
                    Command line argument (-x) allow for H-Bonds with "wrong" 
                    atoms of Asn, Gln and His.
 
-/* Version 1.0v    IM 21st May 1993
+   Version 1.0v    IM 21st May 1993
                    Command line argument (-X) calculates only H-Bonds with
                    swappable atoms of Asn, Gln and His
                    Atom identifiers with a space in the third (/4) position are
@@ -287,7 +287,7 @@
    Version 2.30    RAL 3 Dec 2013
                    Amendment for new format for hydrogen atom names.
 
-/* Contents */
+   Contents */
 /* 1. Copyright - all*/
 /* 2. Version Log - all*/
 /* 3. Tokens as abbreviations */
@@ -358,10 +358,10 @@ int string_truncate(char *string,int max_length);
  int parse_line(char buffer[256], char * values[128])
  {
      int i=0;
-     if ( (values[i])= (strqtok(buffer,"\t\n ","")) )
+     if ( ((values[i])= (strqtok(buffer,"\t\n ",""))) )
      {
         i++;
-        while ( (values[i])= (strqtok(NULL,"\t\n ","")) )
+        while ( ((values[i])= (strqtok(NULL,"\t\n ",""))) )
             i++;
      }
      return (i);
@@ -415,7 +415,7 @@ void do_file(char * fname, char * inpdbfn)
         strcpy(outfn, hbdn);
         strcat(outfn, basename); /* <- 3.01 */
         
-        /*newparsefn(fname, outfn+strlen(hbdn), 128); /* -> 3.01 */
+        /*newparsefn(fname, outfn+strlen(hbdn), 128);  -> 3.01 */
         /*I think this puts the 4 letter code into outfn*/
         if (longoutflg)
         if (nnbflg)
@@ -894,7 +894,7 @@ void parse_options(int optc, char ** optv, int start, char *wkdir)
 void parse_options_file(char * filename)
 {
      FILE * optfp;
-     char buf[256],*linev[128],*hash;
+     char buf[256],*linev[128];
      int linec;
 /* Amendment. RAL 9 Mar 2009 --> */
      char wkdir[FILENAME_LEN];
@@ -978,7 +978,7 @@ void parse_options_file(char * filename)
 
 int main(int argc, char * argv[])
 {
-    int             i;
+  //    int             i;
     char            calendar_s[128];
 /* Amendment. RAL 24 Apr 2008 --> */
     char *err;
@@ -999,7 +999,7 @@ int main(int argc, char * argv[])
 
     time ( &calendar );
     calendar_tm_p = localtime ( &calendar );
-    strftime(calendar_s,128,"%b %d %X %Z %Y\0",calendar_tm_p);
+    strftime(calendar_s,128,"%b %d %X %Z %Y",calendar_tm_p);
     
     initialise_arrays();
     supplement_arrays();

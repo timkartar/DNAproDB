@@ -16,10 +16,11 @@ import get_sequence_clusters
 import json
 import shutil
 import glob
+import traceback
 
 #UPLOAD_PATH = '/home/raktim/dnaprodb.usc.edu/htdocs/uploads'
-UPLOAD_PATH = '/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/uploads'
-#UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
+#UPLOAD_PATH = '/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/uploads'
+UPLOAD_PATH = '/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads'
 
 def get_all_file_paths(directory='.'):
     file_paths = []  # List to store file paths
@@ -41,6 +42,7 @@ def get_all_file_paths(directory='.'):
 
 def writeFailedStructure(pdbid):
     print("Error found in", pdbid)
+    return
     with open("failedStructures.txt", "a") as file:
         file.write(f"{pdbid}\n")
     return "error"
@@ -59,11 +61,14 @@ def autoProcessStructure(pdbid, type=".pdb", fpath=None, mPRE_PDB2PQR=False, isU
     if isFailedStructure(pdbid):
         print("Is failed structure!")
         return "error"
-    
+    output = None 
     if fpath is None:
         fpath = "{}{}".format(pdbid, type)
-    output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
-
+    try:
+    	output = processStructure.main(fpath, mPRE_PDB2PQR=mPRE_PDB2PQR)
+    except Exception as e:
+        print("Exception when processing structure")
+        traceback.print_exc()
     json_path = "{}.json".format(pdbid)
     pdb_path = "{}.pdb".format(pdbid)
     if output:
@@ -73,23 +78,39 @@ def autoProcessStructure(pdbid, type=".pdb", fpath=None, mPRE_PDB2PQR=False, isU
                 data = json.load(json_file)
                 
                 if 'error' in data:
+                   print("error in data")
+                   print(data)
                    writeFailedStructure(pdbid)
 
                 # just move the JSON and PDB files back to uploads, do NOT add to database
-                if isUpload:    
+                if isUpload:
+                    os.chmod(json_path, 0o777)
+                    os.chmod(pdb_path, 0o777)    
                     shutil.move(json_path, os.path.join(UPLOAD_PATH, json_path))
                     shutil.move(pdb_path, os.path.join(UPLOAD_PATH, pdb_path))
+		    #os.chmod(os.path.join(UPLOAD_PATH, json_path), 777)
+                    #os.chmod(os.path.join(UPLOAD_PATH, pdb_path), 777)
                     return
                 
             # check if JSON contains error key
 
             try:
-                shutil.copy(json_path, os.path.join(UPLOAD_PATH, json_path)) ## also keep json
-                #add_structure_db(json_path)
+                print("1")
+                os.chmod(json_path, 0o777)
+                print("2")
+                shutil.move(json_path, os.path.join(UPLOAD_PATH, json_path)) ## also keep json
+                os.chmod(os.path.join(UPLOAD_PATH, json_path), 0o777)
+                print("3 hi Raktim bye")
+                if not isUpload:
+                    add_structure_db(os.path.join(UPLOAD_PATH, json_path))
+                    print("4")
+                    update_single_annotation(pdbid)
+                    print("5")
             except Exception as e:
+                print("7")
+                print(e)
                 writeFailedStructure(pdbid)
             
-            #update_single_annotation(pdbid)
         else:
             print("JSON file does not exist for", pdbid)
             writeFailedStructure(pdbid)
@@ -126,6 +147,7 @@ def cleanupAndMove(pdbid, frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_
         try:
             print(pdb_file)
             shutil.move(pdb_file, os.path.join(mvLocation, pdb_file.replace("-noH","")))
+            os.chmod(os.path.join(mvLocation, pdb_file.replace("-noH","")), 0o777)
             print(f"Moved {pdb_file} to {mvLocation}")
         except FileNotFoundError:
             print(f"File {pdb_file} not found. Cannot move.")
@@ -159,18 +181,31 @@ def bulkAutoProcessStructures():
             print("Error running auto process structure on", pdbids[i], types[1])
         cleanupAndMove(pdbids[i])
 
-# This will only be called upon file upload
-if __name__ == '__main__':
+def main(filename, mPRE_PDB2PQR, isUpload):
     # NOTE: FIGURE OUT TITLE LATER!!
-    pdbid = sys.argv[1][:-4]
-    import subprocess
-    subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(sys.argv[1])])
-    file_type = sys.argv[1][-4:]
-    print("PDB2PQR")
-    print(sys.argv[2])
-    mPRE_PDB2PQR = bool(int(sys.argv[2]))
-    print(mPRE_PDB2PQR)
-    autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
-    cleanupAndMove(pdbid,
-            frontendFolder="/project/rohs_102/raktimmi/dnaprodb.usc.edu/htdocs/data/",
+    pdbid = filename[:-4]
+
+    if not isUpload:
+        import subprocess
+        subprocess.run(["wget", "https://files.rcsb.org/download/{}".format(filename)])
+
+    file_type = filename[-4:]
+
+    if isUpload:
+        autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=True)
+        cleanupAndMove(pdbid,
+            frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/uploads/",
+            isUpload=True)
+    else:
+        autoProcessStructure(pdbid, type=file_type, mPRE_PDB2PQR=mPRE_PDB2PQR, isUpload=False)
+        cleanupAndMove(pdbid,
+            frontendFolder="/srv/www/dnaprodb.usc.edu/DNAProDB_v3_frontend/htdocs/data/",
             isUpload=False)
+
+if __name__ == '__main__':
+    filename = sys.argv[1]
+    isUpload = True
+    if len(sys.argv) > 3 and sys.argv[3].strip() == 'update':
+        isUpload = False
+    mPRE_PDB2PQR = bool(int(sys.argv[2]))
+    main(filename, mPRE_PDB2PQR, isUpload)

@@ -7,7 +7,7 @@ import concurrent.futures
 from query_jaspar import getJasparLogo
 from getUniprot import getUniprot
 from get_citation_data import get_citation_data
-
+# NOTE: RUN QUERY_CATH SEPARATELY TO ADD CATH ANNOTATIONS
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -60,27 +60,32 @@ def update_annotation(pdb_id, client):
         go_molecular_function_search = []
         organisms = []
         uniprot_ids = []
+        genes = []
         try:
             for uniprot_id in uniprot_data:
                 # Get Jaspar stuff!
                 jaspar_path = ""
+                jaspar_id = ["?"]
                 organism = "N/A"
                 go_terms_c = []
                 go_terms_p = []
                 go_terms_f = []
                 protein_name = "N/A"
                 go_ids=[]
+                gene_list=[]
                 try:
-                    jaspar_path = getJasparLogo(uniprot_id)
+                    jaspar_path, jaspar_id = getJasparLogo(uniprot_id)
                     if jaspar_path == False:
                         jaspar_path = ""
-
+                        jaspar_id = ["?"]
+                    else:
+                        jaspar_id = [jaspar_id]
                 except Exception as e:
                     print("Error getting jaspar logo!")
 
                 # Get Uniprot data
                 try:
-                    organism, go_terms_c, go_terms_p, go_terms_f, protein_name, go_ids = getUniprot(uniprot_id)
+                    organism, go_terms_c, go_terms_p, go_terms_f, protein_name, go_ids, gene_list = getUniprot(uniprot_id)
                     # print(organism)
                     if not go_terms_c:
                         go_terms_c = []
@@ -88,6 +93,8 @@ def update_annotation(pdb_id, client):
                         go_terms_f = []
                     if not go_terms_p:
                         go_terms_p = []
+                    if not gene_list:
+                        gene_list = []
                 except Exception as e:
                     print("Error getting uniprot data")
 
@@ -104,12 +111,15 @@ def update_annotation(pdb_id, client):
                 for mol_fctn in go_terms_p:
                     if mol_fctn not in go_molecular_function_search:
                         go_molecular_function_search.append(mol_fctn)
-
+                for gene in gene_list:
+                    if gene not in genes:
+                        genes.append(gene)
 
                 uniprot_object['protein_name'] = protein_name
                 uniprot_data[uniprot_id] = uniprot_object
                 protein_names.append(protein_name)
                 organisms.append(organism)
+                
             search_dict = {}
             # check if uniprot_dict is empty and add dummy stuff
             if not uniprot_data:
@@ -118,6 +128,8 @@ def update_annotation(pdb_id, client):
                 search_dict['GO_molecular_function'] = ['?']
                 search_dict['organisms'] = '?'
                 search_dict['go_ids'] = ['?']
+                search_dict['genes'] = ['?']
+                search_dict['jaspar_id'] = ['?']
             else:
                 if not organisms:
                     organisms = ['?']
@@ -130,6 +142,8 @@ def update_annotation(pdb_id, client):
                 search_dict['uniprot_names'] = protein_names
                 search_dict['organisms'] = organisms
                 search_dict['go_ids'] = list(go_ids)
+                search_dict['genes'] = genes
+                search_dict['jaspar_id'] = jaspar_id
             search_dict['uniprot_ids'] = uniprot_ids
             document['protein_metadata'] = uniprot_data
             document['search'] = search_dict
@@ -176,4 +190,5 @@ def update_single_annotation(pdb_id):
 
 if __name__ == "__main__":
     import sys
-    update_single_annotation(sys.argv[1])
+    # update_single_annotation(sys.argv[1])
+    update_all_annotations()

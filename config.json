@@ -1,6 +1,6 @@
 {
-    "ROOT_DIR": "/home/raktim/dnaprodb-pipeline",
-    "DATA_PATH": "/home/raktim/dnaprodb-pipeline/data",
+    "ROOT_DIR": "/srv/www/dnaprodb.usc.edu/DNAProDB",
+    "DATA_PATH": "/srv/www/dnaprodb.usc.edu/DNAProDB/data",
     "DSSP_MAP": {
         "H": "H",
         "G": "H",

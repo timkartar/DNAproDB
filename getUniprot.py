@@ -10,6 +10,7 @@ def getUniprot(uniprot):
     go_terms_f = [] ## biological processes
     go_terms_p = [] ## molecular function
     go_ids = set()
+    genes = set()
     for item in response["uniProtKBCrossReferences"]:
         # print(item)
         database_id = item["database"]
@@ -24,15 +25,20 @@ def getUniprot(uniprot):
             elif spl[0] == "P":
                 go_terms_p.append((spl[1], go_id))
             go_ids.add(go_id)
-
+    if 'genes' in response:
+        try:
+            for gene in response['genes']:
+                genes.add(gene["geneName"]["value"])
+        except Exception as e:
+            print("could not add genes properly")
     organism = response["organism"]["scientificName"]
     try:
         protein_name = response['proteinDescription']['recommendedName']['fullName']['value']
-    except:
+    except Exception as e:
         print("Could not find protein name!")
         protein_name = "?"
 
-    return organism, go_terms_c, go_terms_p, go_terms_f, protein_name, go_ids
+    return organism, go_terms_c, go_terms_p, go_terms_f, protein_name, go_ids, genes
 
 if __name__=="__main__":
     print(getUniprot("P0ACH5"))

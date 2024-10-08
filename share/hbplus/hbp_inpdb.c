@@ -81,7 +81,7 @@ int string_truncate(char *string,int max_length);
  */
 #include "hbplus.h"
 
-/*#define BSM /* If this is defined, then the code compiles expecting to files in their locations in their home laboratory */
+/*#define BSM  If this is defined, then the code compiles expecting to files in their locations in their home laboratory */
 
 #define TF1 "%6.2f%6.2f" /* P.A. Keller 1993 */
 
@@ -457,12 +457,12 @@ struct index accepts_archive[ARKAA] =
 };
 
 
-/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 1, 0, 0, 0, 0, 2}, /*c*/
-/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2}, /*a*/
-/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2}, /*u*/
-/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 2}, /*g*/
-/* {0, 0, 2, 2. 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2}, /*t*/
-/* {0, 0, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, /*atp*/
+/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 1, 0, 0, 0, 0, 2}, c*/
+/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2}, a*/
+/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 2, 0, 2, 0, 0, 2}, u*/
+/* {0, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1, 0, 2}, g*/
+/* {0, 0, 2, 2. 2, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 2}, t*/
+/* {0, 0, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 0, 0, 2, 0, 2, 0, 2, atp*/
 /*  0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 2},*/
 
 /* Number of permissible bonds for hydrogen bond donors */
@@ -614,7 +614,7 @@ void getcoord(float *x,float * y,float * z,float * occ, float *b, char * chain,i
     if (debug==2) printf("At line %d",__LINE__);
     atmnam[4] = '\0';
 /*    if (atmnam[2] == ' ')
-        atmnam[3] = ' ';/*Why why why ?*/
+        atmnam[3] = ' ';  Why why why ?*/
     if (debug==2) printf("At line %d",__LINE__);
     
     sscanf(buf+6, "%d", atmnum);                 /* atom id number */
@@ -831,10 +831,10 @@ because this should take place after the connectivity records are done. */
 : N3  C4 : C4  C5 : C4  N9 :",/*__G*/
 " N1  C1': N1  C2 : C2  O2 : C2  N3 : N3  C4 : C4  O4 : C4  C5 : C5  C5M: C5  C6 : C6  N1 :",/*__T*/
 //" N1  C1*: N1  C2 : C2  O2 : C2  N3 : N3  C4 : C4  N4 : C4  C5 : C5  C6 : C6  N1 :", /*__C*/
-//" N9  C1*: N9  C8 : C8  N7 : N7  C5 : C5  C6 : C6  N6 : C6  N1 : N1  C2 : C2  N3 : N3  C4 \
+//" N9  C1*: N9  C8 : C8  N7 : N7  C5 : C5  C6 : C6  N6 : C6  N1 : N1  C2 : C2  N3 : N3  C4
 //: C4  C5 : C4  N9 :",/*__A*/
 //" N1  C1*: N1  C2 : C2  O2 : C2  N3 : N3  C4 : C4  O4 : C4  C5 : C5  C6 : C6  N1 :",/*__U*/
-//" N9  C1*: N9  C8 : C8  N7 : N7  C5 : C5  C6 : C6  O6 : C6  N1 : N1  C2 : C2  N2 : C2  N3 \
+//" N9  C1*: N9  C8 : C8  N7 : N7  C5 : C5  C6 : C6  O6 : C6  N1 : N1  C2 : C2  N2 : C2  N3
 //: N3  C4 : C4  C5 : C4  N9 :",/*__G*/
 //" N1  C1*: N1  C2 : C2  O2 : C2  N3 : N3  C4 : C4  O4 : C4  C5 : C5  C5M: C5  C6 : C6  N1 :",/*__T*/
 /* <--- RAL RAL 3 Mar 2011 */
@@ -1189,7 +1189,7 @@ int readconect(char * fname) /*formerly readpdb*/
             
             if (nconrecs>=MAXCNRECS)
               {
-                sprintf(message,"Too many CONECT records: %d\0",nconrecs);
+                sprintf(message,"Too many CONECT records: %d",nconrecs);
                 fail(message);
               }
             for (i=0; i<MAXCNCOLS; i++)
@@ -1409,7 +1409,7 @@ void load_resbonds(int restyp,int ires)
             printf("Please mail mcdonald@uk.ac.ucl.biochemistry.bsm\n");
             break;
             
-        }   /* end of switch block */
+        }    end of switch block */
             
     for(p=bondlist;*p;p+=9)
     {
@@ -2260,7 +2260,7 @@ short inpdb_file(char * fname, char * inpdbfn)
     short     caonly; /*flag to determine if structure usable*/
     char     *p; /*pointer to position in necatm*/
     char      atmnam[5]="\0\0\0\0\0", resnam[4]="\0\0\0\0";
-    char chain, strucsum, inscode,
+    char chain, inscode,
     oldchain, oldinscode, space, altcode, lurn[4]="???\0";
               /*lurn is a store for any unrecognised residues*/
     float     x, y, z;
@@ -2548,7 +2548,7 @@ short inpdb_file(char * fname, char * inpdbfn)
             
             if (natoms >= MAXNATM)
               {
-                sprintf(message,"Too many atoms (%d)! Increase MAXNATM.\0",
+                sprintf(message,"Too many atoms (%d)! Increase MAXNATM.",
                         natoms);
                 fail(message);
               }
@@ -2618,7 +2618,7 @@ should not be a problem. */
                 if ((reskount-1) >= MAXNRES)
                   {
                     sprintf(message,
-                            "Too many residues (%d)! Increase MAXNRES.\0",
+                            "Too many residues (%d)! Increase MAXNRES.",
                             reskount-1);
                     fail(message);
                   }
@@ -2634,17 +2634,17 @@ should not be a problem. */
             p = NULL;
             
 /* A quick summary of if . . . thens
-            if ((aac < TOTNAA)) /* note ATOM=) acc < TOTNAA 
+            if ((aac < TOTNAA))  note ATOM=) acc < TOTNAA 
             IF RESIDUE RECOGNISED    
                 if ((p = instr(necatm[aac], atmnam)) != NULL)
                     IF ATOM RECOGNISED ACT NORMALLY
                 else
-                    if (atmnam[1]=='H'||atmnam[1]=='D')/* then it's H 
+                    if (atmnam[1]=='H'||atmnam[1]=='D') then it's H 
                         IF HYDROGEN TRY TO PLACE IT
                     elsed
                         GIVE UP ON THAT LINE
 
-            else  /* atom is from a HETATM record of not-identified class
+            else  atom is from a HETATM record of not-identified class
                 if (!(strncmp(resnam,"DO",2) && strncmp(resnam,"HO",2)))
                 IT IS WATER
                     if (atmnam[1]=='O')
@@ -2838,7 +2838,7 @@ should not be a problem. */
         }   /* end switch */
         if (hkount>=MAXNATM-3)
           {
-            sprintf(message,"Too many hydrogens: %d\0",hkount);
+            sprintf(message,"Too many hydrogens: %d",hkount);
             fail(message);
           }
         debug=0;

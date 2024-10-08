@@ -1022,41 +1022,47 @@ def main(file_name, mPRE_PDB2PQR=False):
             if(REGEXES.isProtein(resname)):
                 procount += 1
     if((dnacount+procount) > __RESCOUNT_LIMIT):
-        log("This structure is too large, aborting. ({} components)".format(procount+dnacount), pdbid, component_count=dnacount+procount)
+        print("This structure is too large, aborting. ({} components)".format(procount+dnacount), pdbid, component_count=dnacount+procount)
+        return
     elif(dnacount < __DNACOUNT_LOWER):
-        log("This structure contains too few nucleotides. ({} nucleotides)".format(dnacount), pdbid, nuc_count=dnacount)
+        print("This structure contains too few nucleotides. ({} nucleotides)".format(dnacount), pdbid, nuc_count=dnacount)
+        return
     elif(procount < __PROCOUNT_LOWER):
-        log("This structure contains too few residues. ({} residues)".format(procount), pdbid, res_count=procount)
-    
+        print("This structure contains too few residues. ({} residues)".format(procount), pdbid, res_count=procount)
+        return
+     
     # Optionally repair with PDB2PQR
     if(PRE_PDB2PQR):
         print("RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         runPDB2PQR(pdbid, assembly, META_DATA, N)
     else:
         print("NOOOT RUNNING PDB2PQR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
+    print("Past running PDB2PQR")
 
     if(os.access('{}_cleaned.pdb'.format(pdbid), os.R_OK)):
         os.remove('{}_cleaned.pdb'.format(pdbid))
-    
+    print("Here 1")
     if(not ADD_MMCIF):
         mmcif_dict = None
     
     # Get list of residue/nucleotide IDs
     IDs = getIDArray(assembly[0], REGEXES)
     if(len(IDs["protein"]) == 0):
-        log("No protein residues found in biological assembly!", pdbid)
+        print("No protein residues found in biological assembly!", pdbid)
+        return
     elif(len(IDs["protein"]) < C["MINIMUM_RES_COUNT"]):
-        log("Less than {} protein residues found - aborting.".format(C["MINIMUM_RES_COUNT"]), pdbid)
+        print("Less than {} protein residues found - aborting.".format(C["MINIMUM_RES_COUNT"]), pdbid)
+        return
     elif(len(IDs["dna"]) == 0):
-        log("No DNA nucleotides found in biological assembly!", pdbid)
-    
+        print("No DNA nucleotides found in biological assembly!", pdbid)
+        return
+    print("Here 2")
     # Write out DNA 
     writeStructures(pdbid, assembly, filter_chains, COMPONENTS, c=False, p=False)
-    
+    print("Here 3")
     # Process DNA
     DNA_DATA, REMOVE = processDNA.process("{}-DNA".format(pdbid), N, REGEXES, COMPONENTS, META_DATA)
-    
+    print("Here 4") 
     if(len(REMOVE) > 0):
         # remove nucleotides not recognized by DSSR
         for nid in REMOVE:

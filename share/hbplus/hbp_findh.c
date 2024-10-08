@@ -97,53 +97,53 @@
 		   throw out CYS.ss SH Hydrogens when the SS bridges are
 		   found in find_hb
 
-/* Version 1.0l    IM 31st August 1992
+   Version 1.0l    IM 31st August 1992
                    throw out all bonds where the hydrogen cannot be positioned
 		   but the donor-acceptor distance is more than the allowed
 		   hydrogen-acceptor distance plus one Donor-H bond length.
 		   (set at one Angstrom)
 
-/* Version 1.0m    IM 19th September 1992
+   Version 1.0m    IM 19th September 1992
                    allow the -c option which refers to CYS SG atoms as either
 		   CSS SG or CYH SG depending on whether they are Cystines or
 		   Cysteines
 
-/* Version 1.0n    IM  9th October 1992
+   Version 1.0n    IM  9th October 1992
                    Check /data/pdb/prerelease/pdb????.ent as well as
 		   /data/pdb/p????.pdb
 
-/* Version 1.0p    IM  7th November 1992
+   Version 1.0p    IM  7th November 1992
                    Tighten up the positioning of NHs on atoms with insertion
 		   codes and the listing of pdbout (ie including said Hydrogen
 		   positions) files.
 
-/* Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
+   Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
                    Redo the lines to read hydrogens from files
 		   change oracle to idata
 		   change angle at OH of Tyr from 120 to 110
 
-/* Version 1.0r    IM 27th December 1992
-                   Remove un-needed debugging line */
+   Version 1.0r    IM 27th December 1992
+                   Remove un-needed debugging line 
 
-/* Version 1.0s    IM 28th December 1992 redo OH Tyr angle */
+   Version 1.0s    IM 28th December 1992 redo OH Tyr angle 
 
-/* Version 1.0t    IM  7th April 1993 fix dha,haaa,daaa separately */
+   Version 1.0t    IM  7th April 1993 fix dha,haaa,daaa separately 
 
-/* Version 1.0u    IM 7th May 1993
+   Version 1.0u    IM 7th May 1993
                    The smaller angle at the acceptor is used, not the larger
 		   Command line argument (-x) allow for H-Bonds with "wrong" 
 		   atoms of Asn, Gln and His.
 
-/* Version 1.0v    IM 21st May 1993
+   Version 1.0v    IM 21st May 1993
                    Command line argument (-X) calculates only H-Bonds with
 		   swappable atoms of Asn, Gln and His
 		   Atom identifiers with a space in the third (/4) position are
-		   now used complete. */
+		   now used complete. 
 
-/* Version 1.0w    IM 2nd June 1993
-                   longoutflg governs output format */
+   Version 1.0w    IM 2nd June 1993
+                   longoutflg governs output format 
 
-/* Version 2.0     IM 3rd June 1993
+   Version 2.0     IM 3rd June 1993
                    -Ii options control whether sstflag is important
 		   options may be added together on the same line.
 		   filenames (new,pdb) may be included in commandline 

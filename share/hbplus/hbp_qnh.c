@@ -38,11 +38,11 @@ int inasa_file(char * asafname)
 {
     FILE *afp;
     char buf[256],chain,resnam[4],atmnam[5],altcode,inscode;
-    int n,aacode,atmnum,atomcount,thisnum,lastnum;
+    int n,aacode,atmnum,thisnum,lastnum;
     
     float f_null;
-    char c_null, *s_null;
-    int i_null;
+    //    char c_null, *s_null;
+    //    int i_null;
     
     fopen(asafname,"r");
 
@@ -181,7 +181,7 @@ int initialise_qnhres(void)
 
 int class_his(struct pdbatm *nd, struct pdbatm *ne)
 {
-    int i;
+  //    int i;
     if( (nd->ndonhb || nd->nacchb) && (ne->ndonhb || ne->nacchb))
     {
 	if( !nd->ndonhb && nd->nacchb && !ne->ndonhb && ne->nacchb)
@@ -276,7 +276,7 @@ int class_qn(struct pdbatm *o, struct pdbatm *n)
 }
 
 
-class_qn_tiebrake(struct pdbatm *o, struct pdbatm *n)
+int class_qn_tiebrake(struct pdbatm *o, struct pdbatm *n)
 {
     int numhb=0;
 /*    printf("Oxygen: don %d acc %d slv %5.1f\n",o->ndonhb,o->nacchb,o->acc);

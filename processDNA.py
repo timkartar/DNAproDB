@@ -1710,15 +1710,15 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
     quiet: boolean (True)
         Set to true to suppress output from external programs.
     """
-    
+    print("Here 5") 
     fileName = "{}.pdb".format(prefix)
     parser = PDBParser(PERMISSIVE=1, QUIET=True)
     structure = parser.get_structure("DNA", fileName)
-    
+    print("Here 6")
     # Run DSSR and load the output json
     DSSR = runDSSR(prefix, N, quiet)
     #ARI COMMENT OUT
-    
+    print("Here 7")
     '''
     try:
         rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, structure, DSSR,
@@ -1739,13 +1739,13 @@ def process(prefix, N, REGEXES, COMPONENTS, META_DATA, quiet=True):
     REMOVE = set()
     for i in range(N):
         model = structure[i]
-        
+        print("Here 8")
         # Get DSSR data
         if(N > 1):
             data = DSSR["models"][i]["parameters"]
         else:
             data = DSSR
-        
+        print("Here 9")
         try:
             rnascape_coords, markers, ids, chids, dssrids, dssrout, prefix = rnascape(prefix, model,
                     data, cond_bulging=False, mFIG_PATH="./rnascape/output/processed_images/", mDSSR_PATH =

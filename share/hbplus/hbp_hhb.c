@@ -104,32 +104,32 @@
 		   throw out CYS.ss SH Hydrogens when the SS bridges are
 		   found in find_hb
 
-/* Version 1.0l    IM 31st August 1992
+   Version 1.0l    IM 31st August 1992
                    throw out all bonds where the hydrogen cannot be positioned
 		   but the donor-acceptor distance is more than the allowed
 		   hydrogen-acceptor distance plus one Donor-H bond length.
 		   (set at one Angstrom)
 
-/* Version 1.0m    IM 19th September 1992
+   Version 1.0m    IM 19th September 1992
                    allow the -c option which refers to CYS SG atoms as either
 		   CSS SG or CYH SG depending on whether they are Cystines or
 		   Cysteines
 
-/* Version 1.0n    IM  9th October 1992
+   Version 1.0n    IM  9th October 1992
                    Check /data/pdb/prerelease/pdb????.ent as well as
 		   /data/pdb/p????.pdb
 
-/* Version 1.0p    IM  7th November 1992
+   Version 1.0p    IM  7th November 1992
                    Tighten up the positioning of NHs on atoms with insertion
 		   codes and the listing of pdbout (ie including said Hydrogen
 		   positions) files.
 
-/* Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
+   Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
                    Redo the lines to read hydrogens from files
 		   change oracle to idata
 		   change angle at OH of Tyr from 120 to 110
 
-/* Version 1.0r    IM 27th December 1992
+   Version 1.0r    IM 27th December 1992
                    Remove un-needed debugging line */
 
 /* Version 1.0s    IM 28th December 1992 redo OH Tyr angle */
@@ -141,7 +141,7 @@
 		   Command line argument (-x) allow for H-Bonds with "wrong" 
 		   atoms of Asn, Gln and His.
 
-/* Version 1.0v    IM 21st May 1993
+   Version 1.0v    IM 21st May 1993
                    Command line argument (-X) calculates only H-Bonds with
 		   swappable atoms of Asn, Gln and His
 		   Atom identifiers with a space in the third (/4) position are
@@ -395,7 +395,7 @@ void find_hb (char * fname)
     
     char output_string[256]="\0";
     
-    /*     /* Check for disulphide bridges */
+    /*        Check for disulphide bridges */
 	
     if (!longoutflg)
     {
@@ -407,7 +407,7 @@ void find_hb (char * fname)
  	calendar_tm_p = localtime ( &calendar );
  	if (debug) printf("  calendar\n");
  	
- 	strftime(calendar_s,128,"%b %d %X %Z %Y\0",calendar_tm_p);
+ 	strftime(calendar_s,128,"%b %d %X %Z %Y",calendar_tm_p);
  	if (debug) printf("  strftime\n");
  	
  	fprintf(ofp,"HBPLUS Hydrogen Bond Calculator v %s            %s\n",VERSION,calendar_s );

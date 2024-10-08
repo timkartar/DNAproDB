@@ -367,7 +367,7 @@
 
 #include <stdio.h>
 
-/*#define BSM /* If this is defined, then the code compiles expecting to files in their locations in their home laboratory */
+/*#define BSM  If this is defined, then the code compiles expecting to files in their locations in their home laboratory */
 
 #define NO 0
 #define YES 1
@@ -709,8 +709,8 @@ void initialise_arrays(void);
 
 
 /**********************************************************************/
-/** 9.  Hydrogen Position Calculation Subroutines
-/****
+/** 9.  Hydrogen Position Calculation Subroutines */
+/****/
 /*** HLOCI is used in interpreting hydrogen positions */
 enum HLOCI 
 {

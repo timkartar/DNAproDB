@@ -100,32 +100,32 @@
                    ensure that 1-4 bonds are allowed.
                    allow CYS.ss to act as an acceptor
                    throw out CYS.ss SH Hydrogens when the SS bridges are
-                   found in find_hb
+                   found in find_hb */
 
 /* Version 1.0l    IM 31st August 1992
                    throw out all bonds where the hydrogen cannot be positioned
                    but the donor-acceptor distance is more than the allowed
                    hydrogen-acceptor distance plus one Donor-H bond length.
-                   (set at one Angstrom)
+                   (set at one Angstrom) */
 
 /* Version 1.0m    IM 19th September 1992
                    allow the -c option which refers to CYS SG atoms as either
                    CSS SG or CYH SG depending on whether they are Cystines or
-                   Cysteines
+                   Cysteines */
 
 /* Version 1.0n    IM  9th October 1992
                    Check /data/pdb/prerelease/pdb????.ent as well as
-                   /data/pdb/p????.pdb
+                   /data/pdb/p????.pdb */
 
 /* Version 1.0p    IM  7th November 1992
                    Tighten up the positioning of NHs on atoms with insertion
                    codes and the listing of pdbout (ie including said Hydrogen
-                   positions) files.
+                   positions) files. */
 
 /* Version 1.0q    IM 23rd December 1992 (<- Hard Worker, eh ?)
                    Redo the lines to read hydrogens from files
                    change oracle to idata
-                   change angle at OH of Tyr from 120 to 110
+                   change angle at OH of Tyr from 120 to 110 */
 
 /* Version 1.0r    IM 27th December 1992
                    Remove un-needed debugging line */
@@ -137,7 +137,7 @@
 /* Version 1.0u    IM 7th May 1993
                    The smaller angle at the acceptor is used, not the larger
                    Command line argument (-x) allow for H-Bonds with "wrong" 
-                   atoms of Asn, Gln and His.
+                   atoms of Asn, Gln and His. */
 
 /* Version 1.0v    IM 21st May 1993
                    Command line argument (-X) calculates only H-Bonds with
@@ -152,29 +152,29 @@
                    -Ii options control whether sstflag is important
                    options may be added together on the same line.
                    filenames (new,pdb) may be included in commandline 
-                   arguments
+                   arguments */
 
-   Version 2.01    IM 14th June 1993
-                   Remove extraneous comman from REMARKS in *.h files
+/* Version 2.01    IM 14th June 1993
+                   Remove extraneous comman from REMARKS in *.h files */
 
-   Version 2.02    IM 13th July 1993
-                   -X options also allows Prolines to accept
+/* Version 2.02    IM 13th July 1993
+                   -X options also allows Prolines to accept */
 
-   Version 2.03    IM 16th July 1993
-                   Return the -X option to what it was before
+/* Version 2.03    IM 16th July 1993
+                   Return the -X option to what it was before */
 
-   Version 2.04    IM 22nd July 1933
+/* Version 2.04    IM 22nd July 1933
                    Rationalise the *.hb2 and *.h headers
                    Remove hbdebug.dat after running copies that were compiled 
                    by compilers that did not have BSM predefined (ie
                    somewhere other than on the machine on which it was 
-                   developed.)
+                   developed.) */
 
-   Version 2.05    IM 24th July 1993
+/* Version 2.05    IM 24th July 1993
                    add the -e and -E options to add extra donors (-E)
-                   and acceptors (-e).
+                   and acceptors (-e). */
 
-   Version 2.06    IM 28th July 1993
+/* Version 2.06    IM 28th July 1993
                    change of output format and order of functions
 
    Version 2.07    IM 28th July 1993
@@ -867,7 +867,7 @@ void pdbout(char * outfn,char * pdbname,short int filter_flg,short int * filter)
 
      time (&calendar); /* whats the time . . .*/
      calendar_tm_p = localtime( &calendar ); /* in a human-readable format */
-     strftime(calendar_s,128,"%d-%b-%y\0",calendar_tm_p); /* in PDB format */
+     strftime(calendar_s,128,"%d-%b-%y",calendar_tm_p); /* in PDB format */
 
      if (debug==1) printf("About to set date to upper case\n");
      for (p=calendar_s; *p; p++)
@@ -1029,9 +1029,9 @@ void newparsefn(char * fname,char * rootnam,int rootlen)
     if (debug == 1)
     {
         fprintf(dbgfp, "FNAME   passed to newparsefn is '%s' with length %d\n", 
-                        fname, strlen(fname)); 
+		fname, (int) strlen(fname)); 
         fprintf(dbgfp, "ROOTNAM passed to newparsefn is '%s' with length %d\n", 
-                        rootnam, strlen(rootnam)); 
+		rootnam, (int) strlen(rootnam)); 
     }
     dotpos   = 0;
     slashpos = 0;
@@ -1046,7 +1046,7 @@ void newparsefn(char * fname,char * rootnam,int rootlen)
     }
     if (debug == 1)
         fprintf(dbgfp, "ROOTNAM after blanking is '%s' with length %d\n",
-                        rootnam, strlen(rootnam));
+                        rootnam, (int) strlen(rootnam));
 
     for (i=1; i<=len; i++)
     {
@@ -1090,10 +1090,6 @@ void parsefn(char * fname,char * rootnam)
        /*NOTE: including the full stop */
     /* I think this is a DN routine that I edited to cope with names without
         suffixes */
-
-/* Amendment. RAL 13 Aug 2009 --> */
-   char slash;
-/* <-- RAL 13 Aug 2009 */
 
     char *p, *dotpos, *slashpos;
     int len;
